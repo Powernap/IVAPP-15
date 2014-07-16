@@ -1,0 +1,95 @@
+\documentclass[a4paper,twoside]{style/article}
+
+\usepackage{epsfig}
+\usepackage{subfigure}
+\usepackage{calc}
+\usepackage{amssymb}
+\usepackage{amstext}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol}
+\usepackage{pslatex}
+\usepackage{apalike}
+\usepackage{style/SCITEPRESS}
+\usepackage[small]{caption}
+
+\subfigtopskip=0pt
+\subfigcapskip=0pt
+\subfigbottomskip=0pt
+
+% My Packages and Commands ---
+\usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
+\newcommand{\add}[1]{\textcolor{blue}{\uline{#1}}}
+\newcommand{\com}[1]{\textcolor{orange}{\uline{#1}}}
+% /My Packages and Commands --
+
+\begin{document}
+
+\title{Insight Into Lumbar Back Pain  \subtitle{What the Lumbar Spine Tells About Your Life} }
+
+\author{\authorname{Paul Klemm\sup{1}, Sylvia Glaßer\sup{1}, Kai Lawonn\sup{1} Henry Völzke\sup{2} and Bernhard Preim\sup{1}}
+\affiliation{\sup{1}Department of Simulation and Graphics, University of Magdeburg}
+\affiliation{\sup{2}Greifswald}
+% TODO: Mailaddy nachtragen
+\email{\{paul, sylvia\}@isg.cs.uni-magdeburg.de, voelzke@anderAddy}
+}
+
+% TODO: The paper must have at least one keyword. The text must be set to 9-point font size and without the use of bold or italic font style. For more than one keyword, please use a comma as a separator. Keywords must be titlecased.
+\keywords{My Keywords in Title Case}
+
+\abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size.}
+
+\onecolumn \maketitle \normalsize \vfill
+
+\section{\uppercase{Introduction}}
+\label{sec:Introduction}
+
+Our contributions are:
+\begin{itemize}
+	\item Analyzing back pain using image-derived variables of 2,240 subjects.
+	\item Assessing the suitability of lumbar spine shape for diagnosing back pain
+	\item Analyzing correlations between between image-based and socio-demographic as well as medical parameters.
+\end{itemize}
+
+\section{\uppercase{Epidemiological Background}}
+\label{sec:EpidemiologicalBackground}
+\noindent \com{Background. Epidemiological Workflow, focus on statistical resilience, image data hard to analyze due to the large amount of subjects, poor image quality and lack of methods}.
+\subsection{Back Pain}
+\com{Back pain one of the most common diseases in the western civilization; hard to analyze; Epidemiologists interested in the \emph{healthy} aging process}.
+
+\section{\uppercase{Related Work}}
+\label{sec:RelatedWork}
+\noindent \com{Our own work (VIS, VMV, BVM). Sylvias paper with reference to the methods. \textbf{More information necessary here!}}
+
+\section{\uppercase{Materials and Method}}
+\label{sec:MaterialsAndMethod}
+
+
+\section{\uppercase{Experiments}}
+\label{sec:Experiments}
+
+\section{\uppercase{Conclusion}}
+\label{sec:Conclusion}
+
+\section*{\uppercase{Acknowledgements}}
+
+\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
+
+
+\vfill
+\bibliographystyle{style/apalike}
+{\small
+\bibliography{bibliography}}
+
+
+\section*{\uppercase{Appendix}}
+
+\noindent If any, the appendix should appear directly after the
+references without numbering, and not on a new page. To do so please use the following command:
+\textit{$\backslash$section*\{APPENDIX\}}
+
+\vfill
+\end{document}
+
