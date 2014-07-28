@@ -107,26 +107,7 @@ Age acts as an \emph{confounder} for prostate cancer.
 These \emph{confounding} variables are often hard to find.
 %%
 Statistical correlation does not imply causation--epidemiologists need to assess the medical soundness of the statistical results.
-
-\subsection{Lower Back Pain}
-% \com{Back pain one of the most common diseases in the western civilization; hard to analyze; Epidemiologists interested in the \emph{healthy} aging process}.
-%
-% Risk factors for are not completely known, thus epidemiologists search for new correlations in cohort studies.
-Lower back pain is one of the most frequent diseases in the western civilization.
-%%
-Epidemiologists assume associations between lumbar back pain and lifestyle factors.
-%%
-These include nutrition, sporting activities and body posture at work.
-%%
-The exact causes as well as particularly vulnerable risk groups are not known.
-%%
-Interaction between risk factors are also not known.
-%%
-
-Epidemiologists want to characterize the healthy aging process of the spine.
-%%
-To achieve this, they have to analyze the lumbar spine shape as well as the mentioned lifestyle factors.
-%% -------------------
+%%------------------------------
 \subsection{Epidemiological Data}
 Epidemiological data can stem from a wide range of studies.
 %%
@@ -170,9 +151,26 @@ These data are hard to analyze, since segmentation algorithms are not generally 
 Segmentation data is usually analyzed by abstracting it into key figures, such as diameters or distances.
 %%
 These numeric values can be compared with non-image variables to retrieve correlations.
+%%--------------------------------
+\subsection{Lower Back Pain}
+%%
+The lower (\emph{lumbar}) spine is the most stressed part of the spine.
+%%
+Lower back pain is one of the most frequent diseases in the western civilization.
+%%
+Epidemiologists assume associations between lumbar back pain and lifestyle factors.
+%%
+These include nutrition, sporting activities and body posture at work.
+%%
+The exact causes as well as particularly vulnerable risk groups are not known.
+%%
+Potential \emph{confounding} effects are also subject of current research.
 %%
 
-
+Epidemiologists want to characterize the healthy aging process of the spine.
+%%
+To achieve this, they have to analyze the lumbar spine shape as well as the mentioned lifestyle factors.
+%% -------------------------------
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
 \noindent \com{Our own work (VIS, VMV, BVM). Sylvias paper with reference to the methods. \textbf{More information necessary here!}}
@@ -184,22 +182,63 @@ These numeric values can be compared with non-image variables to retrieve correl
   \includegraphics[width=0.5\textwidth]{figures/age-gender}
   \caption{Age-Gender}
   \label{fig:example1}
- \end{figure}
+\end{figure}
 \label{sec:MaterialsAndMethod}
-
-Our data set compiled to analyze lumbar back pain comprises of 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}).
+%%
+Our approach allows to analyze many variables simultaneously.
+%%
+Therefore, epidemiologists compiled the data set with a with a wide range of variables possibly correlating with lumbar back pain.
+%%
+The data set comprises of 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}).
+%%
+%It is an active research area to determine these correlations.
 %%
 
 %%
 \subsection{Non-Image Data}
-\com{Analysis Using Heterogeneous Correlation}
+%\com{Analysis Using Heterogeneous Correlation}
 The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sport activity or nutrition.
 
-\com{Es wurde mit einem weiten Spektrum Daten gesammelt, vom denen man glaubt, dass sie irgendwas mit der Wirbelsäulenverformung und dem Alterungsprozess zu tun haben. It is an active research area to determine these correlations.}
-
 \subsection{Image Data}
+\begin{figure}[!h]
+  %\vspace{-0.2cm}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/centerline}
+  \caption{Centerline}
+  \label{fig:centerline}
+\end{figure}
 \com{From VIS'14 Paper}
 The lumbar spine was detected in the image data using a hierarchical finite element method by Rak et al. [32]. This semiautomatic method requires the user to initialize the tetrahedron-based finite element models (FEM) with a click on the L3 vertebra. Two user-defined landmarks on the top and bottom of the L3 vertebra describe an initial model height estimation. The model uses a weighted sum of T1and T2-weighted MR images to detect the lumbar spine shape. Once registered, it captures information about the shape of the lumbar spine canal as well as the position of the L1-L5 vertebrae [21]. Due to incorrect initialization, strongly deformed spines, contrast differences and artifacts, the model was not able to detect lumbar spines for all subjects. We obtained and worked with 2,540 tetrahedron models of the lumbar spine. For clustering, we extracted the centerline of the lumbar spine canal, which captures information about lordosis and scoliosis (the medical terms for spine curvature) [21].
+%%
+
+We have to assess the model accuracy to extract key figures from it.
+%%
+The detection model depicts the vertebrae positions, but lacks detailed information about their volume.
+%%
+It captures reliable information about spine canal curvature.
+%%
+In a previous work \cite{KlemmVMV13, KlemmVIS14}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline} (a)).
+%%
+Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from the model (Fig.~\ref{fig:centerline} (b)):
+%%
+%Thus, we extracted the following metrics from the model:
+%%
+%\paragraph{Curvature}
+\begin{itemize}
+	% \item The curvature of the centerline is calculated using the summed mean curvature between adjacent points:
+% %%
+% $\sum \frac{curvature_i}{curvature_all}$.
+	\item \emph{Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum \frac{curvature_i}{curvature_all}$.
+%%
+	\item \emph{Torsion} (deviation of a curve from the course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum \frac{torsion_i}{torsion_all}$.
+%%
+\end{itemize}
+%%
+These figures are also extracted in the sagital, coronal and transversal projection of the model.
+%%
+We assess the information gain of each dimension using these projections.
+%%
+This gives us a total of 8 image-derived parameters.
 
 %\subsection{Creating a Decision Tree using C5.0}
 %\com{C4.5 Algorithm for creating decision trees; }
