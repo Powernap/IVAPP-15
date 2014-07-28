@@ -57,9 +57,7 @@ Observations made by clinicians are translated into hypothesis, which are then s
 
 Modern cohort studies often comprise medical image data.
 %%
-These data are hard to analyze, since segmentation algorithms are not generally available and need to be custom-made for each body structure.
-%%
-Segmentation data it is usually analyzed by abstracting it into key figures, making it statistically comparable to non-image variables and retrieve correlations.
+\com{Short summary}
 %%
 
 Back pain is one of the most frequent diseases in the western civilization.
@@ -82,13 +80,98 @@ Our contributions are:
 \end{itemize}
 
 \section{\uppercase{Epidemiological Background}}
- \ref{VIS14}
 \label{sec:EpidemiologicalBackground}
-\noindent \com{Background. Epidemiological Workflow, focus on statistical resilience, image data hard to analyze due to the large amount of subjects, poor image quality and lack of methods}.
-\subsection{Back Pain}
-\com{Back pain one of the most common diseases in the western civilization; hard to analyze; Epidemiologists interested in the \emph{healthy} aging process}.
+%\noindent \com{Background. Epidemiological Workflow, focus on statistical resilience, image data hard to analyze due to the large amount of subjects, poor image quality and lack of methods}.
+\noindent Epidemiology is the study of dissemination, causes and results of health-related states and events.
+%%
+Epidemiological reasoning relies on a strict statistically driven workflow \cite{Fletcher}:
+%%
+\begin{itemize}
+%%
+	\item Physicians formulate hypotheses based on observations made in their clinical practice.
+%%
+	\item To assess a hypothesis, epidemiologists compile a list of variables depicting it.
+%%
+	\item Statistical methods, such as regression analysis, assess the association of selected variables with the investigated disease.
+%%
+\end{itemize}
+%%
+Mutually dependent variables make this analysis challenging.
+%%
+Many diseases, such as different cancer types, are more likely with increasing age.
+%%
+When for example analyzing influences of nutrition to prostate cancer, the results need to be age-normalized.
+%%
+Age acts as an \emph{confounder} for prostate cancer.
+%%
+These \emph{confounding} variables are often hard to find.
+%%
+Statistical correlation does not imply causation--epidemiologists need to assess the medical soundness of the statistical results.
 
-Risk factors for are not completely known, thus epidemiologists search for new correlations in cohort studies.
+\subsection{Lower Back Pain}
+% \com{Back pain one of the most common diseases in the western civilization; hard to analyze; Epidemiologists interested in the \emph{healthy} aging process}.
+%
+% Risk factors for are not completely known, thus epidemiologists search for new correlations in cohort studies.
+Lower back pain is one of the most frequent diseases in the western civilization.
+%%
+Epidemiologists assume associations between lumbar back pain and lifestyle factors.
+%%
+These include nutrition, sporting activities and body posture at work.
+%%
+The exact causes as well as particularly vulnerable risk groups are not known.
+%%
+Interaction between risk factors are also not known.
+%%
+
+Epidemiologists want to characterize the healthy aging process of the spine.
+%%
+To achieve this, they have to analyze the lumbar spine shape as well as the mentioned lifestyle factors.
+%% -------------------
+\subsection{Epidemiological Data}
+Epidemiological data can stem from a wide range of studies.
+%%
+The study type depends on the condition of interest.
+%%
+Most common are case-control studies, analyzing one specific disease and its influences.
+%%
+We focus on data from large scale cohort studies.
+%%
+These studies aim to collect as much data as possible for each subject.
+%%
+As a result, these data can be analyzed regarding many diseases and conditions.
+%%
+
+Epidemiological data is heterogenous and incomplete.
+%%
+Women-specific question can only be acquired for female subjects, data about a disease treatment only for subjects suffering from this condition.
+%%
+Therefore, statistical analysis has to take missing data into account.
+%%
+
+Epidemiologists acquire data using a wide range of techniques, such as medical examinations, self reported questionnaires or genetic examinations.
+%%
+This yields a heterogenous information space.
+%%
+To compare these data, information reduction techniques are applied.
+%%
+For example, continuous data, such as age is often discretized into age-bins.
+%%
+Every information reduction can introduce a bias to the data, since it reflects an assumption about the data.
+%%
+Using age to divide subjects into \emph{young} and \emph{old} categories can distort statistical results.
+%%
+This distortion is reduced with increasing number of discretization steps.
+%%
+
+Modern cohort studies often comprise medical image data.
+%%
+These data are hard to analyze, since segmentation algorithms are not generally available and need to be custom-made for each body structure.
+%%
+Segmentation data is usually analyzed by abstracting it into key figures, such as diameters or distances.
+%%
+These numeric values can be compared with non-image variables to retrieve correlations.
+%%
+
 
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
