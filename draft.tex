@@ -231,14 +231,15 @@ Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from
 	\item \emph{Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum \frac{curvature_i}{curvature_all}$.
 %%
 	\item \emph{Torsion} (deviation of a curve from the course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum \frac{torsion_i}{torsion_all}$.
+	\item \emph{Curvature angle} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
 \end{itemize}
 %%
-These figures are also extracted in the sagital, coronal and transversal projection of the model.
+These figures are also extracted in the sagittal, coronal and transversal projection of the model.
 %%
 We assess the information gain of each dimension using these projections.
 %%
-This gives us a total of 8 image-derived parameters.
+This gives us a total of 9 image-derived parameters.
 
 %\subsection{Creating a Decision Tree using C5.0}
 %\com{C4.5 Algorithm for creating decision trees; }
@@ -248,8 +249,53 @@ This gives us a total of 8 image-derived parameters.
 
 \section{\uppercase{Experiments}}
 \label{sec:Experiments}
-
+Spine shape is confounded by several somatometric variables.
+%%
+Larger people have also a longer spine and its shape is more straight compared to smaller subjects.
+%%
+Since men are on average taller than women, gender is another confounder.
+%%
+Large body weight increases the spine load, resulting in a bend shape.
+%%
+All these variables need to be taken into account, when correlating spine curvature and torsion with non-image parameter.
+%%
+Since the gender confounder mainly encodes body-height, we decided to divide subjects into body-size groups.
+%%
+To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables \cite{KlemmVIS14}.
 \subsection{Preliminary Results}
+\begin{figure}[!h]
+  %\vspace{-0.2cm}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/image-parameter-range}
+  \caption{image-parameter-range}
+  \label{fig:image-parameter-range}
+\end{figure}
+%%
+\noindent At first we assessed the image parameter.
+%%
+Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable as box plot.
+%%
+The projections to the transversal planes attract attention as they have many outliers.
+%%
+We conclude that curvature is not as reliable on the transversal plane as it is on the other planes.
+%%--------------------------------
+\subsubsection{Correlation Matrix}
+%%
+We calculated an association matrix to to assess correlations between the image parameters.
+%%
+Curvature, curvature angle and torsion correlate with their planar projections.
+%%
+Also the mean curvature and the curvature angle correlate by a factor of -0.89.
+%%
+Torsion and curvature/curvature angle do not correlate.
+%%--------------------------------------------------------
+\subsubsection{Correlation of Image Parameters With Back Pain}
+%%
+As first experiment we correlated the shape parameter with the binary back pain indicator.
+%%
+No statistical significant correlation could be observed through all subject groups.
+\com{Hier weitermachen. GGPLOT erklaeren.}
+
 \begin{itemize}
 	\item Direkter Vergleich
 	\item Verteilung des Means
