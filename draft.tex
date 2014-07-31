@@ -20,6 +20,7 @@
 % My Packages and Commands ---
 \usepackage[normalem]{ulem}
 \usepackage{xcolor}
+\usepackage[]{algorithm2e}
 \newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
 \newcommand{\add}[1]{\textcolor{blue}{\uline{#1}}}
 \newcommand{\com}[1]{\textcolor{orange}{\uline{#1}}}
@@ -39,7 +40,7 @@
 % TODO: The paper must have at least one keyword. The text must be set to 9-point font size and without the use of bold or italic font style. For more than one keyword, please use a comma as a separator. Keywords must be titlecased.
 \keywords{My Keywords in Title Case}
 
-\abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size.}
+\abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
 
 \onecolumn \maketitle \normalsize \vfill
 
@@ -228,9 +229,9 @@ Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from
 	% \item The curvature of the centerline is calculated using the summed mean curvature between adjacent points:
 % %%
 % $\sum \frac{curvature_i}{curvature_all}$.
-	\item \emph{Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum \frac{curvature_i}{curvature_all}$.
+	\item \emph{Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum \frac{curvature_i}{curvature_{all}}$.
 %%
-	\item \emph{Torsion} (deviation of a curve from the course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum \frac{torsion_i}{torsion_all}$.
+	\item \emph{Torsion} (deviation of a curve from the course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum \frac{torsion_i}{torsion_{all}}$.
 	\item \emph{Curvature angle} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
 \end{itemize}
@@ -249,7 +250,7 @@ This gives us a total of 9 image-derived parameters.
 
 \section{\uppercase{Experiments}}
 \label{sec:Experiments}
-Spine shape is confounded by several somatometric variables.
+\noindent Spine shape is confounded by several somatometric variables.
 %%
 Larger people have also a longer spine and its shape is more straight compared to smaller subjects.
 %%
@@ -263,15 +264,23 @@ Since the gender confounder mainly encodes body-height, we decided to divide sub
 %%
 To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables \cite{KlemmVIS14}.
 \subsection{Preliminary Results}
-\begin{figure}[!h]
+\begin{figure*}[htb]
   %\vspace{-0.2cm}
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/image-parameter-range}
+  \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
   \caption{image-parameter-range}
   \label{fig:image-parameter-range}
-\end{figure}
+\end{figure*}
 %%
-\noindent At first we assessed the image parameter.
+\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using a pairs plot \cite{ggally}.
+%%
+Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
+%%
+Scatterplots display pairs of continuous variables, bar charts for continuous variable as a function of a categorical variable and box plots pairs of categorical variables.
+%%
+Since our image-derived variables are metric, their pairwise combinations are visualized using scatterplots.
+%%
+The combination of the image variables with back pain is visualized as histogram at the left side of the matrix and as box plot on the right side.
 %%
 Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable as box plot.
 %%
@@ -280,29 +289,83 @@ The projections to the transversal planes attract attention as they have many ou
 We conclude that curvature is not as reliable on the transversal plane as it is on the other planes.
 %%--------------------------------
 \subsubsection{Correlation Matrix}
-%%
 We calculated an association matrix to to assess correlations between the image parameters.
 %%
-Curvature, curvature angle and torsion correlate with their planar projections.
+The pearson correlation coefficients between the numeric variables are depicted right of the main diagonal of Figure~\ref{fig:image-parameter-range}.
+%%
+Curvature, curvature angle and torsion correlate strongly with their planar projections.
 %%
 Also the mean curvature and the curvature angle correlate by a factor of -0.89.
 %%
-Torsion and curvature/curvature angle do not correlate.
+%Torsion and curvature/curvature angle do not correlate.
+Torsion does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
 \subsubsection{Correlation of Image Parameters With Back Pain}
+Figure~\ref{fig:image-parameter-range} shows the distribution for all subjects.
 %%
-As first experiment we correlated the shape parameter with the binary back pain indicator.
+We created a pairs plot for subject groups derived by dividing them into quantile groups of body-size.
 %%
 No statistical significant correlation could be observed through all subject groups.
-\com{Hier weitermachen. GGPLOT erklaeren.}
+%%
+The box plots show no difference between subjects with and without back pain.
 
+\subsubsection{Assessing the Information Gain Using the PCA}
+%%
+To determine the information gain per image-derived variables, we calculated a PCA and compared the loadings per dimension.
+%%
+The first three principal components explain 75\% of variance in the image-derived variables.
+%%
+The first principal component explains 47\% of the variance and weights primarily \emph{mean curvature}, \emph{curvature sagittal}, \emph{curvature angle} and \emph{curvature angle sagittal}.
+%%
+The second component, adding 16\% of variance, weigths  \emph{curvature coronal} and \emph{curvature angle coronal}.
+%%
+The third component explains 12\% of variance and weights \emph{torsion} and \emph{curvature transverse}.
+%%
+This supports our prior conclusion about the low information gain of the transverse planes.
+%%
+\emph{Torsion} also adds little variance to the information space.
+%% ------------------------------------------
+\subsubsection{Heterogenous Correlations}
+%%
+We then expanded our focus on correlations of image-derived parameters with all other non-image variables.
+%%
+We applied a heterogenous correlation technique to derive correlations between all variables is the data set.
+%%
+The method uses the following correlation metrics for the different type combination:
+%%
 \begin{itemize}
-	\item Direkter Vergleich
-	\item Verteilung des Means
-	\item Korrelationsmatrix
-	\item PCA
+%%
+\item \emph{pearson product-moment} for two continuous variables, 
+\item \emph{polyserial} correlation for one continuous and one categorical variable, and
+\item \emph{polychoric} correlations for two categorical variables.
 \end{itemize}
-Weil das nicht ausreichend war, haben wir einen C5.0 Baum erstellt, um alle potentiellen Zusammenhänge zwischen bildbezogenen und Nichtbildbezogenen Parametern herzustellen - Was kann man mit den Bilddaten erklären und was nicht?
+%%
+All correlation values are scaled between 0 - no correlation and 1 - identical.
+%%
+Some variables are too sparse for calculating correlations, for example \com{some variables from calculation here}.
+%%
+We display the resulting \emph{contingency matrix} using a heat map, mapping correlation values to color brightness with white for 0 and dark blue for 1 \cite{Klemm2014VIS}.
+%%
+We calculated the contingency matrix for all size groups and looked for correlations between image- and non-image derived variables.
+%%
+The resulting contingency matrix shows no strong correlation with any of the parameter.
+%%
+Only weak correlations could be found for \emph{Mean Curvature} with \emph{gender} (0.42), \emph{body size} (0.39) and \emph{number of born children} (0.29).
+%%
+One surprising result was the small correlation with \emph{torsion}, which correlated with almost no variables (p values between 0 and 0.05) and \emph{parkinson} (0.24).
+%%
+This observation brought us to the conclusion to incorporate more sophisticated data mining techniques to assess the influence of the image-derived parameters.
+
+% \subsubsection{Diese Themen hier unterbringen}
+% \begin{itemize}
+% 	\item Direkter Vergleich
+% 	\item Verteilung des Means
+% 	\item Korrelationsmatrix
+% 	\item PCA
+% \end{itemize}
+% Weil das nicht ausreichend war, haben wir einen C5.0 Baum erstellt, um alle potentiellen Zusammenhänge zwischen bildbezogenen und Nichtbildbezogenen Parametern herzustellen - Was kann man mit den Bilddaten erklären und was nicht?
+%
+% HetCor hier noch mit unterbringen. Damit kann man eine Korrelationsmatrix unabhängig vom Datentyp berechnen, um eine große Korrellationsmatrix zu erhalten (Supplementary Material). Hier können die Einträge in den Zeilen der Bildparameter angeschaut werden, um zu schauen, ob man eine Korrellation mit bestimmten Parametern finden kann! Das müsste auch wieder für alle Größengruppen passieren! (https://stats.stackexchange.com/questions/101016/pca-and-component-scores-based-on-a-mix-of-continuous-binary-and-categorical-va)
 
 \subsection{Experimental Settings and Results}
 Decision Tree erklaeren, ebenfalls Umrechnen in die Dummy-Variablen. Was sind die Zielvariablen
@@ -316,15 +379,92 @@ Decision Tree erklaeren, ebenfalls Umrechnen in die Dummy-Variablen. Was sind di
 %\com{C4.5 Algorithm for creating decision trees; }
 
 \section{\uppercase{Evaluation of Decision Trees}}
-\label{sec:Experiments}
+\label{sec:DecisionTrees}
+%%
+\noindent As described before, correlation coefficients fail to infer back pain status based on lumbar spine canal curvature and torsion.
+%%
+We rely on predictive classification trained to obtain a complex rule set on how combination of the image-parameter explain non-image variables.
+%%
+Decision trees are a popular classification method in data mining for creating predictive models.
+%%
+Leaves of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
+%%
+Decision trees are easy to understand and to read.
+%%
+They work with numerical as well as categorical data.
+%%
+This allows epidemiological domain experts to interpret the results without having deep knowledge about the algorithm creating the tree.
+%%
+Readability is only granted for small trees, complex structures with many branches are not desirable.
+%%
+\com{Quelle}
+
+\subsection{The C4.5/C5.0 Algorithm}
+Using a trained data set, the C4.5 algorithm builds decision trees based on information entropy.
+%%
+Such a calculation requires a numeric or categorical target variable.
+%%
+The algorithm then tries to find a decision tree, which divides the samples using the input variables just like the target variables.
+%%
+This means, that every node in the tree represents the attribute which splits the data most efficient into the target subset.
+%%
+The pseudocode for the algorithm is defined in Algorithm~\ref{alg:c4.5} \cite{C4.5Algorithm}.
+\begin{algorithm}[]
+ Check for base cases\;
+ \For{each attribute $a$}{
+  Find the normalized information gain ratio from splitting on $a$\;
+ }
+ Let $a_{best}$ be the attribute with the highest normalized information gain\;
+ Create a decision node that splits on $a_{best}$\;
+ Recurse on the sublists obtained by splitting on $a_{best}$, and add those nodes as children of node\;
+ \caption{Building a decision tree using the C4.5 Algorithm}
+ \label{alg:c4.5}
+\end{algorithm}
+C5.0 is developed to produce smaller decision trees than C4.5 and improve the execution time.
+%%
+We use the \texttt{R} implementation of C5.0 \cite{c5.0lassification}.
+%%
+% \begin{enumerate}
+% %%
+% \item Check for base cases
+% %%
+% \item For each attribute $a$
+% %%
+% \begin{enumerate}
+% %%
+% \item Find the normalized information gain ratio from splitting on $a$
+% %%
+% \end{enumerate}
+% %%
+% \item Let $a_{best}$ be the attribute with the highest normalized information gain
+% %%
+% \item Create a decision node that splits on $a_{best}$
+% %%
+% \item Recurse on the sublists obtained by splitting on $a_{best}$, and add those nodes as children of node
+% %%
+% \end{enumerate}
+%%
+Categorical attributes with more levels are biased with more information gain in a decision tree \cite{deng2011bias}.
+%%
+Creating dummy variables bypasses this problem.
+%%
+
+The actual use for the resulting tree is the classification of new observations (subjects).
+%%
+Yet, we are interested in the decision rules and the classification accuracy.
+
+\subsection{Interactive Display of Decision Trees}
+\com{Alle Variablen einzeln durchgehen ist nervig, man braucht ein interaktives System hierfür!}
+\com{Describe Shiny App!}
+
+\subsection{Das hier unterbringen}
 \begin{itemize}
-\item Vorgehen mit Scatterplot erklären
-\item Beschreiben der Ergebnisse
-\item Beschreiben des interaktiven Systems zum Anzeigen der Decision Trees
+\item \com{Vorgehen mit Scatterplot erklären}
+\item \com{Beschreiben der Ergebnisse}
+\item \com{Beschreiben des interaktiven Systems zum Anzeigen der Decision Trees}
 \end{itemize}
 
-\com{We can discriminate back pain using non-image data, but not with image-derived parameter}
-Welche parameter können wir gut unterscheiden
+\com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter können wir gut unterscheiden}
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
