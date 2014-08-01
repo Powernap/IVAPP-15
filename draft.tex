@@ -342,7 +342,7 @@ The method uses the following correlation metrics for the different type combina
 %%
 All correlation values are scaled between 0 - no correlation and 1 - identical.
 %%
-Some variables are too sparse for calculating correlations, for example \com{some variables from calculation here}.
+Some variables are too sparse for calculating correlations, for example \com{TODO: some variables from calculation here; TODO: Image?, eventuell interactiven Tile-Plot}.
 %%
 We display the resulting \emph{contingency matrix} using a heat map, mapping correlation values to color brightness with white for 0 and dark blue for 1 \cite{Klemm2014VIS}.
 %%
@@ -454,15 +454,74 @@ The actual use for the resulting tree is the classification of new observations 
 Yet, we are interested in the decision rules and the classification accuracy.
 
 \subsection{Interactive Display of Decision Trees}
-\com{Alle Variablen einzeln durchgehen ist nervig, man braucht ein interaktives System hierfür!}
-\com{Describe Shiny App!}
+We have to create a decision tree for every non-image variable to see which one can be explained by image-derived variables.
+%%
+Since we have 134 non-image variables, the calculation yields a corresponding number of trees.
+%%
+Dividing the subjects into four groups using body-size, the number increases to 402 trees.
+%%
+To make the results cognitive feasible, we have to abstract the results of the classification.
+%%------------
+\subsubsection{Visualization of Classification Results}
+%%
+We follow the visual information-seeking mantra and want to provide an overview first, then details-on-demand \ref{shneiderman1996}.
+%%
+The optimal classification uses a few rules to precisely characterize the target variable.
+%%
+Therefore, we are interested in \emph{small trees} with a \emph{low classification error rate}.
+%%
+The error rate has to be judged depending on the number of classes of the target variable.
+%%
+An error rate of 50\% for a target variable with two manifestations makes the classifier equal to throwing a coin.
+%%
+The same error rate is acceptable a target variable with more than two manifestations.
+%%
+Picking a value for a variable of four manifestations with an error rate of 50\% is better than the random selection (error rate of 75\%).
+%%
+The following scales the error rate so that 0 denotes perfect classification and 1 is equal to random selection.
+%%
+\begin{equation}
+error_{normalized} = \frac{error}{100 - \frac{1}{class number}}
+\end{equation}
+%%
+This allows for comparability of error rates between variables.
+%%
+Abstracting the classification results into two continuos variables allows us to visualize the result of 134 classifications in one scatterplot.
+%%
+By mapping the group affiliation (in our case body-size) to color or shape, we can even plot all 402 results in a single visualization (Fig.~\ref{fig:decision-tree} a).
+%%
+\com{ToDo: Dummy-Variables}
+%%------------
+\subsubsection{Interaction With the Visualization}
+%%
+The described visualization provides a good overview over the classification results.
+%%
+We however still want to be able to look display \emph{details-on-demand} \ref{shneiderman1996} and examinate a decision tree in detail.
+%%
+This is realized by clicking on a entry on the visualization, which then displays the corresponding decision tree in detail (Fig.~\ref{fig:decision-tree} b).
+%%
+This allows for sequentially analyzing the interactions.
+%%------------
+\subsubsection{Implementation}
+All analysis are carried out using \texttt{R}, a popular programming language for statistical calculations and visualizations.
+%%
+The interactive visualizations are realized using the \texttt{ggvis}\footnote{GGVIS Footnote} package.
+%%
+As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using UI controls, such as sliders.
+%%
+We implemented our application as web based prototype using \texttt{R Shiny}\footnote{R Shiny footnote}.
+%%
+The package combines the power of \texttt{R} with advantages of web-based applications.
+%%
+It allows us to quickly exchange results with our collaborating epidemiological partners.
+%%
+They can try out the technique without installing anything.
+%%
+Exchanging software becomes as easy as exchanging a hyperlink.
+%%---------
+\subsection{Results}
 
-\subsection{Das hier unterbringen}
-\begin{itemize}
-\item \com{Vorgehen mit Scatterplot erklären}
-\item \com{Beschreiben der Ergebnisse}
-\item \com{Beschreiben des interaktiven Systems zum Anzeigen der Decision Trees}
-\end{itemize}
+\subsection{Themen hier unterbringen}
 
 \com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter können wir gut unterscheiden}
 
