@@ -481,7 +481,7 @@ Picking a value for a variable of four manifestations with an error rate of 50\%
 The following scales the error rate so that 0 denotes perfect classification and 1 is equal to random selection.
 %%
 \begin{equation}
-error_{normalized} = \frac{error}{100 - \frac{1}{class number}}
+error_{normalized} = \frac{error}{100 - \frac{100}{class number}}
 \end{equation}
 %%
 This allows for comparability of error rates between variables.
@@ -490,13 +490,34 @@ Abstracting the classification results into two continuos variables allows us to
 %%
 By mapping the group affiliation (in our case body-size) to color or shape, we can even plot all 402 results in a single visualization (Fig.~\ref{fig:decision-tree} a).
 %%
-\com{ToDo: Dummy-Variables}
+
+Many follow-up variables are sparse, such as medication of diabetes or reason of early retirement.
+%%
+The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size.
+%%
+This makes these results less reliable.
+%%
+We map the number of subjects associated with a variable to point diameter in the scatter plot.
+%%
+This allows to instantly assess the reliability of the result.
+%%
+\subsubsection{Dummy Variables}
+Dummy variables abstract a categorical variable with multiple manifestations into several binary variables.
+%%
+Each binary variables encodes the presence of a manifestation.
+%%
+For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four binary variables (\emph{No pain - Yes/No} to \emph{Large Pain - Yes/no}).
+%%
+One subject can only have one of these variables set to true.
+%%
+This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data parameter.
+%%\com{ToDo: Dummy-Variables}
 %%------------
 \subsubsection{Interaction With the Visualization}
 %%
 The described visualization provides a good overview over the classification results.
 %%
-We however still want to be able to look display \emph{details-on-demand} \ref{shneiderman1996} and examinate a decision tree in detail.
+We however still want to be able to look display \emph{details-on-demand} \ref{shneiderman1996} and examine a decision tree in detail.
 %%
 This is realized by clicking on a entry on the visualization, which then displays the corresponding decision tree in detail (Fig.~\ref{fig:decision-tree} b).
 %%
@@ -520,10 +541,68 @@ They can try out the technique without installing anything.
 Exchanging software becomes as easy as exchanging a hyperlink.
 %%---------
 \subsection{Results}
+We ran the analysis using different subject groups:
+\begin{enumerate}
+	%%
+	\item All subjects,
+	%%
+	\item subdivision into \emph{male} and \emph{female},
+	%%
+	\item subdivision into \emph{age quantiles}, yielding the groups (21, 43.8] (43.8, 54] (54, 64] (64, 90],
+	%%
+	\item subdivision into \emph{size quantiles}, yielding the groups (139, 164], (164, 171], (171, 177], (177, 202].
+	%%
+\end{enumerate}
+
+\subsubsection{All Variables}
+% None of the pain indicators can be reliably described using the image-based parameter.
+None of the pain indicators can be described reliably using the image-based parameter.
+%%
+The perfect categorization of the \emph{dialysis} parameter was conspicuous.
+%%
+This is due to the subject distribution among the manifestation.
+%%
+Only two subjects receive a dialysis.
+%%
+The good discrimination is not meaningful.
+%%
+Gender can be discriminated with an error rate of 31,5\% using 7 rules and incorporates only curvature and curvature angle variables.
+%%
+Surprisingly high is the classification of medication for high blood pressure.
+%%
+1,058 subjects are classified with an error rate of 23,8\% solely based on coronal mean curvature.
+%%
+Other features well classified include marital status, foot pain and number of born children.
+%%
+
+The dummy variable analysis yields fewer results.
+%%
+It shows that subjects between 64 and 90 years of age can be detected with 23\% error rate by using the curvature angle and coronal mean curvature.
+%%
+Subjects with body size between 177 cm and 202 cm can classified with an error rate of 22,1\%. solely using mean curvature.
+%%
+\subsubsection{Gender Groups}
+\subsubsection{Age Groups}
+\subsubsection{Size Groups}
+%%
+Many previously described results can be associated to be confounded with subject size.
+%%
+Differences in the gender analysis are mostly due to the average height difference between males and females.
+%%
+For example, large subjects are already characterized by their rather straight spine.
+%
+The question is, whether the inter-group spine-variability parameter is enough for predicting other parameter or not.
+%%
+Dividing subjects into height groups potentially highlights classifications not confounded by body-height.
+%%
+
+
 
 \subsection{Themen hier unterbringen}
 
-\com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter können wir gut unterscheiden}
+\com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter koennen wir gut unterscheiden}
+
+\com{Allgmeine Analyse der Daten mit einbringen. Hierfuer statistisch Auswertung machen, welche Parameter am meisten verwendet wurden bei der Kategorisierung. Nur Parameter verwenden, die genauer sind als 0.5\%, der Entscheidungsbaum kleiner als 15 ist und das Feature mindestens 100 Probanden enthält }
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
