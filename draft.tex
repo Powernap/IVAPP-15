@@ -476,16 +476,20 @@ The two measures form the axis for a \emph{scatter plot} of the classification r
 \paragraph{The Error Term. }
 Normally the error rate for a classification is calculated with $error = \frac{n_{classifiedCorrectly}} {n}$ where $n$ is the number of subjects.
 %%
-This metric says nothing about the discriminative power of each manifestation.
+The metric usually works well for normally distributed variables.
+%%
+It distorts the result for other distribution types.
 %%
 If for example a variable indicating a disease is negative for 90\% of the subject and the classifier simply assigns all subjects to \emph{not ill} the error metric would yield an error of 10\%, even though it is very bad.
 %%
-Therefore the discriminative power of each dimension in the equation
+Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
+%%
+%Therefore the discriminative power of each dimension in the equation
 %error = 1 - \frac{\[ \sum_{m=0}^M \] \frac{M_{classifiedCorrectly}}{M_all}}{number of dimensions}
 \begin{equation}
 error = 1 - \frac{\sum_{m=0}^M \frac{m_{classifiedCorrectly}}{m_{all}}}{number_{dimensions}}
 \end{equation}
-where $M$ represents each manifestation of a variable.
+$M$ represents the set of manifestation of each variable.
 %%
 The error is scaled to denote perfect classification with 0 and 1 is equal to random selection.
 % The error rate has to be judged depending on the number of classes of the target variable.
@@ -502,7 +506,7 @@ The error is scaled to denote perfect classification with 0 and 1 is equal to ra
 % error_{normalized} = \frac{error}{100 - \frac{100}{class number}}
 % \end{equation}
 %%
-This allows for comparability of error rates between variables.
+It allows for comparability of error rates between variables with different manifestation count.
 
 \paragraph{Attribute Mapping}
 The scatter plot axis are defined by tree size and the previously described error metric.
@@ -523,9 +527,17 @@ We map the number of subjects associated with a variable to point diameter in th
 %%
 This allows to instantly assess the reliability of the result.
 %%
+
+We apply a square root scale for the tree size axis to highlight data points with few decision rules.
+%%
+Outlier results with very large decision trees distort otherwise the resulting plot.
+%%
+
+\com{Needs to be moved}
+\add{We removed variables with less than 100 subjects, since they have to few subjects to be statistically significant.}
 \com{ToDo: Manche Variablen rausgeschmissen, weil sie zu wenig Probanden enthielten, oder Auspraegungen nur duenn besetzt waren!}
 
-\com{ToDo: SQRT Skalierung der Treesize-Dimension, da hauptsaechlich geringe Groessen von interesse sind, ausreisser aber diesen Bereich schwer durchschaubar machen}
+%\com{ToDo: SQRT Skalierung der Treesize-Dimension, da hauptsaechlich geringe Groessen von interesse sind, ausreisser aber diesen Bereich schwer durchschaubar machen}
 % %%
 %
 % %%
