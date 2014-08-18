@@ -583,6 +583,8 @@ It allows us to quickly exchange results with our collaborating epidemiological 
 They can try out the technique without installing anything.
 %%
 Exchanging software becomes as easy as exchanging a hyperlink.
+%%
+\com{TODO: Auf Eignung von RMarkdown als Report eingehen - ergebnisse koennen schnell publiziert und mit neuen Daten durchgetestet werden.}
 %%---------
 \subsection{Results}
 We ran the analysis using different subject groups:
@@ -755,7 +757,7 @@ Their complexity impose overfitting to the data and they are not suitable for ex
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/placeholder}
-  \caption{Proposed features. (a) dented vertebraes are a sign of heavy stress and bone absorption. (b) Spine canal thickness is associated with herniated disks. (c) the spine canal shape can be used to characterize scoliosis and lordosis as well as the \emph{Cobb-Angles} \com{TODO CITE Cobb Angle}. }
+  \caption{Proposed features. (a) dented vertebraes are a sign of heavy stress and bone absorption. (b) Spine canal thickness is associated with herniated disks. (c) the spine canal shape can be used to characterize scoliosis and lordosis as well as the \emph{Cobb-Angles} \cite{Cobb}. }
   \label{fig:proposedFeatures}
 \end{figure}
 %%
@@ -776,14 +778,29 @@ Low spine canal thickness can be an indicator for an impending herniated disk.
 %%
 Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
 %%
-The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~(c).
+The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~(c).
+%% ------------------------------------
+\subsection{Applicability of the Method}
+%%
+Classification methods based on decision trees showed to be useful to assess the discriminative power of a variable set.
+%%
+Their ability to assess variable combination makes them more powerful than correlation coefficients calculated for each variable.
+%%
+This advantage comes with a much more complex output, making their results harder to assess and to abstract.
+%%
+Our method to plot derived metrics and custom tailored error measures proved to be effective.
+%%
+Huge result spaces could be navigated fast using our brushable visualization.
+%%
+Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
 %%
 
-\subsection{Applicability of the Method}
-
-Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
-\com{Vorgestellte Parameter nicht ausreichend.}
-\com{Weitere Parameter wichtig - z.B. Dicke der Wirbelkoerper, Durchmesser des Spinalkanals, Form der gesamten Wirbelsaeule, Cobb-Winkel}
+As described in a prior work \cite{Klemm2014}, the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+%%
+We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
+%%
+This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important parameters for the classification.
+%Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
 
 \section*{\uppercase{Acknowledgements}}
 
@@ -804,4 +821,3 @@ references without numbering, and not on a new page. To do so please use the fol
 
 \vfill
 \end{document}
-
