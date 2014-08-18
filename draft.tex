@@ -476,7 +476,7 @@ The two measures form the axis for a \emph{scatter plot} of the classification r
 \paragraph{The Error Term. }
 Normally the error rate for a classification is calculated with $error = \frac{n_{classifiedCorrectly}} {n}$ where $n$ is the number of subjects.
 %%
-The metric usually works well for normally distributed variables.
+The metric usually works well for variables with uniform distribution.
 %%
 It distorts the result for other distribution types.
 %%
@@ -693,20 +693,44 @@ The question is, whether the inter-group spine-variability parameter is enough f
 %%
 Dividing subjects into height groups potentially highlights classifications not confounded by body-height.
 %%
+\paragraph{Large Decision Trees. }
+Back-pain associated variables can be explained for various size-groups, but we could not extract universal rules.
+%%
+Radiating back pain could be described with error rate of $0,39$ using 23 rules for subjects between $171-177 cm$ body size using torsion and mean-curvature.
+%%
+For subjects sized $177-202 cm$ the accuracy drops to $0,47$ using 20  decision rules.
+%%
+There are several decision trees for laboratory values, such as alanine aminotransferase value in the blood can be described with a high precision of $0,4$ ($139-164 cm$) to $0,36$ ($164 - 171 cm$).
+%%
+Similar values can be observed for cholesterol or age.
+%%
+Due to the large decision trees, these results are not usable and impose overfitting to the data.
+%%
+\paragraph{Small Decision Trees. }
+%%
+The dummy variables show several variables described using only one decision rule with accuracy between $0,42$ to $0,47$.
+%%
+Most of these variables have a dominant manifestation and the classifier shows a low detection precision for the second manifestation.
+%%
+These variables include nutrition parameter, thyroid disorder and social problems induced by back pain.
 
+%The resulting trees consist either only one rule or a rich set of them (>15).
+%Either they divide the variables using only one decision rule, or a large set of rules (> 15).
 
-\com{Schmerzparameter mit drin, aber nur mit komplexen bäumen}
-
-\com{- Kinderanzahl: 630 cases, 3,7\% Fehlerrrate, liegt aber daran, dass die meisten Probanden kein Kind haben. Die Einteilung ist aktuell auch unsinnig, das erste Quantil hat (-.0004,0.8] Kinder. Die Probanden werden nicht sauber erkannt.}
+\subsubsection{Concluding Remarks}
+Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
 
 \com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
-
 
 \subsection{Themen hier unterbringen}
 
 \com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter koennen wir gut unterscheiden}
 
-\com{Allgmeine Analyse der Daten mit einbringen. Hierfuer statistisch Auswertung machen, welche Parameter am meisten verwendet wurden bei der Kategorisierung. Nur Parameter verwenden, die genauer sind als 0.5\%, der Entscheidungsbaum kleiner als 15 ist und das Feature mindestens 100 Probanden enthält }
+\com{Allgmeine Analyse der Daten mit einbringen. Hierfuer statistisch Auswertung machen, welche Parameter am meisten verwendet wurden bei der Kategorisierung. Nur Parameter verwenden, die genauer sind als 0.5\%, der Entscheidungsbaum kleiner als 15 ist und das Feature mindestens 100 Probanden enthält}
+
+\com{Weiterhin interessant die Beschreibung rueckenschmerzassoziitierter Parameter, bei einigen zeigt sich, dass Torsion sehr dominant vertreten ist.}
+
+\com{Algorithmus schreiben, der eng zusammenliegende Parameter fuer alle Probanden sucht.}
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
