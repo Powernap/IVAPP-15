@@ -748,9 +748,36 @@ Certain subgroups, however, can be classified for various size groups, such as n
 
 Another observation during the analysis are very large decision trees achieving low error scores.
 %%
-Their complexity however impose overfitting to the data and they are not suitable for extracting universal rules.
-
+Their complexity impose overfitting to the data and they are not suitable for extracting universal rules.
+%%
 \subsection{Proposed Features}
+\begin{figure}[!h]
+  %\vspace{-0.2cm}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/placeholder}
+  \caption{Proposed features. (a) dented vertebraes are a sign of heavy stress and bone absorption. (b) Spine canal thickness is associated with herniated disks. (c) the spine canal shape can be used to characterize scoliosis and lordosis as well as the \emph{Cobb-Angles} \com{TODO CITE Cobb Angle}. }
+  \label{fig:proposedFeatures}
+\end{figure}
+%%
+\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain \com{Zitat Frau Hegenscheid fragen}.
+%%
+We have to capture earlier signs of pathological change in order to derive better predictive models.
+%%
+
+A very early sign of pathological deformation is the \emph{bone resorption in the center of a vertebra}.
+%%
+They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~(a)).
+%%
+This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
+%%
+Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~(b).
+%%
+Low spine canal thickness can be an indicator for an impending herniated disk.
+%%
+Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
+%%
+The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~(c).
+%%
 
 \subsection{Applicability of the Method}
 
