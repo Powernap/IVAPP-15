@@ -717,9 +717,6 @@ These variables include nutrition parameter, thyroid disorder and social problem
 %The resulting trees consist either only one rule or a rich set of them (>15).
 %Either they divide the variables using only one decision rule, or a large set of rules (> 15).
 
-\subsubsection{Concluding Remarks}
-Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
-
 \com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
 
 \subsection{Themen hier unterbringen}
@@ -734,6 +731,32 @@ Except for gender in the age-plot, no variable could be explained with reasonabl
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
+The presented results indicate that the parameters torsion, curvature and curvature angle are not enough to characterize pathological changes in the lumbar spine.
+%%
+They are well suited to characterize subject gender due to their height difference using mean curvature and mean curvature angle.
+%%
+The reason for this lies in the higher curvature of smaller subjects and the significant difference of average body size between males and females.
+%%
+Gender was characterized well in the analysis of all subjects as well as subjects divided by age.
+
+Subjects grouped using body height have a similar spine shape and a lower variance.
+%%
+The remaining information within these groups is not enough to characterize back pain related variables.
+%%
+Certain subgroups, however, can be classified for various size groups, such as nutrition or psychological parameters.
+%%
+
+Another observation during the analysis are very large decision trees achieving low error scores.
+%%
+Their complexity however impose overfitting to the data and they are not suitable for extracting universal rules.
+
+\subsection{Proposed Features}
+
+\subsection{Applicability of the Method}
+
+Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
+\com{Vorgestellte Parameter nicht ausreichend.}
+\com{Weitere Parameter wichtig - z.B. Dicke der Wirbelkoerper, Durchmesser des Spinalkanals, Form der gesamten Wirbelsaeule, Cobb-Winkel}
 
 \section*{\uppercase{Acknowledgements}}
 
