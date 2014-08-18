@@ -733,7 +733,7 @@ These variables include nutrition parameter, thyroid disorder and social problem
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
-The presented results indicate that the parameters torsion, curvature and curvature angle are not enough to characterize pathological changes in the lumbar spine.
+\noindent The presented results indicate that the parameters torsion, curvature and curvature angle are not enough to characterize pathological changes in the lumbar spine.
 %%
 They are well suited to characterize subject gender due to their height difference using mean curvature and mean curvature angle.
 %%
@@ -753,6 +753,7 @@ Another observation during the analysis are very large decision trees achieving 
 Their complexity impose overfitting to the data and they are not suitable for extracting universal rules.
 %%
 \subsection{Proposed Features}
+\label{sec:ProposedFeatures}
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
@@ -801,6 +802,26 @@ We can achieve this also using the presented method by trying to describe severa
 %%
 This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important parameters for the classification.
 %Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
+
+\subsection{Summary and Future Work}
+%%
+\noindent We showed, that torsion, curvature and curvature angle of the lumbar spine at the presented precision are not enough to characterize lumbar back pain in the SHIP-Data set.
+%%
+Our method made it possible to assess their discriminative power, which is largely limited for separating male and female subjects, nutrition variables, as well as different disease indicators.
+%%
+The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image parameters.
+%%
+Over-fitting to the data indicated by complex decision trees have to be taken into account into the analysis as well.
+%%
+
+In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
+%%
+As another focus, we want to include the method into existing visual analytics methods designed for analyzing shape information for epidemiological data \cite{Klemm2014}.
+%%
+
+Combining the power of statistical analysis, visual analytics and advanced data mining techniques is essential for analyzing increasingly complex heterogenous population data.
+%%
+These methods do not aim to replace the traditional epidemiological workflow, but rather intervenes at the weak points of standard statistical methods.
 
 \section*{\uppercase{Acknowledgements}}
 
