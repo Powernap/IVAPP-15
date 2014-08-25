@@ -46,39 +46,88 @@
 
 \section{\uppercase{Introduction}}
 \label{sec:Introduction}
-Epidemiology is the study of causation of diseases.
+Epidemiology is the study of causation of diseases. For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) [??] gather as much information as possible about participants to be assessed towards different diseases.
 %%
-Large population studies, such as the Study of Health in Pomerania (SHIP) \ref{SHIP} gather as much information as possible about participants to be assessed towards different diseases.
+These information are used to determine risk factors for diseases, help people to improve their lifestyle and their health or to support diagnosis of widespread diseases.
 %%
-These information are used to determine risk factors for diseases, helping people to make their lifestyle healthier or helping in diagnosing a disease.
+Epidemiological research is strongly hypothesis-driven.
 %%
-Epidemiological research is strongly hypothesis driven.
-%
-Observations made by clinicians are translated into hypothesis, which are then statistically evaluated using data variables from epidemiological studies.
-
-Modern cohort studies often comprise medical image data.
+More precisely, observations made by clinicians are translated into hypotheses, which are then statistically evaluated using data variables from epidemiological studies.
 %%
-\com{Short summary}
+As a result, the hypothesis will be accepted or rejected.
 %%
 
-Back pain is one of the most frequent diseases in the western civilization.
+%For epidemiological research, cohort studies are acquired.
+For epidemiological research, cohort studies are carried out.
+%%
+These studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes like gender, age and weight.
+%%
+Back pain is one of the most frequent diseases in the western civilization. 
+%%
+Epidemiological analysis of back pain aim to characterize the disease by determining risk factors.
+%Many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
+%Since back pain is one of the most frequent diseases in the western civilization, many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
+%%
+Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, no automatic classification approach to characterize back pain based on lumbar back spine attributes has been established yet.
+%%
+Furthermore, previous analyses mainly focused on a single parameter or a small subset of parameters [Quelle].
 %%
 
-Our goal is to combine data mining algorithm with data visualization to provide insight into the quality of image derived data to analyze if it acts as a risk factor for a disease.
-%\com{Combine Data Mining Algo}
-
-More than 5 variables are rarely analyzed simultaneously.
+In this paper, we present a thorough analysis of the image-derived data from lumbar back spine datasets and analyze their discriminating power for different characteristics of the disease.
 %%
-%The variables analyzed simultaneously is limited to 
+Therefore, we combine data mining algorithms with data visualization techniques.
+%%
+%Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for possible back pain risk factors.
+Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for being back pain risk factors.
+%%
+\com{Da in der Auflistung oefter vom IVA-Framework die Rede ist: Wollen wir hierzu noch was schreiben, z.B. dass das im VIS-Paper definiert wurde und was wir darunter verstehen; sowie dass diese Arbeit als Erweiterung dieses Frameworks gedacht ist?}
+
 Our contributions are:
 \begin{itemize}
-	\item Analyzing back pain using image-derived variables of 2,240 subjects.
-	\item Assessing the suitability of lumbar spine shape for diagnosing back pain
-	\item Analyzing correlations between between image-based and socio-demographic as well as medical parameters.
-	\item Identification of most important variables using data mining methods \com{noch schoen schreiben}
-	\item semiquantitative Auswertmöglichkeiten werden dem User oft zur verfügung gestellt
-	\item Techniken sind als Teil des IVA-Frameworkes zu verstehen
+\item An IVA-framework for back pain analysis based on image-derived variables of 2,240 subjects \com{Ist diskutabel, so richtig interaktiv ist es nicht. IVA wurde auch noch nicht vorher definiert.}
+%%
+\item The identification and evaluation of lumbar spine shape properties for back pain diagnosis
+%%
+\item Detection of correlations between image-based and socio-demographic as well as medical parameters for an improved hypothesis generation
+%%
+\item Identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework \com{Wieder: IVA wurde noch nicht definiert}
+%%
 \end{itemize}
+
+% -- Old Introduction
+% Epidemiology is the study of causation of diseases.
+% %%
+% Large population studies, such as the Study of Health in Pomerania (SHIP) \ref{SHIP} gather as much information as possible about participants to be assessed towards different diseases.
+% %%
+% These information are used to determine risk factors for diseases, helping people to make their lifestyle healthier or helping in diagnosing a disease.
+% %%
+% Epidemiological research is strongly hypothesis driven.
+% %
+% Observations made by clinicians are translated into hypothesis, which are then statistically evaluated using data variables from epidemiological studies.
+%
+% Modern cohort studies often comprise medical image data.
+% %%
+% \com{Short summary}
+% %%
+%
+% Back pain is one of the most frequent diseases in the western civilization.
+% %%
+%
+% Our goal is to combine data mining algorithm with data visualization to provide insight into the quality of image derived data to analyze if it acts as a risk factor for a disease.
+% %\com{Combine Data Mining Algo}
+%
+% More than 5 variables are rarely analyzed simultaneously.
+% %%
+% %The variables analyzed simultaneously is limited to
+% Our contributions are:
+% \begin{itemize}
+% 	\item Analyzing back pain using image-derived variables of 2,240 subjects.
+% 	\item Assessing the suitability of lumbar spine shape for diagnosing back pain
+% 	\item Analyzing correlations between between image-based and socio-demographic as well as medical parameters.
+% 	\item Identification of most important variables using data mining methods \com{noch schoen schreiben}
+% 	\item semiquantitative Auswertmöglichkeiten werden dem User oft zur verfügung gestellt
+% 	\item Techniken sind als Teil des IVA-Frameworkes zu verstehen
+% \end{itemize}
 
 \section{\uppercase{Epidemiological Background}}
 \label{sec:EpidemiologicalBackground}
