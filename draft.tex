@@ -317,11 +317,19 @@ To avoid small outlier groups, epidemiologists recommend using quartiles to disc
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
-  \caption{image-parameter-range}
+  \caption{%%
+A generalized pairs plot of all image-derived variables \cite{GPLOMS} colored by presence or absence of back pain.
+%%
+Pairwise combinations of image-derived variables are visualized using scatter plots left of the matrix diagonal and their correlation with back pain is denoted right of the matrix diagonal.
+%%
+The box plots (left) and histograms (bottom) display the distribution of each image-variable encoded with back pain.
+%%
+No correlation with back pain are present can be seen in this plot.
+}
   \label{fig:image-parameter-range}
 \end{figure*}
 %%
-\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using a pairs plot \cite{ggally}.
+\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using a generalized pairs plot \cite{GPLOMS}.
 %%
 Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
 %%
@@ -340,7 +348,7 @@ We conclude that curvature is not as reliable on the transversal plane as it is 
 \subsubsection{Correlation Matrix}
 We calculated an association matrix to to assess correlations between the image parameters.
 %%
-The pearson correlation coefficients between the numeric variables are depicted right of the main diagonal of Figure~\ref{fig:image-parameter-range}.
+The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal in Figure~\ref{fig:image-parameter-range}.
 %%
 Curvature, curvature angle and torsion correlate strongly with their planar projections.
 %%
@@ -350,9 +358,9 @@ Also the mean curvature and the curvature angle correlate by a factor of -0.89.
 Torsion does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
 \subsubsection{Correlation of Image Parameters With Back Pain}
-Figure~\ref{fig:image-parameter-range} shows the distribution for all subjects.
+Figure~\ref{fig:image-parameter-range} shows the distribution of all image-parameters \add{as generalized pairs plot}.
 %%
-We created a pairs plot for subject groups derived by dividing them into quantile groups of body-size.
+\rem{We created a generalized pairs plot for subject groups derived by dividing them into quantile groups of body-size.}
 %%
 No statistical significant correlation could be observed through all subject groups.
 %%
@@ -388,16 +396,17 @@ The method uses the following correlation metrics for the different type combina
 \item \emph{polyserial} correlation for one continuous and one categorical variable, and
 \item \emph{polychoric} correlations for two categorical variables.
 \end{itemize}
+\com{TODO: Abbildung einer Korrelationsmatrix? Waere sehr gross!}
 %%
 All correlation values are scaled between 0 - no correlation and 1 - identical.
 %%
-Some variables are too sparse for calculating correlations, for example \com{TODO: some variables from calculation here; TODO: Image?, eventuell interactiven Tile-Plot}.
+Some variables are too sparse for calculating correlations, for example \emph{treatment of diabetes}, or \emph{medication against high blood pressure}.
 %%
 We display the resulting \emph{contingency matrix} using a heat map, mapping correlation values to color brightness with white for 0 and dark blue for 1 \cite{Klemm2014VIS}.
 %%
 We calculated the contingency matrix for all size groups and looked for correlations between image- and non-image derived variables.
 %%
-The resulting contingency matrix shows no strong correlation with any of the parameter.
+The resulting contingency matrices are available as supplementary material and show no strong correlation with any of the parameter.
 %%
 Only weak correlations could be found for \emph{Mean Curvature} with \emph{gender} (0.42), \emph{body size} (0.39) and \emph{number of born children} (0.29).
 %%
@@ -513,6 +522,7 @@ Dividing the subjects into four groups using body-size, the number increases to 
 To make the results cognitive feasible, we have to abstract the results of the classification.
 %%------------
 \subsubsection{Visualization of Classification Results}
+\label{subsec:VisualizationOfClassificationResults}
 %%
 We follow the visual information-seeking mantra and want to provide an overview first, then details-on-demand \ref{shneiderman1996}.
 %%
@@ -572,7 +582,9 @@ The classification algorithm may produce higher accuracy for variables with less
 %%
 This makes these results less reliable.
 %%
-We map the number of subjects associated with a variable to point diameter in the scatter plot.
+We removed variables with less than 100 subjects, since they have to few subjects to be statistically significant.
+%%
+Furthermore, we map the number of subjects associated with a variable to point diameter in the scatter plot.
 %%
 This allows to instantly assess the reliability of the result.
 %%
@@ -581,10 +593,6 @@ We apply a square root scale for the tree size axis to highlight data points wit
 %%
 Outlier results with very large decision trees distort otherwise the resulting plot.
 %%
-
-\com{Needs to be moved}
-\add{We removed variables with less than 100 subjects, since they have to few subjects to be statistically significant.}
-\com{ToDo: Manche Variablen rausgeschmissen, weil sie zu wenig Probanden enthielten, oder Auspraegungen nur duenn besetzt waren!}
 
 %\com{ToDo: SQRT Skalierung der Treesize-Dimension, da hauptsaechlich geringe Groessen von interesse sind, ausreisser aber diesen Bereich schwer durchschaubar machen}
 % %%
@@ -623,24 +631,51 @@ The interactive visualizations are realized using the \texttt{ggvis}\footnote{GG
 %%
 As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using UI controls, such as sliders.
 %%
-We implemented our application as web based prototype using \texttt{R Shiny}\footnote{R Shiny footnote}.
+In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to make reports by combining \texttt{R} with the \texttt{Markdown} syntax.
 %%
-The package combines the power of \texttt{R} with advantages of web-based applications.
+We used \texttt{R Shiny}\footnote{R Shiny footnote} to make the report available as dynamic web application.
 %%
-It allows us to quickly exchange results with our collaborating epidemiological partners.
+It allows to combine both the ability to create comprehensible reports as well as UI-controls, to adjust visible data and parameters in the plot to allow the viewer to analyze the data.
 %%
-They can try out the technique without installing anything.
+Furthermore, calculations based on a prior data selection can be redone within the report.
+%We implemented our application as web based prototype using \texttt{R Shiny}\footnote{R Shiny footnote} in combination with \texttt{RMarkdown}.
 %%
-Exchanging software becomes as easy as exchanging a hyperlink.
+%The package combines the power of \texttt{R} with advantages of web-based applications.
 %%
-\com{TODO: Auf Eignung von RMarkdown als Report eingehen - ergebnisse koennen schnell publiziert und mit neuen Daten durchgetestet werden.}
+The web-based approach allows us to quickly exchange results with our collaborating epidemiological partners.
+%%
+They can try out the technique without installing any software.
+%%
+Exchanging the prototype becomes as easy as exchanging a hyperlink.
 %%---------
 \subsection{Results}
 \begin{figure*}[p!]
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=0.8\textwidth]{figures/results}
-  \caption{myResults}
+  \caption{
+%%
+Scatterplot visualization of all C5.0 classification results.
+%%
+The x-axis shows the number of decisions of the underlying model, the y-axis the classification error rate (see Section~\ref{subsec:VisualizationOfClassificationResults}).
+%%
+The left scatterplot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
+%%
+The right scatterplot displays the dummy variables derived from the original variables.
+%%
+Group affiliation of a data point is color coded:
+%%
+no group (a), subdivision into male and female subjects (b), quartiles of age (c) and quartiles of body size (d).
+%%
+%(a) displays all subjects, (b) is divided into male and female subjects, (c) is categorized into quantiles of age and (d) shows the classification of subjects divided by quantiles of body size.
+%%
+The number of subjects represented in a variable is denoted using the dot diameter.
+%%
+We only display variables with an error rate below $0,5$, results above this threshold are inaccurate.
+%%
+A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
+%%
+}
   \label{fig:results}
 \end{figure*}
 We ran the analysis using different subject groups:
@@ -727,6 +762,13 @@ Gender could be described for each age group using \emph{mean curvature} and \em
 %%
 The accuracy varies between $0,35$ ($43,8-54$ years of age, 3 decision rules) to $0,27$ ($21-43,8$ years of age, 6 decision rules).
 %%
+The starting age of smoking could be characterized well with an accuracy between $0,25$ to $0,3$ for all age groups except of $21,1-43,8$ years of age.
+%%
+The result however is probably over fitted to the data due to tree sizes between $16$ and $23$.
+%%
+\com{Feedback der Greifswalder notwendig, warum das so sein koennte.}
+%%
+
 Many variables, such as body size can be described with an error rate of $0,35$ to $0,45$ but only using large decision trees with over 20 rules.
 %Body-size can be determined with an error rate of $0,36$ to $0,39$ for subject
 % age groups, but also imposes over fitting to the data yielding a decision tree of over 30 rules.
@@ -775,17 +817,10 @@ These variables include nutrition parameter, thyroid disorder and social problem
 %The resulting trees consist either only one rule or a rich set of them (>15).
 %Either they divide the variables using only one decision rule, or a large set of rules (> 15).
 
-\com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
+%TODO: Muss das wirklich noch rein?
+% \com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
 
-\subsection{Themen hier unterbringen}
-
-\com{We can discriminate back pain using non-image data, but not with image-derived parameter. Welche parameter koennen wir gut unterscheiden}
-
-\com{Allgmeine Analyse der Daten mit einbringen. Hierfuer statistisch Auswertung machen, welche Parameter am meisten verwendet wurden bei der Kategorisierung. Nur Parameter verwenden, die genauer sind als 0.5\%, der Entscheidungsbaum kleiner als 15 ist und das Feature mindestens 100 Probanden enthält}
-
-\com{Weiterhin interessant die Beschreibung rueckenschmerzassoziitierter Parameter, bei einigen zeigt sich, dass Torsion sehr dominant vertreten ist.}
-
-\com{Algorithmus schreiben, der eng zusammenliegende Parameter fuer alle Probanden sucht.}
+\com{Auswertung der Anteile der Parameter an den Ergebnissen (Torsion, Curvature, etc. - welches ist der dominanteste Parameter?)}
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}

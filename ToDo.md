@@ -9,6 +9,7 @@
 - 6.2.1. Falls error in %: error_{normalized}=error/(100-100/cN), falls nicht in %: error/(1-1/cN)
 
 ## Von Bernhard
+
 - Marko Genauigkeit der Daten einschätzen lassen--als Koautor mit aufnehmen
 - Welche Komplexität von Verteilungsfunktionen können mit Entscheidungsbäumen geschätzt werden - Gehen Entscheidungsbäume über gewichtete Summen hinaus?
 - Mit Klaus sprechen, wann wir Parsos verwenden können, bzw. wann Gino und Daniel ihre Publikation einreichen
