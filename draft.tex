@@ -254,7 +254,15 @@ The variables range from somatometric variables describing body measures to medi
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=0.5\textwidth]{figures/centerline}
-  \caption{Centerline}
+  \caption{
+	(a) left: Tetrahedron-based finite element model (FEM) of the lumbar spine, capturing the L1-L5 vertebrae as well as the lumbar spine canal.
+	%%
+	(a) right: FEM aligned to a MRI data set.
+	%%
+	The purple dashed line represents the centerline, describing the lumbar spine canal with 93 points.
+	%%
+	(b) Using the Frenet formulas, we extract the curvature, torsion and the curvature angle from the lumbar spine canal center line.
+	}
   \label{fig:centerline}
 \end{figure}
 \com{Image Data}
@@ -265,7 +273,7 @@ The spine protocol consisted of a sagittal T1-weighted turbo-spin-echo sequence 
 
 A hierarchical finite element method was used to detect the lumbar spine in the MRI data \cite{Rak2013}.
 %%
-The tetrahedron-based finite element model (FEM) is initialized using three user-placed land marks.
+The tetrahedron-based finite element model is initialized using three user-placed land marks.
 %%
 A click on the L3 vertebra center gives the model the initial position, two clicks on the top and bottom of the vertebra describes an initial model height estimation.
 %%
@@ -300,9 +308,9 @@ The detection model depicts the vertebrae positions, but lacks detailed informat
 %%
 It captures reliable information about spine canal curvature.
 %%
-In a previous work \cite{Klemm2013VMV,Klemm2014VIS}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline} (a)).
+In a previous work \cite{Klemm2013VMV,Klemm2014VIS}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
 %%
-Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from the model (Fig.~\ref{fig:centerline} (b)):
+Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from the model (Fig.~\ref{fig:centerline}~b):
 %%
 %Thus, we extracted the following metrics from the model:
 %%
