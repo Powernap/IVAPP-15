@@ -226,16 +226,9 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 \noindent \com{Our own work (VIS, VMV, BVM). Sylvias paper with reference to the methods. \textbf{More information necessary here!}}
 
 \section{The Lumbar Spine Data Set}
-\begin{figure}[!h]
-  %\vspace{-0.2cm}
-  \centering
-  \includegraphics[width=0.5\textwidth]{figures/age-gender}
-  \caption{Age-Gender}
-  \label{fig:example1}
-\end{figure}
 \label{sec:MaterialsAndMethod}
 %%
-Our approach allows to analyze many variables simultaneously.
+\noindent Our approach allows to analyze many variables simultaneously.
 %%
 Therefore, epidemiologists compiled the data set with a with a wide range of variables possibly correlating with lumbar back pain.
 %%
@@ -345,11 +338,35 @@ This gives us a total of 9 image-derived parameters.
 
 \section{\uppercase{Experiments}}
 \label{sec:Experiments}
+\begin{figure}[!h]
+  %\vspace{-0.2cm}
+  \centering
+  \includegraphics[width=0.5\textwidth]{figures/age-gender}
+  \caption{
+	%%
+	Correlation of age and gender regarding the lumbar spine size.
+	%%
+	The bar chart shows subjects divided into four different age groups (x-axis) and their subject number (y-axis).
+	%%
+	Each bar contains the mean lumbar spine of the respective group.
+	%%
+	The shape color encodes the distance to the overall male (top chart) or female (bottom chart) mean shape.
+	%%
+	The dark gray share of each bar encodes the portion of male (top chart) or female (bottom chart) subjects.
+	%%
+	Women have a higher live expectance than men, hence their higher share in the old age group.
+	%%
+	Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
+	%%
+	Due to bone erosion, older people are also smaller on average.
+	}
+  \label{fig:age-gender}
+\end{figure}
 \noindent Spine shape is confounded by several somatometric variables.
 %%
 Larger people have also a longer spine and its shape is more straight compared to smaller subjects.
 %%
-Since men are on average taller than women, gender is another confounder.
+Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also confounder (Fig.~\ref{fig:age-gender}).
 %%
 Large body weight increases the spine load, resulting in a bend shape.
 %%
@@ -470,14 +487,6 @@ This observation brought us to the conclusion to incorporate more sophisticated 
 % Weil das nicht ausreichend war, haben wir einen C5.0 Baum erstellt, um alle potentiellen Zusammenhänge zwischen bildbezogenen und Nichtbildbezogenen Parametern herzustellen - Was kann man mit den Bilddaten erklären und was nicht?
 %
 % HetCor hier noch mit unterbringen. Damit kann man eine Korrelationsmatrix unabhängig vom Datentyp berechnen, um eine große Korrellationsmatrix zu erhalten (Supplementary Material). Hier können die Einträge in den Zeilen der Bildparameter angeschaut werden, um zu schauen, ob man eine Korrellation mit bestimmten Parametern finden kann! Das müsste auch wieder für alle Größengruppen passieren! (https://stats.stackexchange.com/questions/101016/pca-and-component-scores-based-on-a-mix-of-continuous-binary-and-categorical-va)
-
-\subsection{Experimental Settings and Results}
-Decision Tree erklaeren, ebenfalls Umrechnen in die Dummy-Variablen. Was sind die Zielvariablen
-\begin{itemize}
-\item Altersgruppierung
-\item Male/Female
-\item Gewicht (BMI - dünn, normal, dick)
-\end{itemize}
 % Creating a Decision Tree using C5.0
 
 %\com{C4.5 Algorithm for creating decision trees; }
@@ -906,17 +915,17 @@ We have to capture earlier signs of pathological change in order to derive bette
 
 A very early sign of pathological deformation is the \emph{bone resorption in the center of a vertebra}.
 %%
-They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~(a)).
+They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~a).
 %%
 This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
 %%
-Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~(b).
+Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~b).
 %%
 Low spine canal thickness can be an indicator for an impending herniated disk.
 %%
 Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
 %%
-The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~(c).
+The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~c).
 %% ------------------------------------
 \subsection{Applicability of the Method}
 %%
