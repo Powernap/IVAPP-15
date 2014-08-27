@@ -224,6 +224,65 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
 \noindent \com{Our own work (VIS, VMV, BVM). Sylvias paper with reference to the methods. \textbf{More information necessary here!}}
+\com{From VIS Paper}
+
+ToDo Hier weitermachen
+Steenwijk
+Turkey (Skeweness-Paper)
+Angelelli
+Abschließend Uniqueness beschreiben
+
+\paragraph{Visual Analysis of Heterogenous Non-Image Data.}
+Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
+%
+Their definition of a cohort differs from the understanding of the term in an epidemiological context by denoting every parameter-divided subject group as individual cohort.
+%
+Due to the short paper length, detail is missing on the data types and their algorithms of identifying similar subjects or whether they employ statistical measures.
+%
+We employ the idea of adding variables via drag and drop into a canvas area.
+
+Generalized Pairs Plots (\texttt{GPLOM´S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
+%
+They are useful to gain an overview over numerous variables and their distributions.
+%
+Histograms, bar charts, scatter plots and heat maps are used to visualize variable combinations with regard to their type.
+%
+The resulting matrix provides an \emph{overview visualization}, but requires a lot of screen space for many variables (127 in our application scenario).
+%
+%Brushing, linking and filtering are feasible with \texttt{GPLOMS}, but have limitations such as making only one category brushable at a time.
+%
+%We applied this technique to our data and it shows promising potential for simultaneously visualizing many different variables. %but does not fit in the scope of this paper.
+%
+We incorporate the idea of adaptive type-dependent visualizations.
+%\add{The inspiration on the chosen visualization techniques stems from this publication.}
+%
+Dai et al. \cite{Dai2005} explored risk factors by incorporating choropleth maps of epidemiological variables (e.g., mortality rates in a region) with parallel coordinates, bar charts and scatter plots with integrated regression lines.
+%
+Their findings yielded a \emph{Concept Map}, which linked cancer-related associations via graph edges.
+%
+While their goal to identify possible risk factors using socio-economic and health data is similar to ours, they focus on iteratively refining defined hypotheses and on geographical data.
+%
+We employ the use of small multiples for incorporating heterogenous data types for comparability.
+%
+Chui et al. \cite{Chui2011} visualized associations in time-dependent epidemiological data using time-series plots highlighting risk factor differences in age and gender.
+%
+%The connection of time series plots with histograms and heat maps allows for fast insight into complex relationships and 
+While the work shows how different visualization techniques provide insight into these data sets, it focuses on the time aspect, which is not present for our data.
+
+\paragraph{Prior Work.}
+We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
+%
+Hierarchical agglomerative clustering divided the population into shape-related groups.
+%
+As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
+%
+This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
+%
+When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+%
+Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for the assessment of risk factors of hepatic steatosis, the fatty liver disease.
+%
+Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
 
 \section{The Lumbar Spine Data Set}
 \label{sec:MaterialsAndMethod}
