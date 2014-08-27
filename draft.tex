@@ -903,15 +903,15 @@ Their complexity impose overfitting to the data and they are not suitable for ex
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/placeholder}
+  \includegraphics[width=0.5\textwidth]{figures/proposed-features}
   \caption{
 	Proposed features.
 	%%
 	(a) dented vertebraes are a sign of heavy stress and bone absorption.
 	%%
-	(b) Spine canal thickness is associated with herniated disks.
+	(b, c) the spine canal shape can be used to characterize scoliosis (curvature sagittal) and lordosis (curvature coronal) as well as the \emph{Cobb-Angles} \cite{Cobb}.
 	%%
-	(c) the spine canal shape can be used to characterize scoliosis and lordosis as well as the \emph{Cobb-Angles} \cite{Cobb}.
+	(c) Spine canal thickness is associated with herniated disks.
 	%%
 	}
   \label{fig:proposedFeatures}
@@ -928,13 +928,13 @@ They change from being block-shaped to be dented in the center (Fig~\ref{fig:pro
 %%
 This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
 %%
-Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~b).
+Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~c).
 %%
 Low spine canal thickness can be an indicator for an impending herniated disk.
 %%
 Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
 %%
-The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~c).
+The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
 %% ------------------------------------
 \subsection{Applicability of the Method}
 %%
