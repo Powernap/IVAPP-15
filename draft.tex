@@ -1,5 +1,4 @@
 \documentclass[a4paper,twoside]{style/article}
-
 \usepackage{epsfig}
 \usepackage{subfigure}
 \usepackage{calc}
@@ -21,6 +20,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{xcolor}
 \usepackage[]{algorithm2e}
+\usepackage[utf8]{inputenc}
 \newcommand{\rem}[1]{\textcolor{red}{\sout{#1}}}
 \newcommand{\add}[1]{\textcolor{blue}{\uline{#1}}}
 \newcommand{\com}[1]{\textcolor{orange}{\uline{#1}}}
@@ -223,16 +223,47 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 %% -------------------------------
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
-\noindent \com{Our own work (VIS, VMV, BVM). Sylvias paper with reference to the methods. \textbf{More information necessary here!}}
-\com{From VIS Paper}
+\com{Steenwijk, 
+Turkey (Skeweness-Paper), 
+Angelelli, 
+Klemm2014
+Abschließend Uniqueness beschreiben}
 
-ToDo Hier weitermachen
-Steenwijk
-Turkey (Skeweness-Paper)
-Angelelli
-Abschließend Uniqueness beschreiben
+\paragraph{Decision Rule Driven Analysis of Medical Data.}
+Closest to our work is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
+%%
+Related work in this field often focuses on clinical diagnosis.
+%%
+Gla{\ss}er et al. \cite{Glasser2013} use parameters derived from DCE-MRI image data to classify breast tumors.
+%%
+Their parameters are derived from clustering of bloodflow in the tumorous tissue.
+%%
+These features trains a decision-tree classifier, concluding that the extracted features alone are not sufficient for tumor type classification.
+%%
+Niemann et al. \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
+%%
+They presented an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
+%%
+The presented paper either validate the significance of image derived parameter or derive new relationships by training decision trees to explain target variables.
+%%
 
+Pinhero et al. \cite{Pinheiro} applied association rule mining to create high-confidence decision rules about the mortality rate in liver cancer data.
+%%
+Decision rules are easily readable and understandable and are therefore well suited for classifying medical data.
+%%
+The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
+%%
+Once these rules, however, get too complex, analyzing these decision rules can get complex.
+%%
+
+Sekhavat and Hoeber \cite{Sekhavat} propose a interactive visualization techniques for decision trees, where all decisions are displayed in a heat map
+%%
+The visualization translates the decision tree into a heat map, where each cell represents the connectivity between a initial value and an target value.
+%%
+The resulting interactive visualization is well suited for analyzing a decision tree, but not for multiple trees.
+%%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
+\com{FROM VIS PAPER}
 Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
 %
 Their definition of a cohort differs from the understanding of the term in an epidemiological context by denoting every parameter-divided subject group as individual cohort.
@@ -241,7 +272,7 @@ Due to the short paper length, detail is missing on the data types and their alg
 %
 We employ the idea of adding variables via drag and drop into a canvas area.
 
-Generalized Pairs Plots (\texttt{GPLOM´S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
+Generalized Pairs Plots (\texttt{GPLOM'S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
 %
 They are useful to gain an overview over numerous variables and their distributions.
 %
@@ -269,21 +300,29 @@ Chui et al. \cite{Chui2011} visualized associations in time-dependent epidemiolo
 %The connection of time series plots with histograms and heat maps allows for fast insight into complex relationships and 
 While the work shows how different visualization techniques provide insight into these data sets, it focuses on the time aspect, which is not present for our data.
 
-\paragraph{Prior Work.}
-We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
+\paragraph{SHIP Data Analysis.}
+Klemm et al. analyzed the variability of the lumbar spine data of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
+%%
+They incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier cluster.
+%%
+The extracted lumbar spine shape was correlated with subject size.
+%%
+Out data extraction process is based on the detection algorithm and lumbar spine canal extraction presented in this paper.
+%Our work is based on data extracted in the same manner as described in this paper.
+%We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
 %
-Hierarchical agglomerative clustering divided the population into shape-related groups.
+%Hierarchical agglomerative clustering divided the population into shape-related groups.
 %
-As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
+%As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
 %
-This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
+%This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
 %
-When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+Clustering techniques applied to non-image data are strongly dependent on the chosen variables and distance measures.
+%%
+Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task \cite{Klemm2014BVM}.
+%Analyzing non-image data using clustering techniques 
+%When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
 %
-Niemann et al. \cite{Niemann2014} presented an interactive data mining tool for the assessment of risk factors of hepatic steatosis, the fatty liver disease.
-%
-Association rules created by data mining methods can be analyzed interactively with their tool and highlight potentially overlooked variables.
-
 \section{The Lumbar Spine Data Set}
 \label{sec:MaterialsAndMethod}
 %%
