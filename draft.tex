@@ -223,11 +223,28 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 %% -------------------------------
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
-\com{Steenwijk, 
-Turkey (Skeweness-Paper), 
-Angelelli, 
-Klemm2014
-Abschließend Uniqueness beschreiben}
+%%
+\paragraph{Visual Analysis of Image and non-Image Data}
+%%
+Klemm et al. \cite{Klemm2014VIS} propose an extension to the existing epidemiological workflow using Interactive Visual Analysis (IVA).
+%%
+The workflow consists of an iterative sequence of group selection, variable selection and visualization.
+%%
+It aims to trigger \emph{hypothesis generation} by providing visualizations able to concurrently analyzing multiple heterogenous variables at once using correlation measures.
+%%
+We incorporate the IVA approach by concurrently displaying complex relationships between variables using decision trees.
+%%
+Steenwijk et al. \cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
+%%
+It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities to successively analyze a data set.
+%%
+Similar to our work, they quantify image data to map them into the same information space as non-image data.
+%%
+Turkay et al. \cite{Turkay} follow a similar approach by deriving descriptive data metrics from image data.
+%%
+Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile-range, making dimensions comparable.
+%%
+This approach aims to trigger \emph{hypothesis generation} by outlining tendencies between these dimensions.
 
 \paragraph{Decision Rule Driven Analysis of Medical Data.}
 Closest to our work is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
@@ -255,7 +272,6 @@ The results can be easily communicated to domain experts with little knowledge a
 %%
 Once these rules, however, get too complex, analyzing these decision rules can get complex.
 %%
-
 Sekhavat and Hoeber \cite{Sekhavat} propose a interactive visualization techniques for decision trees, where all decisions are displayed in a heat map
 %%
 The visualization translates the decision tree into a heat map, where each cell represents the connectivity between a initial value and an target value.
@@ -263,66 +279,45 @@ The visualization translates the decision tree into a heat map, where each cell 
 The resulting interactive visualization is well suited for analyzing a decision tree, but not for multiple trees.
 %%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
-\com{FROM VIS PAPER}
-Zhang et al. \cite{Zhang2012} provide a web-based system for analyzing subject groups with linked views and batch-processing capabilities for categorizing new subject entries into the data set.
-%
-Their definition of a cohort differs from the understanding of the term in an epidemiological context by denoting every parameter-divided subject group as individual cohort.
-%
-Due to the short paper length, detail is missing on the data types and their algorithms of identifying similar subjects or whether they employ statistical measures.
-%
-We employ the idea of adding variables via drag and drop into a canvas area.
-
-Generalized Pairs Plots (\texttt{GPLOM'S}) are an information visualization technique comparing heterogenous variables pairwise using a plot-matrix grouped by type \cite{GPLOMS, Francois2013}.
-%
-They are useful to gain an overview over numerous variables and their distributions.
-%
-Histograms, bar charts, scatter plots and heat maps are used to visualize variable combinations with regard to their type.
-%
-The resulting matrix provides an \emph{overview visualization}, but requires a lot of screen space for many variables (127 in our application scenario).
-%
-%Brushing, linking and filtering are feasible with \texttt{GPLOMS}, but have limitations such as making only one category brushable at a time.
-%
-%We applied this technique to our data and it shows promising potential for simultaneously visualizing many different variables. %but does not fit in the scope of this paper.
-%
-We incorporate the idea of adaptive type-dependent visualizations.
-%\add{The inspiration on the chosen visualization techniques stems from this publication.}
-%
-Dai et al. \cite{Dai2005} explored risk factors by incorporating choropleth maps of epidemiological variables (e.g., mortality rates in a region) with parallel coordinates, bar charts and scatter plots with integrated regression lines.
-%
-Their findings yielded a \emph{Concept Map}, which linked cancer-related associations via graph edges.
-%
-While their goal to identify possible risk factors using socio-economic and health data is similar to ours, they focus on iteratively refining defined hypotheses and on geographical data.
-%
-We employ the use of small multiples for incorporating heterogenous data types for comparability.
-%
-Chui et al. \cite{Chui2011} visualized associations in time-dependent epidemiological data using time-series plots highlighting risk factor differences in age and gender.
-%
-%The connection of time series plots with histograms and heat maps allows for fast insight into complex relationships and 
-While the work shows how different visualization techniques provide insight into these data sets, it focuses on the time aspect, which is not present for our data.
-
+%%
+Zhang et al. \cite{Zhang} analyze subject groups in a web-based linked view system.
+%%
+The resulting decision rules aim to categorize new subjects as they are added to the data.
+%%
+They define a cohort as parameter-divided subject group, differing from the epidemiological understanding of a cohort.
+%%
+The paper lacks details about handling of missing data, the definition of similarity or which statistical measures are used.
+%%
+Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS, Francois2013}.
+%%
+The plot depends on the type of variables, which are pairwise visualized.
+%%
+The plot matrix is well suited for an overview visualization, but takes up much screen space and is therefore only suitable for few variables at once (see Fig.~\ref{image-parameter-range}).
+%%
+Dai et al. \cite{Dai} defined a \emph{Concept Map} linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines.
+%%
+The \emph{Concept Map} is iteratively refined using primarily the underlying geographical data.
+%%
+Our work does not contain geographical information of any kind.
+%%----------------------------
 \paragraph{SHIP Data Analysis.}
-Klemm et al. analyzed the variability of the lumbar spine data of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
+Klemm et al. analyzed the lumbar spine variability of of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
 %%
 They incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier cluster.
 %%
 The extracted lumbar spine shape was correlated with subject size.
 %%
 Out data extraction process is based on the detection algorithm and lumbar spine canal extraction presented in this paper.
-%Our work is based on data extracted in the same manner as described in this paper.
-%We visualized lumbar spine variabilities based on a semi-automatic shape detection algorithm of 490 participants of the \texttt{SHIP-2} cohort \cite{Klemm2013VMV}.
-%
-%Hierarchical agglomerative clustering divided the population into shape-related groups.
-%
-%As proof of concept, a relation between the size of the segmented shape and the measured size of the subjects was shown.
-%
-%This work focuses on incorporating these derived data as new variables, enabling to include it into the hypothesis validation and generation process.
-%
+%%
 Clustering techniques applied to non-image data are strongly dependent on the chosen variables and distance measures.
 %%
 Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task \cite{Klemm2014BVM}.
-%Analyzing non-image data using clustering techniques 
-%When applying clustering techniques to the non-image data it was found that \texttt{k-Prototypes} and \texttt{DBSCAN} are appropriate, but are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
-%
+%%
+\\
+Unique for our work is the combination of an IVA-approach by observing interesting feature relations in context of image-derived features using multiple decision trees for one visualization.
+%%
+We abstract the decision tree results similar to \cite{Turkay} to make them comparable in a overview visualization.
+%%
 \section{The Lumbar Spine Data Set}
 \label{sec:MaterialsAndMethod}
 %%
