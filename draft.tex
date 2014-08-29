@@ -159,7 +159,7 @@ These \emph{confounding} variables are often hard to find.
 Statistical correlation does not imply causation--epidemiologists need to assess the medical soundness of the statistical results.
 %%------------------------------
 \subsection{Epidemiological Data}
-Epidemiological data can stem from a wide range of studies.
+Epidemiological data originates from a wide range of studies.
 %%
 The study type depends on the condition of interest.
 %%
@@ -174,9 +174,9 @@ As a result, these data can be analyzed regarding many diseases and conditions.
 
 Epidemiological data is heterogenous and incomplete.
 %%
-Women-specific question can only be acquired for female subjects, data about a disease treatment only for subjects suffering from this condition.
+For example women-specific questions or data about a disease treatment only for subjects suffering from this condition.
 %%
-Therefore, statistical analysis has to take missing data into account.
+Statistical analysis has to take missing data into account.
 %%
 
 Epidemiologists acquire data using a wide range of techniques, such as medical examinations, self reported questionnaires or genetic examinations.
@@ -204,13 +204,13 @@ These numeric values can be compared with non-image variables to retrieve correl
 %%--------------------------------
 \subsection{Lower Back Pain}
 %%
-The lower (\emph{lumbar}) spine is the most stressed part of the spine.
+The lower (\emph{lumbar}) spine is the most stressed spine part.
 %%
 Lower back pain is one of the most frequent diseases in the western civilization.
 %%
 Epidemiologists assume associations between lumbar back pain and lifestyle factors.
 %%
-These include nutrition, sporting activities and body posture at work.
+These include nutrition, sporting activities and body posture combined with physical stress at work.
 %%
 The exact causes as well as particularly vulnerable risk groups are not known.
 %%
@@ -226,9 +226,9 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 %%
 \paragraph{Visual Analysis of Image and non-Image Data}
 %%
-Klemm et al. \cite{Klemm2014VIS} propose an extension to the existing epidemiological workflow using Interactive Visual Analysis (IVA).
+Klemm et al. \cite{Klemm2014VIS} propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA).
 %%
-The workflow consists of an iterative sequence of group selection, variable selection and visualization.
+The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
 It aims to trigger \emph{hypothesis generation} by providing visualizations able to concurrently analyzing multiple heterogenous variables at once using correlation measures.
 %%
@@ -236,47 +236,15 @@ We incorporate the IVA approach by concurrently displaying complex relationships
 %%
 Steenwijk et al. \cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
 %%
-It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities to successively analyze a data set.
+It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities.
 %%
-Similar to our work, they quantify image data to map them into the same information space as non-image data.
+Similar to our work, they quantify image data project it into the non-image data information space.
 %%
 Turkay et al. \cite{Turkay} follow a similar approach by deriving descriptive data metrics from image data.
 %%
-Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile-range, making dimensions comparable.
+Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile-range, making variables comparable.
 %%
-This approach aims to trigger \emph{hypothesis generation} by outlining tendencies between these dimensions.
-
-\paragraph{Decision Rule Driven Analysis of Medical Data.}
-Closest to our work is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
-%%
-Related work in this field often focuses on clinical diagnosis.
-%%
-Gla{\ss}er et al. \cite{Glasser2013} use parameters derived from DCE-MRI image data to classify breast tumors.
-%%
-Their parameters are derived from clustering of bloodflow in the tumorous tissue.
-%%
-These features trains a decision-tree classifier, concluding that the extracted features alone are not sufficient for tumor type classification.
-%%
-Niemann et al. \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
-%%
-They presented an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
-%%
-The presented paper either validate the significance of image derived parameter or derive new relationships by training decision trees to explain target variables.
-%%
-
-Pinhero et al. \cite{Pinheiro} applied association rule mining to create high-confidence decision rules about the mortality rate in liver cancer data.
-%%
-Decision rules are easily readable and understandable and are therefore well suited for classifying medical data.
-%%
-The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
-%%
-Once these rules, however, get too complex, analyzing these decision rules can get complex.
-%%
-Sekhavat and Hoeber \cite{Sekhavat} propose a interactive visualization techniques for decision trees, where all decisions are displayed in a heat map
-%%
-The visualization translates the decision tree into a heat map, where each cell represents the connectivity between a initial value and an target value.
-%%
-The resulting interactive visualization is well suited for analyzing a decision tree, but not for multiple trees.
+This approach aims to trigger \emph{hypothesis generation} by outlining tendencies between these variables.
 %%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
 %%
@@ -284,22 +252,54 @@ Zhang et al. \cite{Zhang} analyze subject groups in a web-based linked view syst
 %%
 The resulting decision rules aim to categorize new subjects as they are added to the data.
 %%
-They define a cohort as parameter-divided subject group, differing from the epidemiological understanding of a cohort.
+They define a cohort as parameter-divided subject group, differing from the epidemiological understanding of the term.
 %%
-The paper lacks details about handling of missing data, the definition of similarity or which statistical measures are used.
+The paper lacks details about handling of missing data, the definition of similarity or which statistical measures are applied.
 %%
-Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS, Francois2013}.
+Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS,Francois}.
 %%
 The plot depends on the type of variables, which are pairwise visualized.
 %%
-The plot matrix is well suited for an overview visualization, but takes up much screen space and is therefore only suitable for few variables at once (see Fig.~\ref{image-parameter-range}).
+The plot matrix is well suited for a overview visualization, but takes up much screen space and is therefore only suitable for few variables at once (see Fig.~\ref{fig:image-parameter-range}).
 %%
-Dai et al. \cite{Dai} defined a \emph{Concept Map} linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines.
+Dai et al. \cite{Dai} defined a \emph{Concept Map}, linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines.
 %%
 The \emph{Concept Map} is iteratively refined using primarily the underlying geographical data.
 %%
-Our work does not contain geographical information of any kind.
+%Our work, however, does not contain geographical information of any kind.
 %%----------------------------
+\paragraph{Decision Rule Driven Analysis of Medical Data.}
+Related work in this field often focuses on clinical diagnosis.
+%%
+Closest to ours is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
+%%
+Gla{\ss}er et al. \cite{Glasser2013} use variables derived from DCE-MRI image capturing the blood flow in the tumorous tissue.
+%%
+They aim to classify breast tumors.
+%%
+The extracted variables train a decision-tree classifier, concluding that the extracted features alone are not sufficient for tumor type classification.
+%%
+Niemann et al. \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
+%%
+They presented an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
+%%
+We combine ideas of both papers by validating the significance of image derived parameter aiming to derive new relationships by training decision trees to explain target variables.
+%%----------------------------
+
+Pinhero et al. \cite{Pinheiro} applied association rule mining to create high-confidence decision rules about the mortality rate in liver cancer data.
+%%
+Decision rules are easily readable and are well suited for classifying medical data. \com{Das frueher erwaehnen}
+%%
+The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
+%%
+Once these rules, get too complex, analyzing these decision rules becomes complex.
+%%
+Sekhavat and Hoeber \cite{Sekhavat} propose a interactive visualization technique for decision trees, where all decisions are displayed in a heat map.
+%%
+The visualization translates the decision tree into a heat map, where each cell represents the connectivity between a initial value and an target value.
+%%
+The resulting interactive visualization is well suited for analyzing single, but not multiple decision trees.
+%%
 \paragraph{SHIP Data Analysis.}
 Klemm et al. analyzed the lumbar spine variability of of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
 %%
@@ -313,10 +313,10 @@ Clustering techniques applied to non-image data are strongly dependent on the ch
 %%
 Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task \cite{Klemm2014BVM}.
 %%
-\\
+\\\\
 Unique for our work is the combination of an IVA-approach by observing interesting feature relations in context of image-derived features using multiple decision trees for one visualization.
 %%
-We abstract the decision tree results similar to \cite{Turkay} to make them comparable in a overview visualization.
+We abstract the decision tree results similar to \cite{Turkay}, making them comparable in a overview visualization.
 %%
 \section{The Lumbar Spine Data Set}
 \label{sec:MaterialsAndMethod}
@@ -333,7 +333,7 @@ The data set comprises of 6,753 subjects from two cohorts (4,420 from \texttt{SH
 %%
 \subsection{Non-Image Data}
 %\com{Analysis Using Heterogeneous Correlation}
-The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sport activity or nutrition.
+The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sport activity or nutrition. \com{Ein paar Details hierzu noch - Datentyp, missing data, aufeinander aufbauende parameter}
 
 \subsection{Image Data}
 \begin{figure}[!h]
@@ -365,7 +365,7 @@ A hierarchical finite element method was used to detect the lumbar spine in the 
 %%
 The tetrahedron-based finite element model is initialized using three user-placed land marks.
 %%
-A click on the L3 vertebra center gives the model the initial position, two clicks on the top and bottom of the vertebra describes an initial model height estimation.
+A click on the L3 vertebra center initialized the model, two clicks on the top and bottom of the vertebra describes an initial height estimation.
 %%
 The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae \cite{Klemm2013VMV} (Fig.~\ref{fig:centerline}~a).
 %%
@@ -400,7 +400,7 @@ It captures reliable information about spine canal curvature.
 %%
 In a previous work \cite{Klemm2013VMV,Klemm2014VIS}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
 %%
-Using the Frenet formulas \cite{Frenet}, we extracted the following metrics from the model (Fig.~\ref{fig:centerline}~b):
+Using the Frenet formulas \cite{Frenet}, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b):
 %%
 %Thus, we extracted the following metrics from the model:
 %%
@@ -456,7 +456,7 @@ This gives us a total of 9 image-derived parameters.
 \end{figure}
 \noindent Spine shape is confounded by several somatometric variables.
 %%
-Larger people have also a longer spine and its shape is more straight compared to smaller subjects.
+Larger people have also a longer spine and its shape is more straight.
 %%
 Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also confounder (Fig.~\ref{fig:age-gender}).
 %%
@@ -484,11 +484,11 @@ No correlation with back pain are present can be seen in this plot.
   \label{fig:image-parameter-range}
 \end{figure*}
 %%
-\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using a generalized pairs plot \cite{GPLOMS}.
+\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
 %%
-Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
+%Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
 %%
-Scatterplots display pairs of continuous variables, bar charts for continuous variable as a function of a categorical variable and box plots pairs of categorical variables.
+%Scatterplots display pairs of continuous variables, bar charts for continuous variable as a function of a categorical variable and box plots pairs of categorical variables.
 %%
 Since our image-derived variables are metric, their pairwise combinations are visualized using scatterplots.
 %%
@@ -505,9 +505,9 @@ We calculated an association matrix to to assess correlations between the image 
 %%
 The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal in Figure~\ref{fig:image-parameter-range}.
 %%
-Curvature, curvature angle and torsion correlate strongly with their planar projections.
+\emph{Curvature}, \emph{curvature angle} and \emph{torsion} correlate strongly with their planar projections.
 %%
-Also the mean curvature and the curvature angle correlate by a factor of -0.89.
+Also the mean curvature and the curvature angle correlate by a factor of $-0.89$.
 %%
 %Torsion and curvature/curvature angle do not correlate.
 Torsion does not correlate with any other image-derived variable.
@@ -553,7 +553,7 @@ The method uses the following correlation metrics for the different type combina
 \end{itemize}
 \com{TODO: Abbildung einer Korrelationsmatrix? Waere sehr gross!}
 %%
-All correlation values are scaled between 0 - no correlation and 1 - identical.
+All correlation values are scaled between \texttt{0 - no correlation} and \texttt{1 - identical}.
 %%
 Some variables are too sparse for calculating correlations, for example \emph{treatment of diabetes}, or \emph{medication against high blood pressure}.
 %%
@@ -567,7 +567,8 @@ Only weak correlations could be found for \emph{Mean Curvature} with \emph{gende
 %%
 One surprising result was the small correlation with \emph{torsion}, which correlated with almost no variables (p values between 0 and 0.05) and \emph{parkinson} (0.24).
 %%
-This observation brought us to the conclusion to incorporate more sophisticated data mining techniques to assess the influence of the image-derived parameters.
+
+These observations brought us to the conclusion to incorporate more sophisticated data mining techniques to assess the influence of the image-derived parameters.
 
 % \subsubsection{Diese Themen hier unterbringen}
 % \begin{itemize}
@@ -592,7 +593,7 @@ We rely on predictive classification trained to obtain a complex rule set on how
 %%
 Decision trees are a popular classification method in data mining for creating predictive models.
 %%
-Leaves of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
+Leafs of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
 %%
 Decision trees are easy to understand and to read.
 %%
@@ -602,7 +603,7 @@ This allows epidemiological domain experts to interpret the results without havi
 %%
 Readability is only granted for small trees, complex structures with many branches are not desirable.
 %%
-Too many branches also impose to the data.
+Too many branches also impose overfitting to the data.
 \com{Quelle Decision Tree}
 
 \subsection{The C4.5/C5.0 Algorithm}
@@ -671,7 +672,7 @@ To make the results cognitive feasible, we have to abstract the results of the c
 \subsubsection{Visualization of Classification Results}
 \label{subsec:VisualizationOfClassificationResults}
 %%
-We follow the visual information-seeking mantra and want to provide an overview first, then details-on-demand \ref{shneiderman1996}.
+We follow the visual information-seeking mantra and want to provide an overview first, then details-on-demand \cite{shneiderman1996}.
 %%
 The optimal classification uses a few rules to precisely characterize the target variable.
 %%
@@ -723,7 +724,7 @@ Lets say we want to classify and compare the same variables for different subjec
 %%
 We can support this by color coding the data points according to group affiliation.
 
-Many follow-up variables are sparse, such as medication of diabetes or reason of early retirement.
+Many follow-up variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
 The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size.
 %%
@@ -738,7 +739,7 @@ This allows to instantly assess the reliability of the result.
 
 We apply a square root scale for the tree size axis to highlight data points with few decision rules.
 %%
-Outlier results with very large decision trees distort otherwise the resulting plot.
+Outlier results with very large decision trees would otherwise distort the resulting plot.
 %%
 
 %\com{ToDo: SQRT Skalierung der Treesize-Dimension, da hauptsaechlich geringe Groessen von interesse sind, ausreisser aber diesen Bereich schwer durchschaubar machen}
@@ -750,7 +751,7 @@ Outlier results with very large decision trees distort otherwise the resulting p
 % By mapping the group affiliation (in our case body-size) to color or shape, we can even plot all 402 results in a single visualization (Fig.~\ref{fig:decision-tree} a).
 %%
 \subsubsection{Dummy Variables}
-Dummy variables abstract a categorical variable with multiple manifestations into several binary variables.
+Dummy variables convert a categorical variable with multiple manifestations into several binary variables.
 %%
 Each binary variables encodes the presence of a manifestation.
 %%
@@ -765,9 +766,9 @@ This is useful for our classification, because it allows to determine which mani
 %%
 The described visualization provides a good overview over the classification results.
 %%
-We however still want to be able to look display \emph{details-on-demand} \ref{shneiderman1996} and examine a decision tree in detail.
+We however still want to be able to look display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
 %%
-This is realized by clicking on a entry on the visualization, which then displays the corresponding decision tree in detail (Fig.~\ref{fig:decision-tree} b).
+This is realized by clicking on a entry on the visualization, which then displays the corresponding decision tree in detail.
 %%
 This allows for sequentially analyzing the classifications.
 %%------------
