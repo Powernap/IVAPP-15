@@ -22,3 +22,4 @@
 
 # Notes
 - Formula: $\sqrt[2]{\text{Error Rate}}$
+- $\sqrt[2]{\textsf{Error Rate}}$
