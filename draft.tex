@@ -46,30 +46,38 @@
 % Motivation
 Epidemiology is the study of causation of diseases.
 %%
-Subject groups (a cohort) is analyzed to correlate lifestyle and medical variables with diseases.
+Subject groups (a cohort) are analyzed to correlate lifestyle and medical properties with diseases.
 %%
 Most recently, large cohort studies also acquire medical image data.
 %% Problem statement
-We correlate image-derived variables from the lumbar spine with lower back pain.
+%%
+We want to assess the predictive quality of image-derived variables for lower back pain
+%%
+%We correlate image-derived variables from the lumbar spine with lower back pain.
 %% Approach
-Our analysis is based on detection masks from a semi-automatic model based detection of 2,540 lumbar spines.
+Our analysis is based on masks from a semi-automatic model based detection of 2,540 lumbar spines.
 %%
-From the detection masks, we derive shape-describing variables, such as course, curvature and torsion of the spine canal.
+These masks are quantified using shape-describing variables, such as spine canal course, -curvature and -torsion.
+%From the detection masks, we derive shape-describing variables, such as course, curvature and torsion of the spine canal.
 %%
-We classify non-image parameter using decision trees created using the C4.5/C5.0 algorithm.
+Using the C4.5/C5.0 algorithm we created decision trees to predict non-image parameter, such as pain indicators or occupational circumstances.
+%We classify non-image parameter using decision trees created using the C4.5/C5.0 algorithm.
 %%
 The analysis yields a decision tree per non-image parameter.
 %%
-We make these trees comparable by introducing tree size and a classification error rate metrics.
+%We make these trees comparable in a scatter plot using the \emph{tree size} and a \emph{classification error rate} metric.
+We make these trees comparable by using the \emph{tree size} and a \emph{classification error rate} metric.
 %%
 A interactive scatterplot visualization allows to compare the decision trees.
+%%
+The comparative analysis was performed on subjects divided by age, gender and body size to assess the influences of these variables.
 %%
 %\\\\
 % Results
 % Conclusions
 We conclude that the metrics extracted from the detection masks are only sufficient for classification of lifestyle factors, such as gender or nutrition.
 %%
-The presented approach is a valuable extension to the interactive visual analysis of epidemiological data and not limited to image-parameter analysis.
+The presented approach is a valuable extension to the interactive visual analysis of epidemiological data and is not limited to image-parameter analysis.
 }
 
 \onecolumn \maketitle \normalsize \vfill
