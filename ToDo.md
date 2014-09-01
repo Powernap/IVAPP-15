@@ -13,4 +13,9 @@
 - Marko Genauigkeit der Daten einschätzen lassen--als Koautor mit aufnehmen
 - Welche Komplexität von Verteilungsfunktionen können mit Entscheidungsbäumen geschätzt werden - Gehen Entscheidungsbäume über gewichtete Summen hinaus?
 - Mit Klaus sprechen, wann wir Parsos verwenden können, bzw. wann Gino und Daniel ihre Publikation einreichen
-- Skype-Termin mit Katrin Hegenscheid und Henry Völzke anberaumen, um die Ergebnisse zu besprechen
+- [neu] Zitierstil anpassen
+- [neu] Mail an Völzke mit Literatur zu Quantiles
+
+## Allgemein
+
+- Alle Variablen kursiv schreiben
