@@ -40,7 +40,37 @@
 % TODO: The paper must have at least one keyword. The text must be set to 9-point font size and without the use of bold or italic font style. For more than one keyword, please use a comma as a separator. Keywords must be titlecased.
 \keywords{My Keywords in Title Case}
 
-\abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+% \abstract{
+% The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\abstract{ 
+% Motivation
+Epidemiology is the study of causation of diseases.
+%%
+Subject groups (a cohort) is analyzed to correlate lifestyle and medical variables with diseases.
+%%
+Most recently, large cohort studies also acquire medical image data.
+%% Problem statement
+We correlate image-derived variables from the lumbar spine with lower back pain.
+%% Approach
+Our analysis is based on detection masks from a semi-automatic model based detection of 2,540 lumbar spines.
+%%
+From the detection masks, we derive shape-describing variables, such as course, curvature and torsion of the spine canal.
+%%
+We classify non-image parameter using decision trees created using the C4.5/C5.0 algorithm.
+%%
+The analysis yields a decision tree per non-image parameter.
+%%
+We make these trees comparable by introducing tree size and a classification error rate metrics.
+%%
+A interactive scatterplot visualization allows to compare the decision trees.
+%%
+%\\\\
+% Results
+% Conclusions
+We conclude that the metrics extracted from the detection masks are only sufficient for classification of lifestyle factors, such as gender or nutrition.
+%%
+The presented approach is a valuable extension to the interactive visual analysis of epidemiological data and not limited to image-parameter analysis.
+}
 
 \onecolumn \maketitle \normalsize \vfill
 
@@ -778,7 +808,7 @@ This is useful for our classification, because it allows to determine which mani
 %%
 The described visualization provides a good overview over the classification results.
 %%
-We however still want to be able to look display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
+We still want to be able to display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
 %%
 This is realized by clicking on an entry on the visualization, which then displays the corresponding decision tree in detail.
 %%
