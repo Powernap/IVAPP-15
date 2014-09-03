@@ -335,7 +335,7 @@ The variables range from somatometric variables describing body measures to medi
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/centerline}
+  \includegraphics[width=0.475\textwidth]{figures/centerline}
   \caption{
 	(a) left: Tetrahedron-based finite element model (FEM) of the lumbar spine, capturing the L1-L5 vertebrae as well as the lumbar spine canal.
 	%%
@@ -343,7 +343,7 @@ The variables range from somatometric variables describing body measures to medi
 	%%
 	The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
 	%%
-	(b) Using the Frenet formulas, we extract the weighted sum of curvature and torsion for all 92 points (white dashes).
+	(b) Using the Frenet frame, we extract the weighted sum of curvature and torsion for all 92 points (white dashes).
 	%%
 	The curvature angle ($\alpha$) is calculated using the top, bottom and middle point.
 	%%
@@ -393,10 +393,11 @@ We have to assess the model accuracy to extract key figures from it.
 The detection model depicts the vertebrae positions, but lacks detailed information about their volume.
 %%
 It captures reliable information about spine canal curvature.
+%% BLIND
+%In a previous work (\cite{Klemm2013VMV}), we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
+The centerline representation of the lumbar spine canal was extracted from the detection model (Fig.~\ref{fig:centerline}~a) using the approach of \cite{Klemm2013VMV}.
 %%
-In a previous work (\cite{Klemm2013VMV}), we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
-%%
-Using the Frenet formulas, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b) \cite{Frenet}:
+Using the Frenet frame, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b) \cite{Frenet}:
 %%
 %Thus, we extracted the following metrics from the model:
 %%
@@ -405,9 +406,9 @@ Using the Frenet formulas, we calculated the following metrics from the model (F
 	% \item The curvature of the centerline is calculated using the summed mean curvature between adjacent points:
 % %%
 % $\sum \frac{curvature_i}{curvature_all}$.
-	\item \emph{Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum \frac{curvature_i}{curvature_{all}}$.
+	\item \emph{Normalized Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{i}$. We refer to total curvature from now on as \emph{curvature}.
 %%
-	\item \emph{Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum \frac{torsion_i}{torsion_{all}}$.
+	\item \emph{Normalized Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{i}$. We refer to total torsion from now on as \emph{torsion}
 	\item \emph{Curvature angle $\alpha$} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
 \end{itemize}
@@ -429,7 +430,7 @@ This gives us a total of 9 image-derived parameters.
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/age-gender}
+  \includegraphics[width=0.475\textwidth]{figures/age-gender}
   \caption{
 	%%
 	Correlation of age and gender regarding the lumbar spine size.
@@ -1003,7 +1004,7 @@ Their complexity impose overfitting to the data and they are not suitable for ex
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
-  \includegraphics[width=0.5\textwidth]{figures/proposed-features}
+  \includegraphics[width=0.475\textwidth]{figures/proposed-features}
   \caption{
 	Proposed features.
 	%%
@@ -1051,7 +1052,9 @@ Huge result spaces could be navigated fast using our brushable visualization.
 Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
 %%
 
-As described in a prior work (\cite{Klemm2014VIS}), the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+% BLIND
+%As described in a prior work (\cite{Klemm2014VIS}), the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+Suggesting potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology \cite{Klemm2014VIS}.
 %%
 We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
 %%
