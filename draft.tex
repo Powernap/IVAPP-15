@@ -43,41 +43,31 @@
 % \abstract{
 % The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words. The text must be set to 9-point font size. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
 \abstract{ 
-% Motivation
-Epidemiology is the study of causation of diseases.
+The goal of epidemiology is to provide insight into disease causations.
 %%
-Subject groups (a cohort) are analyzed to correlate lifestyle and medical properties with diseases.
+Hence, subject groups (cohorts) are analyzed to correlate the subjects' varying lifestyles and medical properties with diseases.
 %%
-Most recently, large cohort studies also acquire medical image data.
-%% Problem statement
+Recently, these cohort studies comprise medical image data as well.
 %%
-We want to assess the predictive quality of image-derived variables for lower back pain
+We assess the predictive quality of image-derived variables for lower back pain.
 %%
-%We correlate image-derived variables from the lumbar spine with lower back pain.
-%% Approach
-Our analysis is based on masks from a semi-automatic model based detection of 2,540 lumbar spines.
+The evaluation is embedded in an interactive visual analysis (IVA) framework that is based on 2,540 segmented lumbar spine data sets.
 %%
-These masks are quantified using shape-describing variables, such as spine canal course, -curvature and -torsion.
-%From the detection masks, we derive shape-describing variables, such as course, curvature and torsion of the spine canal.
+The segmentation results are evaluated and quantified by employing shape-describing variables, such as the spine canal course, its curvature and torsion.
 %%
-Using the C4.5/C5.0 algorithm we created decision trees to predict non-image parameter, such as pain indicators or occupational circumstances.
-%We classify non-image parameter using decision trees created using the C4.5/C5.0 algorithm.
+We analyze the predictive power of shape-describing variables for non-image variables, e.g., pain indicators.
 %%
-The analysis yields a decision tree per non-image parameter.
+Therefore, we automatically extract a decision tree classifier for each non-image variable.
 %%
-%We make these trees comparable in a scatter plot using the \emph{tree size} and a \emph{classification error rate} metric.
-We make these trees comparable by using the \emph{tree size} and a \emph{classification error rate} metric.
+Furthermore, we provide an IVA technique to compare the classifiers with interactive scatterplot visualizations.
 %%
-A interactive scatterplot visualization allows to compare the decision trees.
+As a first result, we conclude that image-based variables are only sufficient for classification of lifestyle factors.
 %%
-The comparative analysis was performed on subjects divided by age, gender and body size to assess the influences of these variables.
+A correlation between lumbar spine shape and lower back pain disease was not existent in the automatically trained classifiers.
 %%
-%\\\\
-% Results
-% Conclusions
-We conclude that the metrics extracted from the detection masks are only sufficient for classification of lifestyle factors, such as gender or nutrition.
+However, the presented approach is a valuable extension for the IVA of epidemiological data.
 %%
-The presented approach is a valuable extension to the interactive visual analysis of epidemiological data and is not limited to image-parameter analysis.
+Hence, correlations between non-image parameters were successfully detected and characterized.
 }
 
 \onecolumn \maketitle \normalsize \vfill
