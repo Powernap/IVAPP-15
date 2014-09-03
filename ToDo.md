@@ -18,8 +18,6 @@
 
 ## Allgemein
 
-- Alle Variablen kursiv schreiben
-
 # Notes
 - Formula: $\sqrt[2]{\text{Error Rate}}$
 - $\sqrt[2]{\textsf{Error Rate}}$
