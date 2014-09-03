@@ -19,7 +19,6 @@
 ## Allgemein
 
 - Alle Variablen kursiv schreiben
-- Kommas in Zahlen ersetzen
 
 # Notes
 - Formula: $\sqrt[2]{\text{Error Rate}}$
