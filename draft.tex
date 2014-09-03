@@ -222,7 +222,7 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 %%
 \paragraph{Visual Analysis of Image and non-Image Data}
 %%
-Klemm et al. \cite{Klemm2014VIS} propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA).
+Klemm et al. propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA) \cite{Klemm2014VIS}.
 %%
 The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
@@ -230,13 +230,13 @@ It aims to trigger \emph{hypothesis generation} by providing visualizations able
 %%
 We incorporate the IVA approach by concurrently displaying complex relationships between variables using decision trees.
 %%
-Steenwijk et al. \cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
+Steenwijk et al. propose a coordinated linked view system for both image-related and non-image data \cite{Steenwijk}.
 %%
 It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities.
 %%
 Similar to our work, they quantify image data and project it into the non-image data information space.
 %%
-Turkay et al. \cite{Turkay} follow a similar approach by deriving descriptive data metrics from image data.
+Turkay et al. follow a similar approach by deriving descriptive data metrics from image data \cite{Turkay}.
 %%
 Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile-range, making variables comparable.
 %%
@@ -244,7 +244,7 @@ This approach aims to trigger \emph{hypothesis generation} by outlining tendenci
 %%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
 %%
-Zhang et al. \cite{Zhang} analyze subject groups in a web-based linked view system.
+Zhang et al. analyze subject groups in a web-based linked view system \cite{Zhang}.
 %%
 The resulting decision rules aim to categorize new subjects as they are added to the data.
 %%
@@ -258,7 +258,7 @@ The plot depends on the type of variables, which are pairwise visualized.
 %%
 The plot matrix is well suited for an overview visualization, but takes up much screen space and is therefore only suitable for few variables at once (see Fig.~\ref{fig:image-parameter-range}).
 %%
-Dai and Gahegan \cite{Dai} defined a \emph{Concept Map}, linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines.
+Dai and Gahegan defined a \emph{Concept Map}, linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines \cite{Dai}.
 %%
 The \emph{Concept Map} is iteratively refined using primarily the underlying geographical data.
 %%
@@ -269,20 +269,20 @@ Related work in this field often focuses on clinical diagnosis.
 %%
 Closest to ours is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
 %%
-Gla{\ss}er et al. \cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in the tumorous tissue.
+Gla{\ss}er et al. use variables derived from DCE-MRI data capturing the perfusion in the tumorous tissue \cite{Glasser2013}.
 %%
 They aim to classify breast tumors.
 %%
 The extracted variables train a decision-tree classifier, concluding that the extracted features alone are not sufficient for tumor type classification.
 %%
-Niemann et al. \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
+Niemann et al. assess hepatic steatosis (fatty liver disease) risk factors using decision trees \cite{Niemann2014}.
 %%
 They presented an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
 %%
 We combine ideas of both papers by validating the significance of image-derived parameter aiming to derive new relationships by training decision trees to explain target variables.
 %%----------------------------
 
-Pinhero et al. \cite{Pinheiro} applied association rule mining to create high-confidence decision rules based on variables such as age, gender and geographic location about the mortality rate in liver cancer data.
+Pinhero et al. applied association rule mining to create high-confidence decision rules based on variables such as age, gender and geographic location about the mortality rate in liver cancer data \cite{Pinheiro}.
 %%
 Decision rules are easily readable and are well suited for classifying medical data. \com{Das frueher erwaehnen}
 %%
@@ -290,7 +290,7 @@ The results can be easily communicated to domain experts with little knowledge a
 %%
 Once these rules, get too complex, analyzing these decision rules becomes complex.
 %%
-Sekhavat and Hoeber \cite{Sekhavat} propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map.
+Sekhavat and Hoeber propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map \cite{Sekhavat}.
 %%
 The visualization translates the decision tree into a heat map, where each cell represents the connectivity between an initial value and an target value.
 %%
@@ -394,9 +394,9 @@ The detection model depicts the vertebrae positions, but lacks detailed informat
 %%
 It captures reliable information about spine canal curvature.
 %%
-In a previous work \cite{Klemm2013VMV}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
+In a previous work (\cite{Klemm2013VMV}), we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
 %%
-Using the Frenet formulas \cite{Frenet}, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b):
+Using the Frenet formulas, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b) \cite{Frenet}:
 %%
 %Thus, we extracted the following metrics from the model:
 %%
@@ -1051,7 +1051,7 @@ Huge result spaces could be navigated fast using our brushable visualization.
 Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
 %%
 
-As described in a prior work \cite{Klemm2014VIS}, the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+As described in a prior work (\cite{Klemm2014VIS}), the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
 %%
 We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
 %%
