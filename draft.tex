@@ -75,7 +75,7 @@ Hence, correlations between non-image parameters were successfully detected and 
 %%Epidemiology is the study of causation of diseases.
 Epidemiology is the study of dissemination, causes and results of health-related states and events.
 %%
-For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) [??] gather as much information as possible about participants to be assessed towards different diseases.
+For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) \cite{SHIP} gather as much information as possible about participants to be assessed towards different diseases.
 %%
 These information are used to determine risk factors for diseases, help people to improve their lifestyle and their health or to support diagnosis of widespread diseases.
 %%
@@ -89,9 +89,9 @@ As a result, the hypothesis will be accepted or rejected.
 %For epidemiological research, cohort studies are acquired.
 For epidemiological research, cohort studies are carried out.
 %%
-Since recently, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as gender, age and weight.
+Since recently, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
 %%
-Back pain is one of the most frequent diseases in the western civilization. 
+Back pain is one of the most frequent diseases in the western civilization and gains importance due to the aging society.
 %%
 Epidemiological analysis of back pain aims to characterize the disease by determining risk factors.
 %Many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
@@ -99,7 +99,7 @@ Epidemiological analysis of back pain aims to characterize the disease by determ
 %%
 Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, no automatic classification approach to characterize back pain based on lumbar back spine attributes has been established.
 %%
-Furthermore, previous analyses mainly focused on a single parameter or a small subset of parameters [Quelle].
+Furthermore, previous analyses mainly focused on a single parameter or a small subset of parameters.
 %%
 
 In this paper, we present a thorough analysis of the image-derived data from lumbar back spine datasets and analyze their discriminating power for different characteristics of the disease.
@@ -109,17 +109,17 @@ For this purpose, we combine data mining algorithms with data visualization tech
 %Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for possible back pain risk factors.
 Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for being back pain risk factors.
 %%
-\com{Da in der Auflistung oefter vom IVA-Framework die Rede ist: Wollen wir hierzu noch was schreiben, z.B. dass das im VIS-Paper definiert wurde und was wir darunter verstehen; sowie dass diese Arbeit als Erweiterung dieses Frameworks gedacht ist?}
-
+The workflow is part of an interactive visual analysis (IVA) framework, constructed to enhance the epidemiological workflow with iterative data driven techniques to derive insight \cite{Klemm2014VIS}.
+%%
 Our contributions are:
 \begin{itemize}
-\item An IVA-framework for back pain analysis based on image-derived variables of 2,240 subjects \com{Ist diskutabel, so richtig interaktiv ist es nicht. IVA wurde auch noch nicht vorher definiert.}
+\item An IVA workflow for back pain analysis based on image-derived variables of 2,240 subjects
 %%
 \item The identification and evaluation of lumbar spine shape properties for back pain diagnosis
 %%
 \item Detection of correlations between image-based and socio-demographic as well as medical parameters for an improved hypothesis generation
 %%
-\item Identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework \com{Wieder: IVA wurde noch nicht definiert}
+\item Identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework
 %%
 \end{itemize}
 %% ---------------------------------------------
@@ -267,7 +267,13 @@ The \emph{Concept Map} is iteratively refined using primarily the underlying geo
 \paragraph{Decision Rule Driven Analysis of Medical Data.}
 Related work in this field often focuses on clinical diagnosis.
 %%
-Closest to ours is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}.
+Closest to ours is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}, who both use decision rules for their analysis.
+%%
+Decision rules are easily readable and are well suited for classifying medical data.
+%%
+The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
+%%
+The effort of analyzing the decision rules increases with decision rule complexity.
 %%
 Gla{\ss}er et al. use variables derived from DCE-MRI data capturing the perfusion in the tumorous tissue \cite{Glasser2013}.
 %%
@@ -283,12 +289,6 @@ We combine ideas of both papers by validating the significance of image-derived 
 %%----------------------------
 
 Pinhero et al. applied association rule mining to create high-confidence decision rules based on variables such as age, gender and geographic location about the mortality rate in liver cancer data \cite{Pinheiro}.
-%%
-Decision rules are easily readable and are well suited for classifying medical data. \com{Das frueher erwaehnen}
-%%
-The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
-%%
-Once these rules, get too complex, analyzing these decision rules becomes complex.
 %%
 Sekhavat and Hoeber propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map \cite{Sekhavat}.
 %%
@@ -329,7 +329,25 @@ The data set comprises of 6.753 subjects from two cohorts (4.420 from \texttt{SH
 %%
 \subsection{Non-Image Data}
 %\com{Analysis Using Heterogeneous Correlation}
-The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sporting activity or nutrition. \com{Ein paar Details hierzu noch - Datentyp, missing data, aufeinander aufbauende parameter}
+The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sporting activity or nutrition.
+%%
+Without the 9 image-derived parameter, the data set comprises of 134 variables:
+\begin{itemize}
+	\item 21 metric variables, mostly describing somatometric variables and markers retrieved from blood analysis
+	\item 113 categorical variables divided into
+	\begin{itemize}
+		\item 43 dichotomous variables, mostly indicating the presence of a disease
+		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
+	\end{itemize}
+\end{itemize}
+%%
+Many variables comprise missing data.
+%%
+Some variables are follow-up questions, covering the treatment of a disease.
+%%
+Others are exclusive to subgroups, such as women-specific variables, e.g. menstrual status.
+%%
+Sparse variables are statistically less resilient and need to be treated with care in the analysis.
 
 \subsection{Image Data}
 \begin{figure}[!h]
@@ -510,9 +528,7 @@ Also the mean curvature and the curvature angle correlate by a factor of $-0.89$
 Torsion does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
 \subsubsection{Correlation of Image Parameters With Back Pain}
-Figure~\ref{fig:image-parameter-range} shows the distribution of all image-parameters \add{as generalized pairs plot}.
-%%
-\rem{We created a generalized pairs plot for subject groups derived by dividing them into quantile groups of body-size.}
+Figure~\ref{fig:image-parameter-range} shows the distribution of all image-parameters as generalized pairs plot.
 %%
 No statistically significant correlation could be observed through all subject groups.
 %%
@@ -548,7 +564,6 @@ The method uses the following correlation metrics for the different type combina
 \item \emph{Polyserial} correlation for one continuous and one categorical variable, and
 \item \emph{Polychoric} correlations for two categorical variables.
 \end{itemize}
-\com{TODO: Abbildung einer Korrelationsmatrix? Waere sehr gross!}
 %%
 All correlation values are scaled between \texttt{0 - no correlation} and \texttt{1 - identical}.
 %%
@@ -600,8 +615,7 @@ This allows epidemiologists to interpret the results without having deep knowled
 %%
 Readability is only granted for small trees, complex structures with many branches are not desirable.
 %%
-Too many branches also impose overfitting to the data.
-\com{Quelle Decision Tree}
+Too many branches also impose overfitting to the data \cite{DecisionTree}.
 
 \subsection{The C4.5/C5.0 Algorithm}
 Using a trained data set, the C4.5 algorithm builds decision trees based on information entropy.
