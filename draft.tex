@@ -30,7 +30,7 @@
 
 \title{Insight Into Lumbar Back Pain  \subtitle{What the Lumbar Spine Tells About Your Life} }
 
-\author{\authorname{Paul Klemm\sup{1}, Sylvia Glaßer\sup{1}, Kai Lawonn\sup{1} Henry Völzke\sup{2}, Katrin Hegenscheid\sup{3} and Bernhard Preim\sup{1}}
+\author{\authorname{Paul Klemm\sup{1}, Sylvia Glaßer\sup{1}, Kai Lawonn\sup{1}, Marko Rak\sup{1} Henry Völzke\sup{2}, Katrin Hegenscheid\sup{3} and Bernhard Preim\sup{1}}
 \affiliation{\sup{1}Department of Simulation and Graphics, University of Magdeburg}
 \affiliation{\sup{2} Institut for Community Medicine, University of Greifswald}
 \affiliation{\sup{3} Institute for Diagnostic Radiology and Neuro-Radiology, University of Greifswald}
@@ -383,10 +383,12 @@ A click on the L3 vertebra center initialized the model, two clicks on the top a
 %%
 The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae \cite{Klemm2013VMV} (Fig.~\ref{fig:centerline}~a).
 %%
+Each subject's model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, 
+rotation and scaling.
+%%
 The detection fails for several subjects due imprecise initialization, imaging artifacts or strongly deformed spines.
 %%
 $2,540$ lumbar spine models were obtained and constitute the foundation of this work.
-%%
 %%
 % \com{From VIS'14 Paper}
 % The lumbar spine was detected in the image data using a hierarchical finite element method by Rak et al. [32].
@@ -406,6 +408,7 @@ $2,540$ lumbar spine models were obtained and constitute the foundation of this 
 % For clustering, we extracted the centerline of the lumbar spine canal, which captures information about lordosis and scoliosis (the medical terms for spine curvature) [21].
 % %%
 
+%\com{Marko, kannst du mal bitte schauen, ob das hier so korrekt ist, bzw. ob man das konkreter formulieren kann?}
 We have to assess the model accuracy to extract key figures from it.
 %%
 The detection model depicts the vertebrae positions, but lacks detailed information about their volume.
@@ -414,6 +417,7 @@ It captures reliable information about spine canal curvature.
 %% BLIND
 %In a previous work (\cite{Klemm2013VMV}), we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
 The centerline representation of the lumbar spine canal was extracted from the detection model (Fig.~\ref{fig:centerline}~a) using the approach of \cite{Klemm2013VMV}.
+
 %%
 Using the Frenet frame, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b) \cite{Frenet}:
 %%
@@ -934,7 +938,7 @@ The starting age of smoking could be characterized well with an error rate betwe
 %%
 The result however is probably over fitted to the data due to tree sizes between $16$ and $23$.
 %%
-\com{Feedback der Greifswalder notwendig, warum das so sein koennte.}
+\com{Warum?}
 %%
 
 Many variables, such as \emph{body size} can be described with an error rate of $0.35$ to $0.45$ but only using large decision trees with over 20 rules.
@@ -985,10 +989,10 @@ These variables include \emph{nutrition} parameter, \emph{thyroid disorder} and 
 %The resulting trees consist either only one rule or a rich set of them (>15).
 %Either they divide the variables using only one decision rule, or a large set of rules (> 15).
 
-%TODO: Muss das wirklich noch rein?
 % \com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
 
-\com{Auswertung der Anteile der Parameter an den Ergebnissen (Torsion, Curvature, etc. - welches ist der dominanteste Parameter?)}
+%TODO: Muss das wirklich noch rein?
+%\com{Auswertung der Anteile der Parameter an den Ergebnissen (Torsion, Curvature, etc. - welches ist der dominanteste Parameter?)}
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
@@ -1032,7 +1036,7 @@ Their complexity impose overfitting to the data and they are not suitable for ex
   \label{fig:proposedFeatures}
 \end{figure}
 %%
-\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain \com{Zitat Frau Hegenscheid fragen}.
+\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain \com{Referenz?}.
 %%
 We have to capture earlier signs of pathological change in order to derive better predictive models.
 %%
@@ -1097,7 +1101,7 @@ These methods do not aim to replace the traditional epidemiological workflow, bu
 
 \section*{\uppercase{Acknowledgements}}
 
-\noindent \com{TODO: Marko hinzufuegen} SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
+\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
 
 
 \vfill
