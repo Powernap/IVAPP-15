@@ -835,7 +835,8 @@ The right scatterplot displays the dummy variables derived from the original var
 %%
 Group affiliation of a data point is color coded:
 %%
-no group (a), subdivision into \emph{male and female subjects} (b), quartiles of \emph{age} (c) and quartiles of \emph{body size} (d).
+%no group (a), subdivision into \emph{male and female subjects} (b), quartiles of \emph{age} (c) and quartiles of \emph{body size} (d).
+no group (a), subdivision into \emph{male and female subjects} (b), quartiles of \emph{Body-Mass-Index} (\emph{BMI}) (c) and quartiles of \emph{body size} (d).
 %%
 %(a) displays all subjects, (b) is divided into male and female subjects, (c) is categorized into quantiles of age and (d) shows the classification of subjects divided by quantiles of body size.
 %%
@@ -855,11 +856,14 @@ We ran the analysis using different subject groups:
 	%%
 	\item subdivision into \emph{male} and \emph{female},
 	%%
-	\item subdivision into \emph{age quantiles}, yielding the groups (21, 43.8] (43.8, 54] (54, 64] (64, 90],
+	\item subdivision into \emph{Body-Mass-Index quantiles} ($BMI = \frac{m}{l^2}$ where $m$ is the \emph{body mass} in kilogram and $l$ is the \emph{body size} in meter), yielding the groups (17, 24.7] (24.7, 27.4] (27.4, 30.5] (30.5, 48],
 	%%
 	\item subdivision into \emph{size quantiles}, yielding the groups (139, 164], (164, 171], (171, 177], (177, 202].
 	%%
 \end{enumerate}
+%%
+%The \emph{BMI} is calculated using the formula $BMI = \frac{m}{l^2}$ where $m$ is the \emph{body mass} in kilogram and $l$ is the \emph{body size} in meter.
+%%
 We plotted each group twice.
 %%
 The first plot shows all original variables.
@@ -928,30 +932,59 @@ Since there are only 30 male subjects diagnosed with \emph{hypothyroidism}, the 
 The dummy variable analysis showed that female subjects of \emph{139-164~cm body size} could be discriminated using the \emph{mean curvature} and \emph{curvature angle}, with an error of $0.38$.
 
 %\com{Potentially skip these due to the confounding of body size}
-\subsubsection{Age Groups}
+\subsubsection{Body-Mass-Index Groups}
 %%
-Gender could be classified for each age group using \emph{mean curvature} and \emph{curvature angle}.
+Gender could be classified for each \emph{BMI} group using \emph{mean curvature} and \emph{curvature angle}.
 %%
-The accuracy varies between $0.35$ (\emph{$43.8-54$ years of age}, 3 decision rules) to $0.27$ (\emph{$21-43.8$ years of age}, 6 decision rules).
+The accuracy varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rules) to $0.39$ (\emph{BMI} of \emph{$24.7-27.4$}, 5 decision rules).
 %%
-The starting age of smoking could be characterized well with an error rate between $0.25$ to $0.3$ for all \emph{age} groups except of \emph{$21.1-43.8$ years of age}.
+The starting age of smoking could be characterized well with an error rate between $0.25$ to $0.32$ for all \emph{BMI} groups except of subjects with BMI of \emph{$30.5-48$}.
 %%
-The result however is probably over fitted to the data due to tree sizes between $16$ and $23$.
+The result however is probably over fitted to the data due to tree sizes between $14$ and $16$.
 %%
 \com{Warum?}
 %%
 
-Many variables, such as \emph{body size} can be described with an error rate of $0.35$ to $0.45$ but only using large decision trees with over 20 rules.
-%Body-size can be determined with an error rate of $0,36$ to $0,39$ for subject
-% age groups, but also imposes over fitting to the data yielding a decision tree of over 30 rules.
+Some variables, such as \emph{body size} can be described with an error rate of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
 %%
 Notable is also the increasing accuracy with increasing decision tree size.
 %%
-For subjects between \emph{$43.8-54$ years of age}, the classifier discriminated subjects with thyroid nodules with an error rate of $0.32$.
-
-The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} with accuracy between $0.4$ and $0.5$.
+Using mostly \emph{mean curvature} and \emph{curvature angle}, the leg pain level can be predicted using $14$ rules with an error rate of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
-It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
+The dichotomous variable whether the subject has felt pain in the last seven days can also be predicted for this group using the same features.
+%%
+The resulting tree consists of $8$ rules and has an error of $0.35$.
+%%
+Obese subjects are prone to back and leg pain due to a more stressed lumbar spine.
+%%
+How much the spine is deformed under the heavy stress seems to directly influence the pain levels for these subjects.
+
+The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} or \emph{curvature angle} with accuracy between $0.35$ and $0.47$.
+%%
+%It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
+
+% \subsubsection{Age Groups}
+% %%
+% Gender could be classified for each age group using \emph{mean curvature} and \emph{curvature angle}.
+% %%
+% The accuracy varies between $0.35$ (\emph{$43.8-54$ years of age}, 3 decision rules) to $0.27$ (\emph{$21-43.8$ years of age}, 6 decision rules).
+% %%
+% The starting age of smoking could be characterized well with an error rate between $0.25$ to $0.3$ for all \emph{age} groups except of \emph{$21.1-43.8$ years of age}.
+% %%
+% The result however is probably over fitted to the data due to tree sizes between $16$ and $23$.
+% %%
+% \com{Warum?}
+% %%
+%
+% Many variables, such as \emph{body size} can be described with an error rate of $0.35$ to $0.45$ but only using large decision trees with over 20 rules.
+% %%
+% Notable is also the increasing accuracy with increasing decision tree size.
+% %%
+% For subjects between \emph{$43.8-54$ years of age}, the classifier discriminated subjects with thyroid nodules with an error rate of $0.32$.
+%
+% The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} with accuracy between $0.4$ and $0.5$.
+% %%
+% It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
 
 \subsubsection{Size Groups}
 %%
@@ -1002,7 +1035,7 @@ They are well suited to characterize subject gender due to their body size diffe
 %%
 This is due to the higher curvature of smaller subjects and the significant difference of average \emph{body size} between \emph{males} and \emph{females}.
 %%
-Gender was characterized well in the analysis of all subjects as well as subjects divided by \emph{age}.
+Gender was characterized well in the analysis of all subjects as well as subjects divided by \emph{BMI}.
 
 Subjects grouped using \underline{body size} have a similar spine shape and a lower variance.
 %%
