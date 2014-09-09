@@ -680,7 +680,8 @@ We have to create a decision tree for every non-image variable to analyze which 
 %%
 Since we have 134 non-image variables, the calculation yields a corresponding number of trees.
 %%
-Dividing the subjects into four groups using body size, the number increases to 402 trees.
+Further subdivision, e.g. by quantiles of \emph{body size} increases the number to 402 trees.
+%Dividing the subjects into four groups using body size, the number increases to 402 trees.
 %%
 %To make the results cognitive feasible, we have to abstract the results of the classification.
 We have to abstract the results of the classification to keep the mental effort of interpreting the data low.
@@ -752,7 +753,10 @@ The classification algorithm may produce higher accuracy for variables with less
 %%
 This makes these results less reliable.
 %%
-We removed variables with less than 100 subjects, since they have too few subjects to be statistically significant.
+%We removed variables with less than 100 subjects, since they have too few subjects to be statistically significant.
+Therefore we provide a way to adjust the minimal number of subjects for each variable using a slider input.
+%%
+The initial value is empirically set to $100$, marking a good tradeoff between sparse variables and statistical informative value.
 %%
 Furthermore, we map the number of subjects associated with a variable to point diameter in the scatter plot.
 %%
@@ -793,17 +797,27 @@ We still want to be able to display \emph{details-on-demand} \cite{shneiderman19
 This is realized by clicking on an entry on the visualization, which then displays the corresponding decision tree in detail.
 %%
 This allows for sequentially analyzing the classifications.
+
+We also provide controls for adjusting the maximum classification error and minimum subject count for a variable.
+%%
+This gives the user control to abstract or refine the displayed information.
+%%
+Selecting a variable using a drop down menu allows to user to select the variable used for subject subdivisions, e.g. \emph{gender} or \emph{disease treatment type}.
+%%
+Categorization using metric variables, such as \emph{body size}, is done using their quantiles.
+%%
+This allows to assess the influences of a variable to the classification process.
 %%------------
 \subsubsection{Implementation}
 All analysis are carried out using \texttt{R}, a widely used programming language for statistical calculations and visualizations.
 %%
-The interactive visualizations are realized using the \texttt{ggvis}\footnote{GGVIS Footnote} package.
+The interactive visualizations are realized using the \texttt{ggvis}\footnote{Developed by RStudio, Inc; \texttt{ggvis.rstudio.com}} package.
 %%
 As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using UI controls, such as sliders.
 %%
 In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to create reports by combining \texttt{R} with the \texttt{Markdown} syntax.
 %%
-We used \texttt{R Shiny}\footnote{R Shiny footnote} to make the report available as dynamic web application.
+We used \texttt{R Shiny}\footnote{Developed by RStudio, Inc; \texttt{shiny.rstudio.com}} to make the report available as dynamic web application.
 %%
 It allows to combine both the ability to create comprehensible reports as well as UI-controls, to adjust visible data and parameters in the plot to allow the viewer to analyze the data.
 %%
