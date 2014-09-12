@@ -29,16 +29,17 @@
 
 \begin{document}
 
-\title{Insight Into Lumbar Back Pain  \subtitle{What the Lumbar Spine Tells About Your Life} }
+%\title{Insight Into Lumbar Back Pain  \subtitle{What the Lumbar Spine Tells About Your Life} }
+\title{Interactive Visual Analysis of Lumbar Back Pain  \subtitle{What the Lumbar Spine Tells About Your Life} }
 
 \author{\authorname{Paul Klemm\sup{1}, Sylvia Glaßer\sup{1}, Kai Lawonn\sup{1}, Marko Rak\sup{1} Henry Völzke\sup{2}, Katrin Hegenscheid\sup{3} and Bernhard Preim\sup{1}}
-\affiliation{\sup{1}Department of Simulation and Graphics, University of Magdeburg}
-\affiliation{\sup{2} Institut for Community Medicine, University of Greifswald}
-\affiliation{\sup{3} Institute for Diagnostic Radiology and Neuro-Radiology, University of Greifswald}
-\email{\{paul, sylvia\}@isg.cs.uni-magdeburg.de, \{katrin.hegenscheid, voelzke\}@uni-greifswald.de}
+\affiliation{\sup{1}Department of Simulation and Graphics, University of Magdeburg, Germany}
+\affiliation{\sup{2} Institute for Community Medicine, University of Greifswald, Germany}
+\affiliation{\sup{3} Institute for Diagnostic Radiology and Neuro-Radiology, University of Greifswald, Germany}
+\email{\{klemm, glasser\}@isg.cs.uni-magdeburg.de}
 }
 
-\keywords{Epidemiology, Interactive Visual Analysis}
+\keywords{Epidemiology, Interactive Visual Analysis, Classification, Multi Modal Data}
 
 % \abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words.}
 \abstract{ 
@@ -206,9 +207,9 @@ These numeric values can be compared with non-image variables to retrieve correl
 %%--------------------------------
 \subsection{Lower Back Pain}
 %%
-The lower (\emph{lumbar}) spine is the most stressed spine part.
+%The lower (\emph{lumbar}) spine is the most stressed spine part .
 %%
-Lower back pain is one of the most frequent diseases in the western civilization.
+Lower back pain is one of the most frequent diseases in the western civilization \cite{Hoy2010}.
 %%
 Epidemiologists assume associations between lumbar back pain and lifestyle factors.
 %%
@@ -972,8 +973,6 @@ The starting age of smoking could be characterized well with an error between $0
 %%
 The result however is probably over fitted to the data due to tree sizes between $14$ and $16$.
 %%
-\com{Warum?}
-%%
 
 Some variables, such as \emph{body size} can be described with an error of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
 %%
@@ -987,7 +986,8 @@ The resulting tree consists of $8$ rules and has an error of $0.35$.
 %%
 Obese subjects are prone to back and leg pain due to a more stressed lumbar spine.
 %%
-How much the spine is deformed under the heavy stress seems to directly influence the pain levels for these subjects.
+The stress induced spine deformation seems to influence the pain levels for these subjects directly.
+%How much the spine is deformed under the heavy stress seems to directly influence the pain levels for these subjects.
 
 The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} or \emph{curvature angle} with an error between $0.35$ and $0.47$.
 %%
@@ -1067,7 +1067,7 @@ This is due to the higher curvature of smaller subjects and the significant diff
 %%
 Gender was characterized well in the analysis of all subjects as well as subjects divided by \emph{BMI}.
 
-Subjects grouped using \underline{body size} have a similar spine shape and a lower variance.
+Subjects grouped using \emph{body size} have a similar spine shape and a lower variance.
 %%
 The remaining information within these groups is not enough to characterize back pain-related variables.
 %%
@@ -1097,7 +1097,7 @@ Their complexity impose overfitting to the data and they are not suitable for ex
   \label{fig:proposedFeatures}
 \end{figure}
 %%
-\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain \com{Referenz?}.
+\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain.
 %%
 We have to capture earlier signs of pathological change in order to derive better predictive models.
 %%
