@@ -296,7 +296,7 @@ They presented an interactive data mining tool, which can analyze association ru
 We combine ideas of both papers by validating the significance of image-derived parameter aiming to derive new relationships by training decision trees to explain target variables.
 %%----------------------------
 
-Pinhero et al. applied association rule mining to create high-confidence decision rules based on variables such as age, gender and geographic location about the mortality rate in liver cancer data \cite{Pinheiro}.
+Pinhero et al. applied association rule mining to create high-confidence decision rules based on variables, such as age, gender and geographic location about the mortality rate in liver cancer data \cite{Pinheiro}.
 %%
 Sekhavat and Hoeber propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map \cite{Sekhavat}.
 %%
@@ -707,12 +707,12 @@ A first analysis step was performed by applying the classification algorithm to 
 %%
 The optimal classification uses a few rules to precisely characterize the target variable.
 %%
-Therefore, we are interested in \emph{small trees} with a \emph{low classification error rate}.
+Therefore, we are interested in \emph{small trees} with a \emph{low classification error}.
 %%
 The two measures form the axis for a \emph{scatter plot} of the classification results.
 
 \paragraph{The Error Term. }
-Normally the error rate for a classification is calculated with $error = \frac{classifiedCorrectly_{n}} {n}$ where $n$ is the number of subjects.
+Normally the error for a classification is calculated with $error = \frac{classifiedCorrectly_{n}} {n}$ where $n$ is the number of subjects.
 %%
 The metric usually works well for variables with uniform distribution.
 %%
@@ -857,7 +857,7 @@ The prototype is available under the following link: \url{blind.dnsalias.com}
 %%
 Scatterplot visualization of all C5.0 classification results.
 %%
-The x-axis shows the number of decisions of the underlying model, the y-axis the classification error rate (see Section~\ref{subsec:VisualizationOfClassificationResults}).
+The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{subsec:VisualizationOfClassificationResults}).
 %%
 The left scatterplot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
 %%
@@ -872,7 +872,7 @@ no group (a), subdivision into \emph{male and female subjects} (b), quartiles of
 %%
 The number of subjects represented in a variable is denoted using the dot diameter.
 %%
-We only display variables with an error rate below $0.5$, results above this threshold are inaccurate.
+We only display variables with an error below $0.5$, results above this threshold are inaccurate.
 %%
 A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
 %%
@@ -904,7 +904,7 @@ The second plot shows all categorical variables transformed into dichotomous dum
 %%
 The vast majority of parameters can not be described well using the classifier.
 %%
-This is reflected in the large amount of variables classified with an error rate above $0.6$.
+This is reflected in the large amount of variables classified with an error above $0.6$.
 %%
 %The first impression of the resulting scatter plots quickly shows a very high amount of variables above an error rate of $0.6$.
 %%
@@ -914,7 +914,7 @@ None of the pain indicators can be described reliably using the image-based para
 %%
 The only variable reliably classified in this group is gender. % with an error rate of 31.5\% using a decision tree of seven rules.
 %
-It can be discriminated with an error rate of $0.31$ using 7 rules and incorporates only curvature and curvature angle variables.
+It can be discriminated with an error of $0.31$ using 7 rules and incorporates only curvature and curvature angle variables.
 %%
 The distinctness lies in the average difference in body size between male and female subjects.
 %
@@ -927,7 +927,7 @@ The distinctness lies in the average difference in body size between male and fe
 %%
 %The good discrimination is not meaningful.
 %%
-\emph{Medication for high blood pressure} is classified for 1,058 subjects with an error rate of $0.47$ solely based on coronal mean curvature.
+\emph{Medication for high blood pressure} is classified for 1,058 subjects with an error of $0.47$ solely based on coronal mean curvature.
 %%
 %1,058 subjects are classified with an error rate of $0,47$ solely based on coronal mean curvature.
 %%
@@ -938,13 +938,13 @@ Therefore the classifier is not as useful.
 %%
 %Other features well classified include marital status, foot pain and number of born children.
 %%
-The four body size groups could be characterized with an error rate $0.48$, but the decision tree comprises 71 rules and imposes overfitting.
+The four body size groups could be characterized with an error $0.48$, but the decision tree comprises 71 rules and imposes overfitting.
 
 The analysis of the dummy variable yields similar results like the \emph{blood pressure medication}.
 %%
 Variables, such as subjects sized 139-164 cm, between 64 and 90 years of age or nutrition related parameters are dominantly populated by one manifestation.
 %%
-The classifier neglects the other group and yields a error rate below $0.5$.
+The classifier neglects the other group and yields a error below $0.5$.
 %The dummy variable analysis yields fewer results.
 %%
 %It shows that subjects between 64 and 90 years of age can be detected with 23\% error rate by using the curvature angle and coronal mean curvature.
@@ -955,7 +955,7 @@ The classifier neglects the other group and yields a error rate below $0.5$.
 %%
 Classification using groups divided by gender do not produce satisfying results.
 %%
-Only \emph{hypothyroidism} could be described for male subjects with an error rate of $0.24$ for 110 subjects using the \emph{mean curvature} and \emph{curvature angle}.
+Only \emph{hypothyroidism} could be described for male subjects with an error of $0.24$ for 110 subjects using the \emph{mean curvature} and \emph{curvature angle}.
 %%
 Since there are only 30 male subjects diagnosed with \emph{hypothyroidism}, the statistical power of the result is reduced.
 %%
@@ -966,20 +966,20 @@ The dummy variable analysis showed that female subjects of \emph{139-164~cm body
 %%
 Gender could be classified for each \emph{BMI} group using \emph{mean curvature} and \emph{curvature angle}.
 %%
-The accuracy varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rules) to $0.39$ (\emph{BMI} of \emph{$24.7-27.4$}, 5 decision rules).
+The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rules) to $0.39$ (\emph{BMI} of \emph{$24.7-27.4$}, 5 decision rules).
 %%
-The starting age of smoking could be characterized well with an error rate between $0.25$ to $0.32$ for all \emph{BMI} groups except of subjects with BMI of \emph{$30.5-48$}.
+The starting age of smoking could be characterized well with an error between $0.25$ to $0.32$ for all \emph{BMI} groups except of subjects with BMI of \emph{$30.5-48$}.
 %%
 The result however is probably over fitted to the data due to tree sizes between $14$ and $16$.
 %%
 \com{Warum?}
 %%
 
-Some variables, such as \emph{body size} can be described with an error rate of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
+Some variables, such as \emph{body size} can be described with an error of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
 %%
-Notable is also the increasing accuracy with increasing decision tree size.
+Notable is also the decreasing error with increasing decision tree size.
 %%
-Using mostly \emph{mean curvature} and \emph{curvature angle}, the leg pain level can be predicted using $14$ rules with an error rate of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
+Using mostly \emph{mean curvature} and \emph{curvature angle}, the leg pain level can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
 The dichotomous variable whether the subject has felt pain in the last seven days can also be predicted for this group using the same features.
 %%
@@ -989,7 +989,7 @@ Obese subjects are prone to back and leg pain due to a more stressed lumbar spin
 %%
 How much the spine is deformed under the heavy stress seems to directly influence the pain levels for these subjects.
 
-The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} or \emph{curvature angle} with accuracy between $0.35$ and $0.47$.
+The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} or \emph{curvature angle} with an error between $0.35$ and $0.47$.
 %%
 %It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
 
@@ -1031,11 +1031,11 @@ Dividing subjects into \emph{body size} groups potentially highlights classifica
 \paragraph{Large Decision Trees. }
 Back pain-associated variables can be explained for various \emph{size}-groups, but we could not extract universal rules.
 %%
-Radiating back pain could be described with error rate of $0.39$ using 23 rules for subjects between \emph{$171-177~cm$ body size} using \emph{torsion} and \emph{mean curvature}.
+Radiating back pain could be described with error of $0.39$ using 23 rules for subjects between \emph{$171-177~cm$ body size} using \emph{torsion} and \emph{mean curvature}.
 %%
-For subjects sized \emph{$177-202~cm$} the accuracy drops to $0.47$ using 20 decision rules.
+For subjects sized \emph{$177-202~cm$} the error increases to $0.47$ using 20 decision rules.
 %%
-There are several decision trees for laboratory values, such as \emph{alanine aminotransferase} value (relevant for diagnosis of liver or gallbladder illness) in the blood can be described with an error rate of $0.4$ (\emph{$139-164~cm$}) to $0.36$ (\emph{$164 - 171~cm$}).
+There are several decision trees for laboratory values, such as \emph{alanine aminotransferase} value (relevant for diagnosis of liver or gallbladder illness) in the blood can be described with an error of $0.4$ (\emph{$139-164~cm$}) to $0.36$ (\emph{$164 - 171~cm$}).
 %%
 Similar values can be observed for \emph{cholesterol} or \emph{age}.
 %%
@@ -1043,7 +1043,7 @@ Due to the large decision trees, these results are not usable and impose overfit
 %%
 \paragraph{Small Decision Trees. }
 %%
-The dummy variables show several variables described using only one decision rule with accuracy between $0.42$ to $0.47$.
+The dummy variables show several variables described using only one decision rule with an error between $0.42$ to $0.47$.
 %%
 Most of these variables have a dominant manifestation and the classifier shows a low detection precision for the second manifestation.
 %%
@@ -1071,9 +1071,7 @@ Subjects grouped using \underline{body size} have a similar spine shape and a lo
 %%
 The remaining information within these groups is not enough to characterize back pain-related variables.
 %%
-%Certain parameters can be classified in 
-For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} parameters can be predicted with a comparatively high error rate.
-%Certain subgroups, however, can be classified for various size groups, such as nutrition or psychological parameters.
+For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} parameters can be predicted with a comparatively high error.
 %%
 
 Another observation during the analysis is very large decision trees achieving low error scores.
@@ -1163,8 +1161,8 @@ Combining the power of statistical analysis, visual analytics and advanced data 
 These methods do not aim to replace the traditional epidemiological workflow, but rather intervenes at the weak points of standard statistical methods.
 
 \section*{\uppercase{Acknowledgements}}
-
-\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
+\noindent Omitted due to blind review.
+%\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
 
 
 \vfill
