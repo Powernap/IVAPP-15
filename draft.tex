@@ -80,7 +80,7 @@ For this purpose, large population studies, such as the \emph{Study of Health in
 %%
 These information are used to determine risk factors for diseases, help people to improve their lifestyle and their health or to support diagnosis of widespread diseases.
 %%
-Epidemiological research is strongly hypothesis-driven.
+So far, epidemiological research is strongly hypothesis-driven.
 %%
 More precisely, observations made by clinicians are translated into hypotheses, which are then statistically evaluated using data variables from epidemiological studies.
 %%
@@ -88,7 +88,8 @@ As a result, the hypothesis will be accepted or rejected.
 %%
 
 %For epidemiological research, cohort studies are acquired.
-For epidemiological research, cohort studies are carried out.
+Cohort studies are an instrument of epidemiological research.
+%For epidemiological research, cohort studies are carried out.
 %%
 Since recently, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
 %%
@@ -195,7 +196,7 @@ Modern cohort studies often comprise medical image data.
 %%
 These data are hard to analyze.
 %%
-Individual diagnosis or manual segmentation of each body structure by an radiologists is tedious, costly and comprises little reproducibility.
+Individual diagnosis or manual segmentation of each body structure by radiologists is tedious, costly and comprises little reproducibility.
 %%
 Segmentation algorithms are not generally available and need to be custom-made for each body structure.
 %%
@@ -247,6 +248,8 @@ Their proposed \emph{deviation plot} shows distribution-specific measures of a v
 %%
 This approach aims to trigger \emph{hypothesis generation} by outlining tendencies between these variables.
 %%
+A survey on image-centric cohort studies and strategies to analyze the resulting data is given in \cite{Preim2014}.
+%%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
 %%
 Zhang et al. analyze subject groups in a web-based linked view system \cite{Zhang}.
@@ -272,7 +275,7 @@ The \emph{Concept Map} is iteratively refined using primarily the underlying geo
 \paragraph{Decision Rule Driven Analysis of Medical Data.}
 Related work in this field often focuses on clinical diagnosis.
 %%
-Closest to ours is the work of Gla{\ss}er \cite{Glasser2013} and Niemann et al. \cite{Niemann2014}, who both use decision rules for their analysis.
+Closest to ours is the work of Gla{\ss}er et al. and Niemann et al., who both use decision rules for their analysis \cite{Glasser2013,Niemann2014}.
 %%
 Decision rules are easily readable and are well suited for classifying medical data.
 %%
@@ -308,14 +311,14 @@ They incorporate hierarchical agglomerative clustering to derive shape groups, y
 %%
 The extracted lumbar spine shape was correlated with subject size.
 %%
-The data extraction process is based on the detection algorithm and lumbar spine canal extraction presented in this paper.
+Our data extraction process is based on the detection algorithm and lumbar spine canal extraction presented by \cite{Klemm2013VMV}.
 %%
 Clustering techniques applied to non-image data are strongly dependent on the chosen variables and distance measures.
 %%
 %Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task \cite{Klemm2014BVM}.
 %%
 \\\\
-Unique for our work is the combination of an IVA-approach by observing interesting feature relations in context of image-derived features using multiple decision trees for one visualization.
+Unique for our work is the combination of data mining techniques with an IVA-approach by observing interesting feature relations in context of image-derived features using multiple decision trees for one visualization.
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
@@ -388,10 +391,10 @@ A click on the L3 vertebra center initialized the model, two clicks on the top a
 %%
 The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae \cite{Klemm2013VMV} (Fig.~\ref{fig:centerline}~a).
 %%
-Each subject's model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, 
+Each subjects' model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, 
 rotation and scaling.
 %%
-The detection fails for several subjects due imprecise initialization, imaging artifacts or strongly deformed spines.
+The detection fails for several subjects due to imprecise initialization, imaging artifacts or strongly deformed spines.
 %%
 $2,540$ lumbar spine models were obtained and constitute the foundation of this work.
 %%
@@ -435,7 +438,8 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 % $\sum \frac{curvature_i}{curvature_all}$.
 	\item \emph{Normalized Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{i}$. We refer to total curvature from now on as \emph{curvature}.
 %%
-	\item \emph{Normalized Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{i}$. We refer to total torsion from now on as \emph{torsion}
+	\item \emph{Normalized Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{i}$. We refer to total torsion from now on as \emph{torsion}.
+%%
 	\item \emph{Curvature angle $\alpha$} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
 \end{itemize}
@@ -624,7 +628,7 @@ They work with numerical as well as categorical data.
 %%
 This allows epidemiologists to interpret the results without having deep knowledge about the algorithm creating the tree.
 %%
-Readability is only granted for small trees, complex structures with many branches are not desirable.
+Readability is only granted for small trees. %, complex structures with many branches are not desirable.
 %%
 Too many branches also impose overfitting to the data \cite{DecisionTree}.
 
@@ -746,13 +750,16 @@ We consider a result rated below $0.25$ a good classification.
 It allows for comparability of error rates between variables with different manifestation count.
 
 \paragraph{Attribute Mapping}
+%%
 The scatter plot axis are defined by tree size and the previously described error metric.
 %%
 This allows us to visualize a multitude of classification results in one plot.
 %%
-If we for example classify and compare the same variables for different subject groups, for example male and female subjects.
+%If we for example classify and compare the same variables for different subject groups, for example male and female subjects.
+Classification and comparison of variables for subject groups (e.g. male and female subjects) in one plot can be achieved by color coding group affiliation on the data points.
+%Classification of the same variable 
 %%
-We can support this by color coding the data points according to group affiliation.
+%We can support this by color coding the data points according to group affiliation.
 
 Many follow-up variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
@@ -786,7 +793,7 @@ Outlier results with very large decision trees would otherwise distort the resul
 \subsubsection{Dummy Variables}
 Dummy variables convert a categorical variable with multiple manifestations into several binary variables.
 %%
-Each binary variables encodes the presence of a manifestation.
+Each binary variable encodes the presence of a manifestation.
 %%
 For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four binary variables (\emph{No pain - Yes/No} to \emph{Large Pain - Yes/no}).
 %%
@@ -1119,7 +1126,7 @@ Their ability to assess variable combination makes them more powerful than corre
 %%
 This advantage comes with a much more complex output, making their results harder to assess and to abstract.
 %%
-Our method to plot derived metrics and custom tailored error measures proved to be effective.
+Our method to plot derived metrics and custom-tailored error measures proved to be effective.
 %%
 Huge result spaces could be navigated fast using our brushable visualization.
 %%
