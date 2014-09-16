@@ -1101,9 +1101,41 @@ The remaining information within these groups is not enough to characterize back
 For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} parameters can be predicted with a comparatively high error.
 %%
 
-Another observation during the analysis is very large decision trees achieving low error scores.
+Another observation during the analysis is that large decision trees achieve low error scores.
 %%
 Their complexity impose overfitting to the data and they are not suitable for extracting universal rules.
+%%
+\paragraph{Applicability.}
+%%
+Classification methods based on decision trees showed to be useful to assess the discriminative power of a variable set.
+%%
+Their ability to assess variable combination makes them more powerful than correlation coefficients calculated for each variable.
+%%
+This advantage comes with a much more complex output, making their results harder to assess and to abstract.
+%%
+Our method to plot derived metrics and custom-tailored error measures proved to be effective.
+%%
+Huge result spaces could be navigated fast using our brushable visualization.
+%%
+Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
+%%
+
+% BLIND
+%As described in a prior work (\cite{Klemm2014VIS}), the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+Suggesting potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
+%%
+We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
+%%
+This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important parameters for the classification.
+%Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
+\paragraph{Predictive Power of Image-Derived Variables.}
+We showed, that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not enough to characterize lumbar back pain in the SHIP data set.
+%%
+Our method made it possible to assess their discriminative power, which is largely limited for separating \emph{male} and \emph{female} subjects, \emph{nutrition} variables, as well as different disease indicators.
+%%
+The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image parameters.
+%%
+Over-fitting to the data indicated by complex decision trees have to be taken into account into the analysis as well.
 %%
 \subsection{Proposed Features}
 \label{sec:ProposedFeatures}
@@ -1141,41 +1173,16 @@ Low spine canal thickness can be an indicator for an impending herniated disk.
 %%
 Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
 %%
-The \emph{overall spine canal shape} is also of interested, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
+The \emph{overall spine canal shape} is also of interest, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
 %% ------------------------------------
-\subsection{Applicability}
+\subsection{Future Work}
+%% Contributions
+We provide a method for comparative analysis of decision trees independent of the variable manifestation count using interactive scatter plots.
 %%
-Classification methods based on decision trees showed to be useful to assess the discriminative power of a variable set.
-%%
-Their ability to assess variable combination makes them more powerful than correlation coefficients calculated for each variable.
-%%
-This advantage comes with a much more complex output, making their results harder to assess and to abstract.
-%%
-Our method to plot derived metrics and custom-tailored error measures proved to be effective.
-%%
-Huge result spaces could be navigated fast using our brushable visualization.
-%%
-Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
-%%
-
-% BLIND
-%As described in a prior work (\cite{Klemm2014VIS}), the suggestion of potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology.
-Suggesting potentially interesting features when analyzing a condition is an important aspect of visual analytics in epidemiology \cite{Klemm2014VIS}.
-%%
-We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
-%%
-This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important parameters for the classification.
-%Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
-
-\subsection{Summary and Future Work}
-%%
-\noindent We showed, that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not enough to characterize lumbar back pain in the SHIP data set.
-%%
-Our method made it possible to assess their discriminative power, which is largely limited for separating \emph{male} and \emph{female} subjects, \emph{nutrition} variables, as well as different disease indicators.
-%%
-The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image parameters.
-%%
-Over-fitting to the data indicated by complex decision trees have to be taken into account into the analysis as well.
+We applied the technique to derive insight into the predictive power of 9 image-derived variables for 134 non-image variables.
+%%TODO HIER WEITER
+%We carried out an analysis on subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine.
+%To assess the influence of parameters which strongly influence the spine shape, we applied the technique to.
 %%
 
 In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
