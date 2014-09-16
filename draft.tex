@@ -45,13 +45,13 @@
 \abstract{ 
 The goal of epidemiology is to provide insight into disease causations.
 %%
-Hence, subject groups (cohorts) are analyzed to correlate the subjects' varying lifestyles and medical properties with diseases.
+Hence, subject groups (cohorts) are analyzed to correlate the subjects' varying lifestyles, their medical properties and diseases.
 %%
-Recently, these cohort studies comprise medical image data as well.
+Recently, these cohort studies comprise medical image data.
 %%
 We assess the predictive quality of image-derived variables for lower back pain.
 %%
-The evaluation is embedded in an interactive visual analysis (IVA) framework that is based on 2,540 segmented lumbar spine data sets.
+Therefore, an interactive visual analysis (IVA) framework was created and tested with 2,540 segmented lumbar spine data sets.
 %%
 The segmentation results are evaluated and quantified by employing shape-describing variables, such as the spine canal course, its curvature and torsion.
 %%
@@ -77,9 +77,9 @@ Hence, correlations between non-image parameters were successfully detected and 
 %%Epidemiology is the study of causation of diseases.
 Epidemiology is the study of dissemination, causes and results of health-related states and events.
 %%
-For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) \cite{SHIP} gather as much information as possible about participants to be assessed towards different diseases.
+For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) \cite{SHIP}, gather as much information as possible about participants to be assessed towards different diseases.
 %%
-These information are used to determine risk factors for diseases, help people to improve their lifestyle and their health or to support diagnosis of widespread diseases.
+These information are used to determine risk factors for diseases, help people to improve their lifestyle and their health or to support the diagnosis of widespread diseases.
 %%
 So far, epidemiological research is strongly hypothesis-driven.
 %%
@@ -92,37 +92,39 @@ As a result, the hypothesis will be accepted or rejected.
 Cohort studies are an instrument of epidemiological research.
 %For epidemiological research, cohort studies are carried out.
 %%
-Since recently, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
+Nowadays, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
 %%
-Back pain is one of the most frequent diseases in the western civilization and gains importance due to the aging society.
+Back pain is one of the most frequent diseases in the western civilization and gains importance due to the population aging.
 %%
 Epidemiological analysis of back pain aims to characterize the disease by determining risk factors.
 %Many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
 %Since back pain is one of the most frequent diseases in the western civilization, many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
 %%
-Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, no automatic classification approach to characterize back pain based on lumbar back spine attributes has been established.
+Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, an automatic classification approach for characterization of back pain based on lumbar back spine attributes is still missing.
 %%
-Furthermore, previous analyses mainly focused on a single parameter or a small subset of parameters.
+Furthermore, previous analyses mainly focused on a single parameter (e.g. \emph{BMI}) or a small subset of parameters.
 %%
 
-In this paper, we present a thorough analysis of the image-derived data from lumbar back spine datasets and analyze their discriminating power for different characteristics of the disease.
+In this paper, we present a thorough analysis of the image-derived data of a cohort study including lumbar back spine datasets.
+%%
+We analyze their discriminating power for different characteristics of back pain.
 %%
 For this purpose, we combine data mining algorithms with data visualization techniques.
 %%
 %Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for possible back pain risk factors.
 Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for being back pain risk factors.
 %%
-The workflow is part of an interactive visual analysis (IVA) framework, constructed to enhance the epidemiological workflow with iterative data driven techniques to derive insight \cite{Klemm2014VIS}.
+The workflow is part of an interactive visual analysis (IVA) framework, constructed to enhance the epidemiological workflow with iterative data driven techniques.
 %%
 Our contributions are:
 \begin{itemize}
-\item An IVA workflow for back pain analysis based on image-derived variables of 2,240 subjects
+\item An IVA workflow for back pain analysis based on image-derived variables of 2,240 subjects,
 %%
-\item The identification and evaluation of lumbar spine shape properties for back pain diagnosis
+\item The identification and evaluation of lumbar spine shape properties for back pain diagnosis,
 %%
-\item Detection of correlations between image-based and socio-demographic as well as medical parameters for an improved hypothesis generation
+\item The detection of correlations between image-based and socio-demographic as well as medical parameters for an improved hypothesis generation,
 %%
-\item Identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework
+\item The identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework
 %%
 \end{itemize}
 %%
@@ -133,13 +135,13 @@ The analysis, as well as the presented IVA tool is available as supplementary ma
 \section{\uppercase{Epidemiological Background}}
 \label{sec:EpidemiologicalBackground}
 %%
-\noindent Epidemiological reasoning relies on a strict statistically driven workflow \cite{Fletcher}:
+\noindent Epidemiological reasoning relies on a strict statistically-driven workflow \cite{Fletcher}:
 %%
 \begin{itemize}
 %%
 	\item Physicians formulate hypotheses based on observations made in their clinical practice.
 %%
-	\item To assess a hypothesis, epidemiologists compile a list of variables depicting it.
+	\item To prove a hypothesis, epidemiologists compile a list of variables depicting it.
 %%
 	\item Statistical methods, such as regression analysis, assess the association of selected variables with the investigated disease.
 %%
@@ -149,7 +151,9 @@ Mutually dependent variables make this analysis challenging.
 %%
 Many diseases, such as different cancer types, are more likely with increasing age.
 %%
-When for example analyzing influences of nutrition to prostate cancer, the results need to be age-normalized.
+For example, the analysis of the influence of nutrition on prostate cancer is strongly age dependent and requires therefore age-normalization.
+%%
+%When for example analyzing influences of nutrition to prostate cancer, the results need to be age-normalized.
 %%
 Age acts as a \emph{confounder} for prostate cancer.
 %%
@@ -157,36 +161,38 @@ Age acts as a \emph{confounder} for prostate cancer.
 %%
 Statistical correlation does not imply causation--epidemiologists need to assess the medical soundness of the statistical results.
 %%------------------------------
-\subsection{Epidemiological Data}
+%\subsection{Epidemiological Data}
+\subsection{Challenges of Epidemiological Data Analysis}
 Epidemiological data originates from a wide range of studies.
 %%
 The study type depends on the condition of interest.
 %%
-Most common are case-control studies, analyzing one specific disease and its influences on the human body.
+Most common are case-control studies analyzing one specific disease and its influence on the human body.
 %%
 We focus on data from large scale cohort studies.
 %%
-These studies aim to collect as much data as possible for each subject.
+These studies aim at collecting as much data as possible for each subject.
 %%
 As a result, these data can be analyzed regarding many diseases and conditions.
 %%
 
-Epidemiological data is heterogenous and incomplete.
+Epidemiological data are heterogenous and incomplete.
 %%
-For example women-specific questions or data about a disease treatment only subjects suffering from this condition.
+For example, women-specific questions or data about a disease treatment only affects subjects suffering from this condition.
 %%
-Statistical analysis has to take missing data into account.
+Therefore, statistical analysis has to take missing data into account.
 %%
 
-Epidemiologists acquire data using a wide range of techniques, such as medical examinations, self reported questionnaires or genetic examinations.
+Epidemiological data acquisition includes a variety of techniques, such as medical examinations, self reported questionnaires or genetic examinations.
+%Epidemiologists acquire data using a wide range of techniques, such as medical examinations, self reported questionnaires or genetic examinations.
 %%
 This yields a heterogenous information space.
 %%
-To compare these data, information reduction techniques are applied.
+To compare these data, information reduction techniques are necessary.
 %%
 For example, continuous data, such as age is often discretized into age-bins.
 %%
-Every information reduction can introduce a bias to the data, since it reflects an assumption about the data.
+Every information reduction can introduce a bias to the data, since it proposes an assumption about the data.
 %%
 Using age to divide subjects into \emph{young} and \emph{old} categories can distort statistical results.
 %%
@@ -199,7 +205,7 @@ These data are hard to analyze.
 %%
 Individual diagnosis or manual segmentation of each body structure by radiologists is tedious, costly and comprises little reproducibility.
 %%
-Segmentation algorithms are not generally available and need to be custom-made for each body structure.
+Segmentation algorithms are not generally available and need to be carefully adapted for each body structure.
 %%
 Segmentation data is usually analyzed by abstracting it into key figures, such as diameters or distances.
 %%
@@ -227,23 +233,25 @@ To achieve this, they have to analyze the lumbar spine shape as well as the ment
 \section{\uppercase{Related Work}}
 \label{sec:RelatedWork}
 %%
-\paragraph{Visual Analysis of Image and non-Image Data}
+\paragraph{Visual Analysis of Medical Image and Non-Image Data}
 %%
-Klemm et al. propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA) \cite{Klemm2014VIS}.
+%Klemm et al. propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA) \cite{Klemm2014VIS}.
+\cite{Klemm2014VIS} propose an extension to the previously described epidemiological workflow using \emph{Interactive Visual Analysis} (IVA).
 %%
 The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
 It aims to trigger \emph{hypothesis generation} by providing visualizations able to concurrently analyze multiple heterogenous variables at once using correlation measures.
 %%
-We incorporate the IVA approach by concurrently displaying complex relationships between variables using decision trees.
+%% TODO BLIND "We incorporate their" -> We incorporate the ...
+We incorporate their IVA approach by concurrently displaying complex relationships between variables via decision trees.
 %%
-Steenwijk et al. propose a coordinated linked view system for both image-related and non-image data \cite{Steenwijk}.
+\cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
 %%
 It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities.
 %%
 Similar to our work, they quantify image data and project it into the non-image data information space.
 %%
-Turkay et al. follow a similar approach by deriving descriptive data metrics from image data \cite{Turkay}.
+\cite{Turkay} follow a similar approach by deriving descriptive data metrics from image data.
 %%
 Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile-range, making variables comparable.
 %%
@@ -259,56 +267,57 @@ The resulting decision rules aim to categorize new subjects as they are added to
 %%
 They define a cohort as parameter-divided subject group, differing from the epidemiological understanding of the term.
 %%
-The paper lacks details about handling of missing data, the definition of similarity or which statistical measures are applied.
+The described method lacks details about handling of missing data, the definition of similarity or the choice of the statistical measures.
 %%
 Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS,Francois}.
 %%
 The plot depends on the type of variables, which are pairwise visualized.
 %%
-The plot matrix is well suited for an overview visualization, but takes up much screen space and is therefore only suitable for few variables at once (see Fig.~\ref{fig:image-parameter-range}).
+\texttt{GPLOM'S} are well suited for an overview visualization, but take up much screen space and are therefore only suitable for few variables at once (see example in Fig.~\ref{fig:image-parameter-range} later on).
 %%
-Dai and Gahegan defined a \emph{Concept Map}, linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines \cite{Dai}.
+\cite{Dai} define a \emph{Concept Map}, linking cancer-associated features by incorporating choropleth maps with bar charts, parallel coordinates and scatter plots with regression lines.
 %%
 The \emph{Concept Map} is iteratively refined using primarily the underlying geographical data.
 %%
 %Our work, however, does not contain geographical information of any kind.
 %%----------------------------
-\paragraph{Decision Rule Driven Analysis of Medical Data.}
+\paragraph{Decision Rule-Driven Analysis of Medical Data.}
 Related work in this field often focuses on clinical diagnosis.
 %%
-Closest to ours is the work of Gla{\ss}er et al. and Niemann et al., who both use decision rules for their analysis \cite{Glasser2013,Niemann2014}.
+Closest to ours is the work of \cite{Glasser2013} and \cite{Niemann2014}.
 %%
-Decision rules are easily readable and are well suited for classifying medical data.
+Both use decision trees for their analyses.
 %%
-The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
+Decision trees are easily readable and are well suited for classifying medical data.
 %%
-The effort of analyzing the decision rules increases with decision rule complexity.
+%The results can be easily communicated to domain experts with little knowledge about the algorithm behind the results.
+%%
+The effort of analyzing the decision trees increases with decision tree complexity.
 %%
 Gla{\ss}er et al. use variables derived from DCE-MRI data capturing the perfusion in the tumorous tissue \cite{Glasser2013}.
 %%
-They aim to classify breast tumors.
-%%
-The extracted variables train a decision-tree classifier, concluding that the extracted features alone are not sufficient for tumor type classification.
+To classify breast tumors, they train a decision-tree classifier, concluding that the extracted kinetic and morphological features alone are not sufficient for tumor type classification.
 %%
 Niemann et al. assess hepatic steatosis (fatty liver disease) risk factors using decision trees \cite{Niemann2014}.
 %%
-They presented an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
+They present an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
 %%
-We combine ideas of both papers by validating the significance of image-derived parameter aiming to derive new relationships by training decision trees to explain target variables.
+We combine both ideas by validating the significance of image-derived parameters.
+We aim at deriving new relationships by training decision trees to explain target variables.
 %%----------------------------
 
 Pinhero et al. applied association rule mining to create high-confidence decision rules based on variables, such as age, gender and geographic location about the mortality rate in liver cancer data \cite{Pinheiro}.
 %%
 Sekhavat and Hoeber propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map \cite{Sekhavat}.
 %%
-The visualization translates the decision tree into a heat map, where each cell represents the connectivity between an initial value and an target value.
+The visualization translates the decision tree into a heat map, where each cell represents the connectivity between an initial value and a target value.
 %%
 The resulting interactive visualization is well suited for analyzing single, but not multiple decision trees.
 %%
 \paragraph{SHIP Data Analysis.}
-Klemm et al. analyzed the lumbar spine variability of of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
+Klemm et al. analyzed the lumbar spine variability of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
 %%
-They incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier cluster.
+They incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier clusters.
 %%
 The extracted lumbar spine shape was correlated with subject size.
 %%
@@ -319,18 +328,18 @@ Clustering techniques applied to non-image data are strongly dependent on the ch
 %Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task \cite{Klemm2014BVM}.
 %%
 \\\\
-Unique for our work is the combination of data mining techniques with an IVA-approach by observing interesting feature relations in context of image-derived features using multiple decision trees for one visualization.
+Unique for our work is the combination of data mining techniques with an IVA-approach by observing interesting feature relations in the context of image-derived features using multiple decision trees for one visualization.
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
 \section{The Lumbar Spine Data Set}
 \label{sec:MaterialsAndMethod}
 %%
-\noindent Our approach allows to analyze many variables simultaneously.
+\noindent Our approach allows the simultaneous analysis of many variables.
 %%
-Therefore, epidemiologists compiled the data set with a with a wide range of variables possibly correlating with lumbar back pain.
+Therefore, epidemiologists compiled the data set with a wide range of variables possibly correlating with lumbar back pain.
 %%
-The data set comprises of 6.753 subjects from two cohorts (4.420 from \texttt{SHIP-Trend-0} and 2.333 from \texttt{SHIP-2}).
+The data set comprises 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}) including non-image and image-derived data.
 %%
 %It is an active research area to determine these correlations.
 %%
@@ -338,14 +347,15 @@ The data set comprises of 6.753 subjects from two cohorts (4.420 from \texttt{SH
 %%
 \subsection{Non-Image Data}
 %\com{Analysis Using Heterogeneous Correlation}
-The variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors as sporting activity or nutrition.
+The non-image variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors, e.g. sporting activity or nutrition.
 %%
-Without the 9 image-derived parameter, the data set comprises of 134 variables:
+%Without the 9 image-derived parameter, the data set comprises of 134 variables:
+The data set comprises of 134 variables (and 9 additional image-derived variables):
 \begin{itemize}
 	\item 21 metric variables, mostly describing somatometric variables and markers retrieved from blood analysis
 	\item 113 categorical variables divided into
 	\begin{itemize}
-		\item 43 dichotomous variables, mostly indicating the presence of a disease
+		\item 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. pancreatitis or high blood pressure
 		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
 	\end{itemize}
 \end{itemize}
@@ -356,9 +366,9 @@ Some variables are follow-up questions, covering the treatment of a disease.
 %%
 Others are exclusive to subgroups, such as women-specific variables, e.g. menstrual status.
 %%
-Sparse variables are statistically less resilient and need to be treated with care in the analysis.
+Sparse variables are statistically less resilient and need to be treated with care during the analysis.
 
-\subsection{Image Data}
+\subsection{Image-Derived Data}
 \begin{figure}[!h]
   %\vspace{-0.2cm}
   \centering
@@ -366,7 +376,7 @@ Sparse variables are statistically less resilient and need to be treated with ca
   \caption{
 	(a) left: Tetrahedron-based finite element model (FEM) of the lumbar spine, capturing the L1-L5 vertebrae as well as the lumbar spine canal.
 	%%
-	(a) right: FEM aligned to a MRI data set.
+	(a) right: FEM aligned to an MRI data set.
 	%%
 	The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
 	%%
@@ -379,25 +389,25 @@ Sparse variables are statistically less resilient and need to be treated with ca
 	}
   \label{fig:centerline}
 \end{figure}
-Four trained radiology technicians acquired the medical image data for each subject in a standardized way using a 1.5~Tesla MRI scanner (Magnetom Avanto; Siemens Medical Solutions, Erlangen, Germany).
+Four trained radiologists acquired the medical image data for each subject in a standardized way using a 1.5~Tesla Magnetic Resonance Imaging (MRI) scanner (Magnetom Avanto; Siemens Medical Solutions, Erlangen, Germany).
 %%
-The spine protocol consisted of a sagittal T1-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) and a sagittal T2-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
+The spine protocol consisted of a sagittal $T_1$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) and a sagittal $T_2$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
 %%
 
 A hierarchical finite element method was used to detect the lumbar spine in the MRI data \cite{Rak2013}.
 %%
-The tetrahedron-based finite element model is initialized using three user-placed landmarks.
+The tetrahedron-based finite element model is initialized using three user-defined landmarks.
 %%
-A click on the L3 vertebra center initialized the model, two clicks on the top and bottom of the vertebra describes an initial height estimation.
+A click on the L3 vertebra center initialized the model, two clicks on the top and bottom of the vertebra describes an initial height estimation (Fig.~\ref{fig:centerline}~a).
 %%
-The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae \cite{Klemm2013VMV} (Fig.~\ref{fig:centerline}~a).
+The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae.
 %%
 Each subjects' model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, 
 rotation and scaling.
 %%
 The detection fails for several subjects due to imprecise initialization, imaging artifacts or strongly deformed spines.
 %%
-$2,540$ lumbar spine models were obtained and constitute the foundation of this work.
+$2,540$ out of $6,753$ lumbar spine models were obtained and constitute the foundation of this work.
 %%
 % \com{From VIS'14 Paper}
 % The lumbar spine was detected in the image data using a hierarchical finite element method by Rak et al. [32].
@@ -437,7 +447,7 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 	% \item The curvature of the centerline is calculated using the summed mean curvature between adjacent points:
 % %%
 % $\sum \frac{curvature_i}{curvature_all}$.
-	\item \emph{Normalized Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{i}$. We refer to total curvature from now on as \emph{curvature}.
+	\item \emph{Normalized Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{i}$. We refer to total curvature as \emph{curvature}.
 %%
 	\item \emph{Normalized Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{i}$. We refer to total torsion from now on as \emph{torsion}.
 %%
@@ -445,11 +455,13 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 %%
 \end{itemize}
 %%
-These figures are also extracted in the sagittal, coronal and transversal projection of the model.
+These metrics are also extracted in the sagittal, coronal and transversal projection of the model.
 %%
 We assess the information gain of each dimension using these projections.
 %%
-This gives us a total of 9 image-derived parameters.
+This yields a total of 9 image-derived parameters.
+%%
+In the next section, we present the experiments we conducted to assess the influence of the lumbar spine shape to lower back pain.
 
 %\subsection{Creating a Decision Tree using C5.0}
 %\com{C4.5 Algorithm for creating decision trees; }
@@ -479,7 +491,7 @@ This gives us a total of 9 image-derived parameters.
 	%%
 	Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
 	%%
-	Due to bone erosion, older people are also smaller on average.
+	%Due to bone erosion, older people are also smaller on average.
 	}
   \label{fig:age-gender}
 \end{figure}
@@ -491,29 +503,29 @@ Since men are on average taller than women and people of old age shrink due to b
 %%
 Large body weight increases the spine load, resulting in a bend shape.
 %%
-All these variables need to be taken into account, when correlating spine curvature and torsion with non-image parameter.
+When correlating spine curvature and torsion with non-image parameter, all these variables need to be taken into account
 %%
 Since the gender confounder mainly encodes body-size, we decided to divide subjects into body-size groups.
 %%
-To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables \cite{Klemm2014VIS}.
+To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables.
 \subsection{Preliminary Results}
 \begin{figure*}[htb]
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
   \caption{%%
-A generalized pairs plot of all image-derived variables colored by presence or absence of back pain.
+A generalized pairs plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
 %%
-Pairwise combinations of image-derived variables are visualized using scatter plots left of the matrix diagonal and their correlation with back pain is denoted right of the matrix diagonal.
+Pairwise combinations of image-derived variables are visualized via scatter plots left of the matrix diagonal and their correlation with back pain is denoted right of the matrix diagonal.
 %%
-The box plots (left) and histograms (bottom) display the distribution of each image-variable encoded with back pain.
+The box plots (right) and histograms (bottom) display the distribution of each image-variable encoded with back pain.
 %%
-No correlation with back pain are present can be seen in this plot.
+No correlations with back pain are present as it can be seen in this plot.
 }
   \label{fig:image-parameter-range}
 \end{figure*}
 %%
-\noindent As first experiment we correlated the shape parameter with the binary back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
+\noindent As a first experiment we correlated the shape parameter with the binary back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
 %%
 %Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
 %%
@@ -532,9 +544,9 @@ We conclude that curvature is not as reliable on the transversal plane as it is 
 \subsubsection{Correlation Matrix}
 We calculated an association matrix to assess correlations between the image parameters.
 %%
-The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal in Figure~\ref{fig:image-parameter-range}.
+The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
 %%
-\emph{Curvature}, \emph{curvature angle} and \emph{torsion} correlate strongly with their planar projections.
+\emph{Curvature}, \emph{curvature angle} and \emph{torsion} strongly correlate with their planar projections.
 %%
 Also the mean curvature and the curvature angle correlate by a factor of $-0.89$.
 %%
@@ -548,9 +560,11 @@ No statistically significant correlation could be observed through all subject g
 %%
 The box plots show no difference between subjects with and without back pain.
 
-\subsubsection{Assessing the Information Gain Using the PCA}
+\subsubsection{Assessing the Information Gain Using the Principal Component Analysis}
 %%
-To determine the information gain per image-derived variables, we calculated a PCA and compared the loadings per dimension.
+To determine the information gain per image-derived variables, we calculated a Principal Component Analysis (PCA) and compared the loadings per dimension.
+%%
+The PCA results in a linear projection of the parameter space ordering their components by maximum variance.
 %%
 The first three principal components explain 75\% of the variance in the image-derived variables.
 %%
@@ -572,7 +586,7 @@ We then expanded our focus on correlations of image-derived parameters with all 
 %%
 We applied a heterogenous correlation technique to derive correlations between all variables in the data set.
 %%
-The method uses the following correlation metrics for the different type combination:
+The method uses the following correlation metrics for the different type combinations:
 %%
 \begin{itemize}
 %%
@@ -581,11 +595,13 @@ The method uses the following correlation metrics for the different type combina
 \item \emph{Polychoric} correlations for two categorical variables.
 \end{itemize}
 %%
-All correlation values are scaled between \texttt{0 - no correlation} and \texttt{1 - identical}.
+All correlation values are scaled between \texttt{0 - no correlation} and \texttt{1 - perfect correlation}.
 %%
 Some variables are too sparse for calculating correlations, for example \emph{treatment of diabetes}, or \emph{medication against high blood pressure}.
 %%
-We display the resulting \emph{contingency matrix} using a heat map, mapping correlation values to color brightness with white for 0 and dark blue for 1 \cite{Klemm2014VIS}.
+These variables have to be omitted in the analysis, since they are not statistically resilient.
+%%
+We display the resulting \emph{contingency matrix} using a heat map, mapping correlation values to color brightness with white for 0 and dark blue for 1, as presented in \cite{Klemm2014VIS}.
 %%
 We calculated the contingency matrix for all size groups and looked for correlations between image- and non-image derived variables.
 %%
@@ -619,9 +635,9 @@ These observations brought us to the conclusion to incorporate more sophisticate
 %%
 We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-parameter explain non-image variables.
 %%
-Decision trees are a popular classification method in data mining for creating predictive models.
+Decision trees are a popular classification method in data mining to create predictive models.
 %%
-Leafs of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
+Leafs of a decision tree represent class labels, branches represent decision trees.
 %%
 Decision trees are easy to understand and to read.
 %%
@@ -634,13 +650,13 @@ Readability is only granted for small trees. %, complex structures with many bra
 Too many branches also impose overfitting to the data \cite{DecisionTree}.
 
 \subsection{The C4.5/C5.0 Algorithm}
-Using a trained data set, the C4.5 algorithm builds decision trees based on information entropy.
+The C4.5 algorithm builds decision trees based on information entropy on a data set.
 %%
 Such a calculation requires a numeric or categorical target variable.
 %%
-The algorithm then tries to find a decision tree, which divides the samples using the input variables just like the target variables.
+%The algorithm then tries to find a decision tree, which divides the samples using the input variables just like the target variables.
 %%
-This means, that every node in the tree represents the attribute which splits the data most efficiently into the target subset.
+%This means, that every node in the tree represents the attribute which splits the data most efficiently into the target subset.
 %%
 The pseudocode for the algorithm is defined in Algorithm~\ref{alg:c4.5} \cite{C4.5Algorithm}.
 \begin{algorithm}[]
@@ -656,7 +672,7 @@ The pseudocode for the algorithm is defined in Algorithm~\ref{alg:c4.5} \cite{C4
 \end{algorithm}
 C5.0 is developed to produce smaller decision trees than C4.5 and improve the execution time.
 %%
-We use the \texttt{R} implementation of C5.0 \cite{c5.0lassification}.
+We use the \texttt{R} implementation of C5.0 \cite{c5.0classification}.
 %%
 % \begin{enumerate}
 % %%
@@ -682,21 +698,25 @@ Categorical attributes with more levels are biased with more information gain in
 %%
 Creating dummy variables bypasses this problem.
 %%
-
-The actual use for the resulting tree is the classification of new observations (subjects).
+%
+%The actual use for the resulting tree is the classification of new observations (subjects).
 %%
-Yet, we are interested in the decision rules and the classification accuracy.
+%Yet, we are interested in the decision rules and the classification accuracy.
+%%
+In the following analysis, we strongly focus on the complexity of decision trees and the classification accuracy.
 
 \subsection{Interactive Display of Decision Trees}
 We have to create a decision tree for every non-image variable to analyze which one can be explained by image-derived variables.
 %%
-Since we have 134 non-image variables, the calculation yields a corresponding number of trees.
+Since we have 134 non-image variables, the calculation yields the same amount of trees.
 %%
 Further subdivision, e.g. by quantiles of \emph{body size} increases the number to 402 trees.
 %Dividing the subjects into four groups using body size, the number increases to 402 trees.
 %%
 %To make the results cognitive feasible, we have to abstract the results of the classification.
 We have to abstract the results of the classification to keep the mental effort of interpreting the data low.
+%%
+This is included in our IVA framework.
 %%------------
 \subsubsection{Visualization of Classification Results}
 \label{subsec:VisualizationOfClassificationResults}
@@ -710,23 +730,25 @@ The optimal classification uses a few rules to precisely characterize the target
 %%
 Therefore, we are interested in \emph{small trees} with a \emph{low classification error}.
 %%
-The two measures form the axis for a \emph{scatter plot} of the classification results.
+The two measures form the axes for a \emph{scatter plot} of the classification results.
+%%
+The scatter plot is our central element for the interactive analysis of decision trees.
 
 \paragraph{The Error Term. }
-Normally the error for a classification is calculated with $error = \frac{classifiedCorrectly_{n}} {n}$ where $n$ is the number of subjects.
+Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {n}$ where $n$ is the number of subjects.
 %%
 The metric usually works well for variables with uniform distribution.
 %%
 It distorts the result for other distribution types.
 %%
-If for example a variable indicating a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill} the error metric would yield an error of 10\%, even though it is very bad.
+For example, if a variable indicates a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill} the error metric would yield an error of 10\%, even though it is very bad.
 %%
 Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
 %Therefore the discriminative power of each dimension in the equation
 %error = 1 - \frac{\[ \sum_{m=0}^M \] \frac{M_{classifiedCorrectly}}{M_all}}{number of dimensions}
 \begin{equation}
-error = 1 - \frac{\sum_{m=0}^M \frac{classifiedCorrectly_{m}}{all_{m}}}{number_{dimensions}}
+error = 1 - \frac{\sum_{m=0}^M \frac{correctlyClassified_{m}}{m}}{number_{dimensions}}
 \end{equation}
 $M$ represents the set of manifestation of each variable.
 %%
@@ -796,7 +818,7 @@ Dummy variables convert a categorical variable with multiple manifestations into
 %%
 Each binary variable encodes the presence of a manifestation.
 %%
-For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four binary variables (\emph{No pain - Yes/No} to \emph{Large Pain - Yes/no}).
+For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four binary variables. %(\emph{No pain - Yes/No} to \emph{Large Pain - Yes/no}).
 %%
 One subject can only have one of these variables set to true.
 %%
@@ -809,7 +831,7 @@ The described visualization provides a good overview over the classification res
 %%
 We still want to be able to display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
 %%
-This is realized by clicking on an entry on the visualization, which then displays the corresponding decision tree in detail.
+This is realized by clicking on an entry on the visualization, which then interactively displays the corresponding decision tree in detail.
 %%
 This allows for sequentially analyzing the classifications.
 
@@ -817,7 +839,7 @@ We also provide controls for adjusting the maximum classification error and mini
 %%
 This gives the user control to abstract or refine the displayed information.
 %%
-Selecting a variable using a drop down menu allows to user to select the variable used for subject subdivisions, e.g. \emph{gender} or \emph{disease treatment type}.
+Selecting a variable using a drop down menu allows the user to select the variable used for subject subdivisions, e.g. \emph{gender} or \emph{disease treatment type}.
 %%
 Categorization using metric variables, such as \emph{body size}, is done using their quantiles.
 %%
@@ -828,7 +850,7 @@ All analysis are carried out using \texttt{R}, a widely used programming languag
 %%
 The interactive visualizations are realized using the \texttt{ggvis}\footnote{Developed by RStudio, Inc; \texttt{ggvis.rstudio.com}} package.
 %%
-As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using UI controls, such as sliders.
+As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using user interface controls, such as sliders.
 %%
 In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to create reports by combining \texttt{R} with the \texttt{Markdown} syntax.
 %%
@@ -847,7 +869,7 @@ They can use the technique without installing any software.
 %%
 Exchanging the prototype becomes as easy as exchanging a hyperlink.
 %%
-The prototype is available under the following link: \url{blind.dnsalias.com}
+The prototype is available under the following link: \url{blind.dnsalias.com}.
 %%---------
 \subsection{Results}
 \begin{figure*}[p!]
@@ -875,12 +897,19 @@ The number of subjects represented in a variable is denoted using the dot diamet
 %%
 We only display variables with an error below $0.5$, results above this threshold are inaccurate.
 %%
-A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
+%A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
+The interactive plot (see supplemental material) has clickable data points, displaying corresponding decision tree in a tool tip.
+%A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
 %%
 }
   \label{fig:results}
 \end{figure*}
-We ran the analysis using different subject groups:
+\com{ToDo: Eigene Section daraus machen?}. 
+In this section, we show which non-image variables can be described using the 9 image derived variables.
+%%
+We also create subject groups to assess the influence of variables affecting the lumbar spine shape.
+%%
+We carry out the analysis using different subject groups:
 \begin{enumerate}
 	%%
 	\item All subjects,
@@ -903,7 +932,7 @@ The second plot shows all categorical variables transformed into dichotomous dum
 
 \subsubsection{All Variables}
 %%
-The vast majority of parameters can not be described well using the classifier.
+The vast majority of non-image variables can not be described well using the classifier.
 %%
 This is reflected in the large amount of variables classified with an error above $0.6$.
 %%
@@ -915,7 +944,7 @@ None of the pain indicators can be described reliably using the image-based para
 %%
 The only variable reliably classified in this group is gender. % with an error rate of 31.5\% using a decision tree of seven rules.
 %
-It can be discriminated with an error of $0.31$ using 7 rules and incorporates only curvature and curvature angle variables.
+It can be discriminated with an error of $0.31$ using 7 rules and incorporates only \emph{curvature} and \emph{curvature angle} related variables.
 %%
 The distinctness lies in the average difference in body size between male and female subjects.
 %
@@ -928,20 +957,18 @@ The distinctness lies in the average difference in body size between male and fe
 %%
 %The good discrimination is not meaningful.
 %%
-\emph{Medication for high blood pressure} is classified for 1,058 subjects with an error of $0.47$ solely based on coronal mean curvature.
+\emph{Medication for high blood pressure} is classified for 1,058 subjects with an error of $0.47$ solely based on \emph{coronal mean curvature}.
 %%
 %1,058 subjects are classified with an error rate of $0,47$ solely based on coronal mean curvature.
 %%
-Almost all subjects who are medicated ($796/1,058$) were correctly classified, the vast majority of non-medicated subjects ($262/1,058$) are false-positive classified.
-%%
-Therefore the classifier is not as useful.
+Almost all subjects who are medicated ($796$ of $1,058$) were correctly classified, the vast majority of non-medicated subjects ($262$ of $1,058$) are false-positive classified, yielding a poor quality of the classifier w.r.t epidemiological research.
 %%This is however due to the high amount of people, who are medicated (68\%) and who are almost all correctly class
 %%
 %Other features well classified include marital status, foot pain and number of born children.
 %%
 The four body size groups could be characterized with an error $0.48$, but the decision tree comprises 71 rules and imposes overfitting.
 
-The analysis of the dummy variable yields similar results like the \emph{blood pressure medication}.
+The analysis of the dummy variables yields similar results like the \emph{blood pressure medication}.
 %%
 Variables, such as subjects sized 139-164 cm, between 64 and 90 years of age or nutrition related parameters are dominantly populated by one manifestation.
 %%
