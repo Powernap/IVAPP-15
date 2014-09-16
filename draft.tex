@@ -878,7 +878,7 @@ The prototype is available under the following link: \url{blind.dnsalias.com}.
   \includegraphics[width=0.95\textwidth]{figures/results}
   \caption{
 %%
-Scatterplot visualization of all C5.0 classification results.
+Interactive scatterplot visualization of all C5.0 classification results.
 %%
 The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{subsec:VisualizationOfClassificationResults}).
 %%
@@ -972,7 +972,7 @@ The analysis of the dummy variables yields similar results like the \emph{blood 
 %%
 Variables, such as subjects sized 139-164 cm, between 64 and 90 years of age or nutrition related parameters are dominantly populated by one manifestation.
 %%
-The classifier neglects the other group and yields a error below $0.5$.
+The classifier neglects the other group and yields an error below $0.5$.
 %The dummy variable analysis yields fewer results.
 %%
 %It shows that subjects between 64 and 90 years of age can be detected with 23\% error rate by using the curvature angle and coronal mean curvature.
@@ -998,12 +998,12 @@ The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rule
 %%
 The starting age of smoking could be characterized well with an error between $0.25$ to $0.32$ for all \emph{BMI} groups except of subjects with BMI of \emph{$30.5-48$}.
 %%
-The result however is probably over fitted to the data due to tree sizes between $14$ and $16$.
+The result however is probably overfitted to the data due to tree sizes between $14$ and $16$.
 %%
 
 Some variables, such as \emph{body size} can be described with an error of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
 %%
-Notable is also the decreasing error with increasing decision tree size.
+%Notable is also the decreasing error with increasing decision tree size.
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the leg pain level can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
@@ -1047,11 +1047,11 @@ The dummy variable analysis shows many results using a decision tree with one ru
 %%
 Many previously described results are confounded with subject size.
 %%
-Differences between \emph{male} and \emph{female} subjects are explained by to the average \emph{body size} difference.
+Differences between \emph{male} and \emph{female} subjects are explained by the average \emph{body size} difference.
 %%
 For example, large subjects are already characterized by their rather straight spine.
 %
-The question is, whether the inter-group spine-variability parameter is enough for predicting other parameter or not.
+The question is, whether the inter-group spine-variability parameter is enough for predicting other parameters or not.
 %%
 Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
 %%
@@ -1062,7 +1062,7 @@ Radiating back pain could be described with error of $0.39$ using 23 rules for s
 %%
 For subjects sized \emph{$177-202~cm$} the error increases to $0.47$ using 20 decision rules.
 %%
-There are several decision trees for laboratory values, such as \emph{alanine aminotransferase} value (relevant for diagnosis of liver or gallbladder illness) in the blood can be described with an error of $0.4$ (\emph{$139-164~cm$}) to $0.36$ (\emph{$164 - 171~cm$}).
+There are several decision trees for laboratory values, e.g. \emph{alanine aminotransferase} value (relevant for diagnosis of liver or gallbladder illness) in the blood can be described with an error of $0.4$ (\emph{$139-164~cm$}) to $0.36$ (\emph{$164 - 171~cm$}).
 %%
 Similar values can be observed for \emph{cholesterol} or \emph{age}.
 %%
@@ -1086,7 +1086,7 @@ These variables include \emph{nutrition} parameter, \emph{thyroid disorder} and 
 
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
-\noindent The presented results indicate that the parameters \emph{torsion}, \emph{curvature} and \emph{curvature angle} are not enough to characterize pathological changes in the lumbar spine.
+\noindent The presented results indicate that the image based variables \emph{torsion}, \emph{curvature} and \emph{curvature angle} are not enough to characterize pathological changes in the lumbar spine.
 %%
 They are well suited to characterize subject gender due to their body size difference using \emph{mean curvature} and \emph{mean curvature angle}.
 %%
