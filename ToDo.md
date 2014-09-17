@@ -1,9 +1,5 @@
 ## Von Sylvia
 
-- Contribution Sachen mit einbauen
-- (von Bernhard) Subsubsections entsorgen
-- "Parameter" durch "Variablen" ersetzen
-
 ## Von Bernhard
 Konferenzen:
 

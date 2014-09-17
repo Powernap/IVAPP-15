@@ -67,7 +67,7 @@ A correlation between lumbar spine shape and lower back pain disease was not exi
 %%
 However, the presented approach is a valuable extension for the IVA of epidemiological data.
 %%
-Hence, correlations between non-image parameters were successfully detected and characterized.
+Hence, correlations between non-image variables were successfully detected and characterized.
 }
 
 \onecolumn \maketitle \normalsize \vfill
@@ -102,7 +102,7 @@ Epidemiological analysis of back pain aims to characterize the disease by determ
 %%
 Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, an automatic classification approach for characterization of back pain based on lumbar back spine attributes is still missing.
 %%
-Furthermore, previous analyses mainly focused on a single parameter (e.g. \emph{BMI}) or a small subset of parameters.
+Furthermore, previous analyses mainly focused on a single variable (e.g. \emph{BMI}) or a small subset of variables.
 %%
 
 In this paper, we present a thorough analysis of the image-derived data of a cohort study including lumbar back spine datasets.
@@ -122,7 +122,7 @@ Our contributions are:
 %%
 \item The identification and evaluation of lumbar spine shape properties for back pain diagnosis,
 %%
-\item The detection of correlations between image-based and socio-demographic as well as medical parameters for an improved hypothesis generation,
+\item The detection of correlations between image-based and socio-demographic as well as medical variables for an improved hypothesis generation,
 %%
 \item The identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework
 %%
@@ -265,7 +265,7 @@ Zhang et al. analyze subject groups in a web-based linked view system \cite{Zhan
 %%
 The resulting decision rules aim to categorize new subjects as they are added to the data.
 %%
-They define a cohort as parameter-divided subject group, differing from the epidemiological understanding of the term.
+They define a cohort as variable-divided subject group, differing from the epidemiological understanding of the term.
 %%
 The described method lacks details about handling of missing data, the definition of similarity or the choice of the statistical measures.
 %%
@@ -302,7 +302,7 @@ Niemann et al. assess hepatic steatosis (fatty liver disease) risk factors using
 %%
 They present an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypothesis about the data.
 %%
-We combine both ideas by validating the significance of image-derived parameters.
+We combine both ideas by validating the significance of image-derived variables.
 We aim at deriving new relationships by training decision trees to explain target variables.
 %%----------------------------
 
@@ -332,7 +332,7 @@ Unique for our work is the combination of data mining techniques with an IVA-app
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
-\section{The Lumbar Spine Data Set}
+\section{\uppercase{The Lumbar Spine Data Set}}
 \label{sec:MaterialsAndMethod}
 %%
 \noindent Our approach allows the simultaneous analysis of many variables.
@@ -459,7 +459,7 @@ These metrics are also extracted in the sagittal, coronal and transversal projec
 %%
 We assess the information gain of each dimension using these projections.
 %%
-This yields a total of 9 image-derived parameters.
+This yields a total of 9 image-derived variables.
 %%
 In the next section, we present the experiments we conducted to assess the influence of the lumbar spine shape to lower back pain.
 
@@ -503,7 +503,7 @@ Since men are on average taller than women and people of old age shrink due to b
 %%
 Large body weight increases the spine load, resulting in a bend shape.
 %%
-When correlating spine curvature and torsion with non-image parameter, all these variables need to be taken into account
+When correlating spine curvature and torsion with non-image variable, all these variables need to be taken into account
 %%
 Since the gender confounder mainly encodes body-size, we decided to divide subjects into body-size groups.
 %%
@@ -525,7 +525,7 @@ No correlations with back pain are present as it can be seen in this plot.
   \label{fig:image-parameter-range}
 \end{figure*}
 %%
-\noindent As a first experiment we correlated the shape parameter with the binary back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
+\noindent As a first experiment we correlated the shape variable with the binary back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
 %%
 %Pairs plots visualize continuous and categorical variables pairwise in a matrix view.
 %%
@@ -542,7 +542,7 @@ The projections to the transversal planes attract attention as they have many ou
 We conclude that curvature is not as reliable on the transversal plane as it is on the other planes.
 %%--------------------------------
 \subsubsection{Correlation Matrix}
-We calculated an association matrix to assess correlations between the image parameters.
+We calculated an association matrix to assess correlations between the image variables.
 %%
 The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
 %%
@@ -553,8 +553,8 @@ Also the mean curvature and the curvature angle correlate by a factor of $-0.89$
 %Torsion and curvature/curvature angle do not correlate.
 Torsion does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
-\subsubsection{Correlation of Image Parameters With Back Pain}
-Figure~\ref{fig:image-parameter-range} shows the distribution of all image-parameters as generalized pairs plot.
+\subsubsection{Correlation of Image Variables With Back Pain}
+Figure~\ref{fig:image-parameter-range} shows the distribution of all image-variables as generalized pairs plot.
 %%
 No statistically significant correlation could be observed through all subject groups.
 %%
@@ -564,7 +564,7 @@ The box plots show no difference between subjects with and without back pain.
 %%
 To determine the information gain per image-derived variables, we calculated a Principal Component Analysis (PCA) and compared the loadings per dimension.
 %%
-The PCA results in a linear projection of the parameter space ordering their components by maximum variance.
+The PCA results in a linear projection of the variable space ordering their components by maximum variance.
 %%
 The first three principal components explain 75\% of the variance in the image-derived variables.
 %%
@@ -582,7 +582,7 @@ The complete analysis can be found under the experiments section of the suppleme
 %% ------------------------------------------
 \subsubsection{Heterogenous Correlations}
 %%
-We then expanded our focus on correlations of image-derived parameters with all other non-image variables.
+We then expanded our focus on correlations of image-derived variables with all other non-image variables.
 %%
 We applied a heterogenous correlation technique to derive correlations between all variables in the data set.
 %%
@@ -605,14 +605,14 @@ We display the resulting \emph{contingency matrix} using a heat map, mapping cor
 %%
 We calculated the contingency matrix for all size groups and looked for correlations between image- and non-image derived variables.
 %%
-The resulting contingency matrices are available as supplementary material and show no strong correlation with any of the parameter (see \url{blind.dnsalias.com}).
+The resulting contingency matrices are available as supplementary material and show no strong correlation with any of the variable (see \url{blind.dnsalias.com}).
 %%
 Only weak correlations could be found for \emph{Mean Curvature} with \emph{gender} (0.42), \emph{body size} (0.39) and \emph{number of born children} (0.29).
 %%
 One surprising result was the small correlation with \emph{torsion}, which correlated with almost no variables (p values between 0 and 0.05) and \emph{parkinson} (0.24).
 %%
 
-These observations brought us to the conclusion to incorporate more sophisticated data mining techniques to assess the influence of the image-derived parameters.
+These observations brought us to the conclusion to incorporate more sophisticated data mining techniques to assess the influence of the image-derived variables.
 
 % \subsubsection{Diese Themen hier unterbringen}
 % \begin{itemize}
@@ -633,7 +633,7 @@ These observations brought us to the conclusion to incorporate more sophisticate
 %%
 \noindent As described before, correlation coefficients fail to infer back pain status based on lumbar spine canal curvature and torsion.
 %%
-We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-parameter explain non-image variables.
+We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-variable explain non-image variables.
 %%
 Decision trees are a popular classification method in data mining to create predictive models.
 %%
@@ -822,7 +822,7 @@ For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{
 %%
 One subject can only have one of these variables set to true.
 %%
-This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data parameter.
+This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variable.
 %%\com{ToDo: Dummy-Variables}
 %%------------
 \subsubsection{Interaction With the Visualization}
@@ -850,13 +850,13 @@ All analysis are carried out using \texttt{R}, a widely used programming languag
 %%
 The interactive visualizations are realized using the \texttt{ggvis}\footnote{Developed by RStudio, Inc; \texttt{ggvis.rstudio.com}} package.
 %%
-As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization parameters using user interface controls, such as sliders.
+As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization variables using user interface controls, such as sliders.
 %%
 In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to create reports by combining \texttt{R} with the \texttt{Markdown} syntax.
 %%
 We used \texttt{R Shiny}\footnote{Developed by RStudio, Inc; \texttt{shiny.rstudio.com}} to make the report available as dynamic web application.
 %%
-It allows to combine both the ability to create comprehensible reports as well as UI-controls, to adjust visible data and parameters in the plot to allow the viewer to analyze the data.
+It allows to combine both the ability to create comprehensible reports as well as UI-controls, to adjust visible data and variables in the plot to allow the viewer to analyze the data.
 %%
 Furthermore, calculations based on a prior data selection can be redone within the report.
 %We implemented our application as web based prototype using \texttt{R Shiny}\footnote{R Shiny footnote} in combination with \texttt{RMarkdown}.
@@ -871,7 +871,7 @@ Exchanging the prototype becomes as easy as exchanging a hyperlink.
 %%
 The prototype is available under the following link: \url{blind.dnsalias.com}.
 %%---------
-\subsection{Results}
+\section{\uppercase{Results}}
 \begin{figure*}[p!]
   %\vspace{-0.2cm}
   \centering
@@ -904,8 +904,7 @@ The interactive plot (see supplemental material) has clickable data points, disp
 }
   \label{fig:results}
 \end{figure*}
-\com{ToDo: Eigene Section daraus machen?}. 
-In this section, we show which non-image variables can be described using the 9 image derived variables.
+\noindent In this section, we show which non-image variables can be described using the 9 image derived variables.
 %%
 We also create subject groups to assess the influence of variables affecting the lumbar spine shape.
 %%
@@ -930,7 +929,7 @@ The first plot shows all original variables.
 %%
 The second plot shows all categorical variables transformed into dichotomous dummy variables.
 
-\subsubsection{All Variables}
+\subsection{All Variables}
 %%
 The vast majority of non-image variables can not be described well using the classifier.
 %%
@@ -940,7 +939,7 @@ This is reflected in the large amount of variables classified with an error abov
 %%
 
 % None of the pain indicators can be reliably described using the image-based parameter.
-None of the pain indicators can be described reliably using the image-based parameters.
+None of the pain indicators can be described reliably using the image-based variables.
 %%
 The only variable reliably classified in this group is gender. % with an error rate of 31.5\% using a decision tree of seven rules.
 %
@@ -970,7 +969,7 @@ The four body size groups could be characterized with an error $0.48$, but the d
 
 The analysis of the dummy variables yields similar results like the \emph{blood pressure medication}.
 %%
-Variables, such as subjects sized 139-164 cm, between 64 and 90 years of age or nutrition related parameters are dominantly populated by one manifestation.
+Variables, such as subjects sized 139-164 cm, between 64 and 90 years of age or nutrition related variables are dominantly populated by one manifestation.
 %%
 The classifier neglects the other group and yields an error below $0.5$.
 %The dummy variable analysis yields fewer results.
@@ -979,7 +978,7 @@ The classifier neglects the other group and yields an error below $0.5$.
 %%
 %Subjects with body size between 177 cm and 202 cm can classified with an error rate of 22,1\%. solely using mean curvature.
 %%
-\subsubsection{Gender Groups}
+\subsection{Gender Groups}
 %%
 Classification using groups divided by gender do not produce satisfying results.
 %%
@@ -990,7 +989,7 @@ Since there are only 30 male subjects diagnosed with \emph{hypothyroidism}, the 
 The dummy variable analysis showed that female subjects of \emph{139-164~cm body size} could be discriminated using the \emph{mean curvature} and \emph{curvature angle}, with an error of $0.38$.
 
 %\com{Potentially skip these due to the confounding of body size}
-\subsubsection{Body-Mass-Index Groups}
+\subsection{Body-Mass-Index Groups}
 %%
 Gender could be classified for each \emph{BMI} group using \emph{mean curvature} and \emph{curvature angle}.
 %%
@@ -1043,7 +1042,7 @@ The dummy variable analysis shows many results using a decision tree with one ru
 % %%
 % It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
 
-\subsubsection{Size Groups}
+\subsection{Size Groups}
 %%
 Many previously described results are confounded with subject size.
 %%
@@ -1051,7 +1050,7 @@ Differences between \emph{male} and \emph{female} subjects are explained by the 
 %%
 For example, large subjects are already characterized by their rather straight spine.
 %
-The question is, whether the inter-group spine-variability parameter is enough for predicting other parameters or not.
+The question is, whether the inter-group spine-variability variable is enough for predicting other variables or not.
 %%
 Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
 %%
@@ -1074,7 +1073,7 @@ The dummy variables show several variables described using only one decision rul
 %%
 Most of these variables have a dominant manifestation and the classifier shows a low detection precision for the second manifestation.
 %%
-These variables include \emph{nutrition} parameter, \emph{thyroid disorder} and \emph{social problems induced by back pain}.
+These variables include \emph{nutrition}, \emph{thyroid disorder} and \emph{social problems induced by back pain}.
 
 %The resulting trees consist either only one rule or a rich set of them (>15).
 %Either they divide the variables using only one decision rule, or a large set of rules (> 15).
@@ -1098,7 +1097,7 @@ Subjects grouped using \emph{body size} have a similar spine shape and a lower v
 %%
 The remaining information within these groups is not enough to characterize back pain-related variables.
 %%
-For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} parameters can be predicted with a comparatively high error.
+For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} variables can be predicted with a comparatively high error.
 %%
 
 Another observation during the analysis is that large decision trees achieve low error scores.
@@ -1126,66 +1125,70 @@ Suggesting potentially interesting features when analyzing a condition is an imp
 %%
 We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
 %%
-This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important parameters for the classification.
+This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important variables for the classification.
 %Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
 \paragraph{Predictive Power of Image-Derived Variables.}
 We showed, that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not enough to characterize lumbar back pain in the SHIP data set.
 %%
 Our method made it possible to assess their discriminative power, which is largely limited for separating \emph{male} and \emph{female} subjects, \emph{nutrition} variables, as well as different disease indicators.
 %%
-The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image parameters.
+The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image variables.
 %%
 Over-fitting to the data indicated by complex decision trees have to be taken into account into the analysis as well.
 %%
-\subsection{Proposed Features}
-\label{sec:ProposedFeatures}
-\begin{figure}[!h]
-  %\vspace{-0.2cm}
-  \centering
-  \includegraphics[width=0.475\textwidth]{figures/proposed-features}
-  \caption{
-	Proposed features.
-	%%
-	(a) dented vertebraes are a sign of heavy stress and bone absorption.
-	%%
-	(b, c) the spine canal shape can be used to characterize scoliosis (curvature sagittal) and lordosis (curvature coronal) as well as the \emph{Cobb-Angles} \cite{Cobb}.
-	%%
-	(c) Spine canal thickness is associated with herniated disks.
-	%%
-	}
-  \label{fig:proposedFeatures}
-\end{figure}
-%%
-\noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain.
-%%
-We have to capture earlier signs of pathological change in order to derive better predictive models.
-%%
-
-A very early sign of pathological deformation is the \emph{bone resorption in the center of a vertebra}.
-%%
-They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~a).
-%%
-This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
-%%
-Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~c).
-%%
-Low spine canal thickness can be an indicator for an impending herniated disk.
-%%
-Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
-%%
-The \emph{overall spine canal shape} is also of interest, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
+% \subsection{Proposed Features}
+% \label{sec:ProposedFeatures}
+% \begin{figure}[!h]
+%   %\vspace{-0.2cm}
+%   \centering
+%   \includegraphics[width=0.475\textwidth]{figures/proposed-features}
+%   \caption{
+% 	Proposed features.
+% 	%%
+% 	(a) dented vertebraes are a sign of heavy stress and bone absorption.
+% 	%%
+% 	(b, c) the spine canal shape can be used to characterize scoliosis (curvature sagittal) and lordosis (curvature coronal) as well as the \emph{Cobb-Angles} \cite{Cobb}.
+% 	%%
+% 	(c) Spine canal thickness is associated with herniated disks.
+% 	%%
+% 	}
+%   \label{fig:proposedFeatures}
+% \end{figure}
+% %%
+% \noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain.
+% %%
+% We have to capture earlier signs of pathological change in order to derive better predictive models.
+% %%
+%
+% A very early sign of pathological deformation is the \emph{bone resorption in the center of a vertebra}.
+% %%
+% They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~a).
+% %%
+% This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
+% %%
+% Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~c).
+% %%
+% Low spine canal thickness can be an indicator for an impending herniated disk.
+% %%
+% Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
+% %%
+% The \emph{overall spine canal shape} is also of interest, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
 %% ------------------------------------
-\subsection{Future Work}
+\paragraph{Future Work.}
+\com{ToDo: Passen die Contributions hier wirklich?}
 %% Contributions
 We provide a method for comparative analysis of decision trees independent of the variable manifestation count using interactive scatter plots.
 %%
 We applied the technique to derive insight into the predictive power of 9 image-derived variables for 134 non-image variables.
-%%TODO HIER WEITER
-%We carried out an analysis on subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine.
-%To assess the influence of parameters which strongly influence the spine shape, we applied the technique to.
 %%
+The analysis was carried out for subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine shape.
 
-In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
+%In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
+In our future work, we will focus on more precise models for extracting measures.
+%%
+Dented vertebras are a early sign of a pathological deformation, so we want to capture this by segmenting the top and bottom point of each vertebra center.
+%%
+Another interesting metric is the spine canal thickness over the whole spine, capturing early signs of herniated disc disease.
 %%
 As another focus, we want to include the method into existing visual analytics methods designed for analyzing shape information for epidemiological data \cite{Klemm2014VIS}.
 %%
