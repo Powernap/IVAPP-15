@@ -1,4 +1,3 @@
-## Von Sylvia
 
 ## Von Bernhard
 Konferenzen:
@@ -6,6 +5,7 @@ Konferenzen:
 - Internationals Journal of CARS
 - Computerized Medical Imaging
 - Academic Radiology
+- Symposium on Computer-Based Medical Systems
 
 Langfristige Änderungen:
 
@@ -13,6 +13,7 @@ Langfristige Änderungen:
 - Mit Klaus sprechen, wann wir Parsos verwenden können, bzw. wann Gino und Daniel ihre Publikation einreichen
 
 ## Allgemein
+- Vor der Abgabe: Autoren entfernen
 
 # Notes
 - Formula: $\sqrt[2]{\text{Error Rate}}$
@@ -27,7 +28,7 @@ _Area 1: Abstract Data Visualization_
 - Visual Data Analysis and Knowledge Discovery
 - Databases and visualization, Visual Data Mining
 
-_Area 2: Large Data Visualization_
+_Area 2: General Data Visualization_
 
 - (Large Data Visualization)
 - (Visualization Applications)
