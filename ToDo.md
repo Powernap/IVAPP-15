@@ -7,6 +7,9 @@ Konferenzen:
 - Academic Radiology
 - Symposium on Computer-Based Medical Systems
 
+## Von Henry
+- Kritik an potentialler misklassifikation abschwächen
+
 Langfristige Änderungen:
 
 - Welche Komplexität von Verteilungsfunktionen können mit Entscheidungsbäumen geschätzt werden - Gehen Entscheidungsbäume über gewichtete Summen hinaus?

@@ -51,25 +51,28 @@ Hence, subject groups (cohorts) are analyzed to correlate the subjects' varying 
 %%
 Recently, these cohort studies comprise medical image data.
 %%
-We assess the predictive quality of image-derived variables for lower back pain.
+%We assess the predictive quality of image-derived variables for lower back pain.
+We assess the relation between image-derived variables of the lumbar spine with lower back pain in a cross-sectional study.
+%We assess the predictive quality of image-derived variables for lower back pain.
 %%
 Therefore, an Interactive Visual Analysis (IVA) framework was created and tested with 2,540 segmented lumbar spine data sets.
 %%
 The segmentation results are evaluated and quantified by employing shape-describing variables, such as the spine canal course, its curvature and torsion.
 %%
-We analyze the predictive power of shape-describing variables for non-image variables, e.g. pain indicators.
+%We analyze the predictive power of shape-describing variables for non-image variables, e.g. pain indicators.
+We analyze mutual dependencies among shape-describing variables and non-image variables, e.g. pain indicators.
 %%
 Therefore, we automatically extract a decision tree classifier for each non-image variable.
 %%
 Furthermore, we provide an IVA technique to compare the classifiers with interactive scatterplot visualizations.
 %%
-As a first result, we conclude that image-based variables are only sufficient for classification of lifestyle factors.
+As a first result, we conclude that image-based variables are only sufficient for classification of lifestyle factors within the data set.
 %%
-A correlation between lumbar spine shape and lower back pain disease was not existent in the automatically trained classifiers.
+A correlation between lumbar spine shape and lower back pain was not existent in the automatically trained classifiers.
 %%
 However, the presented approach is a valuable extension for the IVA of epidemiological data.
 %%
-Hence, correlations between non-image variables were successfully detected and characterized.
+Hence, associations between non-image variables were successfully detected and characterized.
 }
 
 \onecolumn \maketitle \normalsize \vfill
@@ -81,7 +84,7 @@ Hence, correlations between non-image variables were successfully detected and c
 %%
 For this purpose, large population studies, such as the \emph{Study of Health in Pomerania} (SHIP) \cite{SHIP}, gather as much information as possible about participants to be assessed towards different diseases.
 %%
-These information are used to determine risk factors for diseases, help people to live healthier or to support the diagnosis of widespread diseases.
+This information is used to determine risk factors for diseases, help people to live healthier or to support the diagnosis of widespread diseases.
 %%
 So far, epidemiological research is strongly hypothesis-driven.
 %%
@@ -96,25 +99,26 @@ Cohort studies are an instrument of epidemiological research.
 %%
 Nowadays, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
 %%
-Back pain is one of the most frequent diseases in the western civilization and gains importance due to the population aging \cite{Hoy2010}.
+Back pain is one of the most frequent complaints in the western civilization and gains importance due to the population aging \cite{Hoy2010}.
 %%
-Epidemiological analysis of back pain aims to characterize the disease by determining risk factors.
+Epidemiological analysis of back pain aims to determine risk factors.
 %Many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
 %Since back pain is one of the most frequent diseases in the western civilization, many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
 %%
-Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for the presence of back pain, an automatic classification approach for characterization of back pain based on lumbar back spine attributes is still missing.
+Although the shape and constitution of the spine, especially the lumbar spine, plays an important role for back pain, an automatic classification approach for characterization of back pain based on lumbar back spine attributes is still missing.
 %%
 Furthermore, previous analyses mainly focused on a single variable (e.g. \emph{BMI}) or a small subset of variables.
 %%
 
-We present a thorough analysis of the image-derived data of a cohort study including lumbar spine datasets.
+We present a analysis of the image-derived data of a cohort study including lumbar spine datasets.
 %%
-We analyze their discriminative power for different back pain characteristics.
+We extract associations between spine shape and back pain characteristics.
+%We analyze their discriminative power for different back pain characteristics.
 %%
 For this purpose, we combine data mining algorithms with data visualization techniques.
 %%
-%Then, interactive visual analysis provides insight into the quality of the image-derived data as well as their potential for possible back pain risk factors.
-Then, Interactive Visual Analysis (IVA) provides insight into the quality of the image-derived data as well as their potential for being back pain risk factors.
+%Then, Interactive Visual Analysis (IVA) provides insight into the quality of the image-derived data as well as their potential as back pain risk factors.
+Then, Interactive Visual Analysis (IVA) highlights mutual dependencies between image-derived data and back pain related variables.
 %%
 The workflow is part of an IVA framework, constructed to enhance the epidemiological workflow with iterative data driven techniques.
 %%
@@ -122,9 +126,10 @@ Our contributions are:
 \begin{itemize}
 \item An IVA workflow for back pain analysis based on image-derived variables of 2,240 subjects,
 %%
-\item The identification and evaluation of lumbar spine shape properties for back pain diagnosis,
+\item The identification of lumbar spine shape properties associated with back pain,
+%\item The identification and evaluation of lumbar spine shape properties associated with back pain,
 %%
-\item The detection of correlations between image-based and socio-demographic as well as medical variables for an improved hypothesis generation,
+\item The detection of associations between image-based, socio-demographic and medical variables for hypothesis generation,
 %%
 \item The identification of the most important variables via data mining methods (including a novel semi-quantitative evaluation concept) embedded in our IVA-framework
 %%
@@ -157,7 +162,7 @@ For example, the effect of nutrition on prostate cancer requires age-normalizati
 %%
 %When for example analyzing influences of nutrition to prostate cancer, the results need to be age-normalized.
 %%
-Age acts as a \emph{confounder} for prostate cancer.
+Age acts as a \emph{risk factor} for prostate cancer.
 %%
 %These \emph{confounding} variables are often hard to find.
 %%
@@ -180,7 +185,8 @@ The collected data can be analyzed regarding many diseases and conditions.
 
 Epidemiological data are heterogenous and incomplete.
 %%
-For example, women-specific questions or data about a disease treatment only affects subjects suffering from this condition.
+%For example, women-specific questions or data about a disease treatment only affects subjects suffering from this condition.
+For example, data about a disease treatment only affects subjects suffering from this condition.
 %%
 Therefore, statistical analysis has to take missing data into account.
 %%
@@ -192,7 +198,7 @@ This yields a heterogenous information space.
 %%
 To compare these data, information reduction techniques are necessary.
 %%
-For example, continuous data, such as age, is often discretized into quantile bins.
+For example, continuous data, such as age, is often discretized into quantile bins for visualizing age-dependent disease frequencies.
 %%
 %Every information reduction can introduce a bias to the data, since it proposes an assumption about the data.
 Every information reduction proposes an assumption about the data and can therefore introduce a bias.
@@ -219,7 +225,7 @@ These numeric values can be compared with non-image variables to retrieve correl
 %%
 %The lower (\emph{lumbar}) spine is the most stressed spine part .
 %%
-Lower back pain is one of the most frequent diseases in the western civilization \cite{Hoy2010}.
+Lower back pain is one of the most frequent complaints in the western civilization \cite{Hoy2010}.
 %%
 Epidemiologists assume associations between lumbar back pain and lifestyle factors.
 %%
@@ -227,10 +233,11 @@ These include nutrition, physical activity and body posture combined with physic
 %%
 The exact causes as well as particularly vulnerable risk groups are unknown.
 %%
-Potential \emph{confounding} effects are also subject of current research.
+%Potential \emph{confounding} effects are also subject of current research.
 %%
 
-Epidemiologists want to characterize the healthy aging process of the spine.
+%Epidemiologists want to characterize the healthy aging process of the spine.
+Epidemiologists want to characterize the relation between the aging and degenerative process of the spine \cite{Szpalski2005}. %healthy aging process of the spine.
 %%
 To achieve this, they have to analyze the lumbar spine shape as well as the mentioned lifestyle factors.
 %% -------------------------------
@@ -327,7 +334,8 @@ The extracted lumbar spine shape was correlated with subject size.
 %%
 Our data extraction process is based on the detection algorithm and lumbar spine canal extraction presented by \cite{Klemm2013VMV}.
 %%
-Clustering techniques applied to non-image data are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+%Clustering techniques applied to non-image data are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+Clustering techniques are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
 %%
 %Klemm et al. found \texttt{k-Prototypes} and \texttt{DBSCAN} appropriate for this task.
 %%
@@ -500,11 +508,11 @@ In the next section, we present the experiments we conducted to assess the influ
   \label{fig:age-gender}
 \end{figure}
 %%
-\noindent Spine shape is confounded by several somatometric variables.
+\noindent Spine shape is possibly associated with several somatometric variables.
 %%
 Larger people have also a longer spine with a straighter shape.
 %%
-Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also confounders (Fig.~\ref{fig:age-gender}).
+Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also risk factors (Fig.~\ref{fig:age-gender}).
 %%
 Women have a higher live expectance than men, hence their higher share in the old age group.
 %%
@@ -514,11 +522,13 @@ Also, women are on average smaller than men, hence the larger shape similarity w
 %%
 Large body weight increases the spine load, resulting in a bend shape.
 %%
-All these variables need to be taken into account, when spine curvature and torsion is correlated with non-image variables.
+To assess their influence, we take them into account when spine curvature and torsion is correlated with non-image variables.
+%All these variables need to be taken into account, when spine curvature and torsion is correlated with non-image variables.
 %%
-Since the gender confounder mainly encodes body size, we decided to divide subjects into body size groups.
+Since the gender encodes body size, we decided to divide subjects into body size groups.
 %%
-To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables.
+Discretizing metric variables using quartiles avoids small outlier groups.
+%To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables.
 %%
 \paragraph{GPLOM Analysis.}
 As a first experiment we correlated the shape variable with the dichotomous back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
@@ -659,7 +669,7 @@ Decision trees are easy to understand and to read.
 %%
 They work with numerical as well as categorical data.
 %%
-Epidemiologists can interpret the results without having deep knowledge about the classification algorithm.
+%Epidemiologists can interpret the results without having deep knowledge about the classification algorithm.
 %%
 Readability is only granted for small trees. %, complex structures with many branches are not desirable.
 %%
@@ -803,7 +813,7 @@ Classification and comparison of variables for subject groups (e.g. male and fem
 %%
 %We can support this by color coding the data points according to group affiliation.
 
-Many follow-up variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
+Many interdependent variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
 The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size.
 %%
@@ -1065,7 +1075,7 @@ The dummy variable analysis shows many results using a decision tree with one ru
 
 \subsection{Size Groups}
 %%
-Many previously described results are confounded by \emph{subject size}.
+Many previously described results are influenced by \emph{subject size}.
 %%
 Differences between \emph{male} and \emph{female} subjects can be explained by the average \emph{body size} difference.
 %%
@@ -1073,7 +1083,9 @@ For example, large subjects are already characterized by their rather straight s
 %
 The question is, whether the inter-group spine variability parameter is enough for predicting other variables or not.
 %%
-Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
+Dividing subjects into \emph{body size} groups potentially highlights classification not influenced by \emph{body size}.
+%%
+%Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
 %%
 \paragraph{Large Decision Trees. }
 \emph{Back pain}-associated variables can be explained for various \emph{size}-groups, but we could not extract universal rules.
@@ -1203,6 +1215,10 @@ We provide a method for comparative analysis of decision trees independent of th
 We applied the technique to derive insight into the predictive power of 9 image-derived variables for 134 non-image variables.
 %%
 The analysis was carried out for subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine shape.
+
+The methods presented herein may be applied to comprehensive epidemiological data sets to learn more about mutual dependencies among variables and to generate hypotheses on potential associations and subgroups.
+%
+These hypotheses, however, have to be substantiated by dedicated statistical analyses and replication in independent cohorts.
 
 %In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
 In our future work, we will focus on more precise models for extracting measures.
