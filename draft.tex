@@ -57,7 +57,7 @@ Therefore, an Interactive Visual Analysis (IVA) framework was created and tested
 %%
 The segmentation results are evaluated and quantified by employing shape-describing variables, such as the spine canal course, its curvature and torsion.
 %%
-We analyze the predictive power of shape-describing variables for non-image variables, e.g., pain indicators.
+We analyze the predictive power of shape-describing variables for non-image variables, e.g. pain indicators.
 %%
 Therefore, we automatically extract a decision tree classifier for each non-image variable.
 %%
@@ -96,7 +96,7 @@ Cohort studies are an instrument of epidemiological research.
 %%
 Nowadays, these studies often comprise medical image data, e.g., tomographic image data sets, as well as general patient-specific attributes, such as \emph{gender}, \emph{age} and \emph{weight}.
 %%
-Back pain is one of the most frequent diseases in the western civilization and gains importance due to the population aging.
+Back pain is one of the most frequent diseases in the western civilization and gains importance due to the population aging \cite{Hoy2010}.
 %%
 Epidemiological analysis of back pain aims to characterize the disease by determining risk factors.
 %Many epidemiological-motivated approaches aim at improved characterization of this disease with respect to patient-specific attributes.
@@ -143,7 +143,7 @@ The analysis, as well as the presented IVA tool is available as supplementary ma
 %%
 	\item Physicians formulate hypotheses based on observations made in their clinical practice.
 %%
-	\item To prove a hypothesis, epidemiologists compile a list of variables depicting it.
+	\item Epidemiologists compile a list of variables depicting a hypothesis to prove it.
 %%
 	\item Statistical methods, such as regression analysis, assess the association of selected variables with the investigated disease.
 %%
@@ -151,7 +151,7 @@ The analysis, as well as the presented IVA tool is available as supplementary ma
 %%
 Mutually dependent variables make this analysis challenging.
 %%
-Many diseases, such as different cancer types, are more likely with increasing age.
+Many diseases, such as different cancer types, are more likely with increasing age \cite{Fletcher}.
 %%
 For example, the effect of nutrition on prostate cancer requires age-normalization due to the increased incidence for older subjects.
 %%
@@ -175,7 +175,7 @@ We focus on large scale cohort study data.
 %%
 These studies aim at collecting as much data as possible for each subject.
 %%
-These data can be analyzed regarding many diseases and conditions.
+The collected data can be analyzed regarding many diseases and conditions.
 %%
 
 Epidemiological data are heterogenous and incomplete.
@@ -204,7 +204,8 @@ This distortion is reduced with increasing number of discretization steps.
 
 Modern cohort studies often comprise medical image data.
 %%
-These data are hard to analyze.
+The analysis of these data is challenging.
+%These data are hard to analyze.
 %%
 Individual diagnosis or manual segmentation of each body structure by radiologists is tedious, costly and comprises little reproducibility.
 %%
@@ -264,7 +265,7 @@ A survey on image-centric cohort studies and strategies to analyze the resulting
 %%
 \paragraph{Visual Analysis of Heterogenous Non-Image Data.}
 %%
-Zhang et al. analyze subject groups in a web-based linked view system \cite{Zhang}.
+\cite{Zhang} analyze subject groups in a web-based linked view system.
 %%
 The resulting decision rules aim to categorize new subjects as they are added to the data.
 %%
@@ -490,19 +491,26 @@ In the next section, we present the experiments we conducted to assess the influ
 	%%
 	The dark gray share of each bar encodes the portion of male (top chart) or female (bottom chart) subjects.
 	%%
-	Women have a higher live expectance than men, hence their higher share in the old age group.
+%	Women have a higher live expectance than men, hence their higher share in the old age group.
 	%%
-	Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
+%	Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
 	%%
 	%Due to bone erosion, older people are also smaller on average.
 	}
   \label{fig:age-gender}
 \end{figure}
+%%
 \noindent Spine shape is confounded by several somatometric variables.
 %%
 Larger people have also a longer spine with a straighter shape.
 %%
 Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also confounders (Fig.~\ref{fig:age-gender}).
+%%
+Women have a higher live expectance than men, hence their higher share in the old age group.
+%%
+Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
+%%
+%Due to bone erosion, older people are also smaller on average.
 %%
 Large body weight increases the spine load, resulting in a bend shape.
 %%
@@ -511,23 +519,6 @@ All these variables need to be taken into account, when spine curvature and tors
 Since the gender confounder mainly encodes body size, we decided to divide subjects into body size groups.
 %%
 To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables.
-\begin{figure*}[htb]
-  %\vspace{-0.2cm}
-  \centering
-  \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
-  \caption{%%
-A generalized pairs plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
-%%
-Pairwise combinations of image-derived variables are visualized via scatter plots on the left of the matrix diagonal.
-%%
-Their correlation with back pain is denoted right of the matrix diagonal.
-%%
-The box plots (right) and histograms (bottom) display the distribution of each image-variable encoded with back pain.
-%%
-No correlations with back pain are present as it can be seen in this plot.
-}
-  \label{fig:image-parameter-range}
-\end{figure*}
 %%
 \paragraph{GPLOM Analysis.}
 As a first experiment we correlated the shape variable with the dichotomous back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
@@ -547,6 +538,23 @@ The projections to the transversal planes attract attention as they have many ou
 We conclude that curvature is not as reliable on the transversal plane as it is on the other planes.
 %%--------------------------------
 \paragraph{Correlation Matrix.}
+\begin{figure*}[htb]
+  %\vspace{-0.2cm}
+  \centering
+  \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
+  \caption{%%
+A generalized pairs plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
+%%
+Pairwise combinations of image-derived variables are visualized via scatter plots on the left of the matrix diagonal.
+%%
+Their correlation with back pain is denoted right of the matrix diagonal.
+%%
+The box plots (right) and histograms (bottom) display the distribution of each image-variable encoded with back pain.
+%%
+No correlations with back pain are present as it can be seen in this plot.
+}
+  \label{fig:image-parameter-range}
+\end{figure*}
 We calculated an association matrix to assess correlations between the image variables.
 %%
 The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
@@ -745,7 +753,7 @@ The two measures form the axes for a scatter plot of the classification results.
 The scatter plot is our central element for the interactive analysis of decision trees.
 
 \paragraph{The Error Term. }
-Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {n}$ where $n$ is the number of subjects.
+Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {total_{n}}$ where $n$ is the number of subjects.
 %%
 The metric usually works well for variables with uniform distribution.
 %%
@@ -758,7 +766,7 @@ Our error term therefore incorporates the discriminative power of each manifesta
 %Therefore the discriminative power of each dimension in the equation
 %error = 1 - \frac{\[ \sum_{m=0}^M \] \frac{M_{classifiedCorrectly}}{M_all}}{number of dimensions}
 \begin{equation}
-error = 1 - \frac{\sum_{m=0}^M \frac{correctlyClassified_{m}}{m}}{number_{dimensions}}
+error = 1 - \frac{\sum_{m=0}^M \frac{correctlyClassified_{m}}{total_{m}}}{number_{dimensions}}
 \end{equation}
 $M$ represents the set of manifestation of each variable.
 %%
@@ -778,7 +786,8 @@ The error is scaled to denote perfect classification with 0; 1 is equal to rando
 % \end{equation}
 %%
 %%
-We consider a result rated below $0.25$ a good classification.
+%We consider a result rated below $0.5$ an result of interest, a value below $0.25$ represents a good classification.
+We consider a result rated $0.5$ or below good enough to display it in the visualization, a value below $0.25$ represents a good classification.
 %%
 It allows for comparability of error rates between variables with different manifestation count.
 
@@ -1005,7 +1014,7 @@ The dummy variable analysis showed that female subjects of \emph{139-164~cm body
 %%
 \emph{Gender} could be classified for each \emph{BMI} group using \emph{mean curvature} and \emph{curvature angle}.
 %%
-The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rules) to $0.39$ (\emph{BMI} of \emph{$24.7-27.4$}, 5 decision rules).
+The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}. 4 decision rules) to $0.39$ (\emph{BMI} of \emph{$24.7-27.4$}, 5 decision rules).
 %%
 The starting age of smoking could be characterized well with an error between $0.25$ to $0.32$ for all \emph{BMI} groups except of subjects with \emph{BMI} of \emph{$30.5-48$}.
 %%
@@ -1062,7 +1071,7 @@ Differences between \emph{male} and \emph{female} subjects can be explained by t
 %%
 For example, large subjects are already characterized by their rather straight spine.
 %
-The question is, whether the inter-group spine variability variable is enough for predicting other variables or not.
+The question is, whether the inter-group spine variability parameter is enough for predicting other variables or not.
 %%
 Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
 %%
@@ -1122,7 +1131,7 @@ Classification methods based on decision trees have proven to be useful for asse
 %%
 Their ability to consider variable combination makes them more powerful than correlation coefficients calculated for each variable.
 %%
-This advantage comes with a much more complex output, the results are harder to assess and to abstract.
+This advantage comes with a much more complex output, the results are more challenging to assess and to abstract.
 %%
 Our method to plot derived metrics and custom-tailored error measures proved to be effective.
 %%
@@ -1208,6 +1217,8 @@ As another focus, we want to include the method into existing visual analytics m
 Combining the power of statistical analysis, visual analytics and data mining techniques is essential for analyzing increasingly complex heterogenous population data.
 %%
 These methods do not aim to replace the traditional epidemiological workflow, but rather intervenes at the weak points of standard statistical methods.
+%%
+Our method provides a novel way to gain insight into these complex data sets and amplifies hypotheses generation.
 
 \section*{\uppercase{Acknowledgements}}
 \noindent Omitted due to blind review.
