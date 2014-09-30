@@ -12,6 +12,16 @@ Langfristige Änderungen:
 - Welche Komplexität von Verteilungsfunktionen können mit Entscheidungsbäumen geschätzt werden - Gehen Entscheidungsbäume über gewichtete Summen hinaus?
 - Mit Klaus sprechen, wann wir Parsos verwenden können, bzw. wann Gino und Daniel ihre Publikation einreichen
 
+## Von Kai
+
+Website: Korrelation von -1 bis 1 in der Abbildung, aber 0-1 im Text
+
+- Refernez auf lange Ladezeiten über die Webseite
+- Loadings besser beschreiben (und warum es auch negativ sein kann)
+4.2
+
+Fig. 3: Rahmen um die Teile der Abbildung machen und mit a/b/c versehen, um besser darauf verweisen zu können
+
 ## Allgemein
 - Vor der Abgabe: Autoren entfernen
 

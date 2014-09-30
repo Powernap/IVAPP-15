@@ -460,9 +460,9 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 	% \item The curvature of the centerline is calculated using the summed mean curvature between adjacent points:
 % %%
 % $\sum \frac{curvature_i}{curvature_all}$.
-	\item \emph{Normalized Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{i}$. We refer to total curvature as \emph{curvature}.
+	\item \emph{Mean Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{I}$. We refer to total curvature as \emph{curvature}.
 %%
-	\item \emph{Normalized Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{i}$. We refer to total torsion from now on as \emph{torsion}.
+	\item \emph{Mean Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{I}$. We refer to total torsion from now on as \emph{torsion}.
 %%
 	\item \emph{Curvature angle $\alpha$} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
@@ -496,7 +496,7 @@ In the next section, we present the experiments we conducted to assess the influ
 	%%
 	Each bar contains the mean lumbar spine of the respective group.
 	%%
-	The shape color encodes the distance to the overall male (top chart) or female (bottom chart) mean shape.
+	The shape color encodes the distance (red for x axis, blue for y axis, green for z axis) to the overall male (top chart) or female (bottom chart) mean shape.
 	%%
 	The dark gray share of each bar encodes the portion of male (top chart) or female (bottom chart) subjects.
 	%%
@@ -764,7 +764,8 @@ The two measures form the axes for a scatter plot of the classification results.
 The scatter plot is our central element for the interactive analysis of decision trees.
 
 \paragraph{The Error Term. }
-Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {total_{n}}$ where $n$ is the number of subjects.
+\com{Kai}
+Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {N}$ where $n$ is the number of subjects.
 %%
 The metric usually works well for variables with uniform distribution.
 %%
@@ -777,7 +778,7 @@ Our error term therefore incorporates the discriminative power of each manifesta
 %Therefore the discriminative power of each dimension in the equation
 %error = 1 - \frac{\[ \sum_{m=0}^M \] \frac{M_{classifiedCorrectly}}{M_all}}{number of dimensions}
 \begin{equation}
-error = 1 - \frac{\sum_{m=0}^M \frac{correctlyClassified_{m}}{total_{m}}}{number_{dimensions}}
+error = 1 - \frac{\sum_{m=1}^M \frac{correctlyClassified_{m}}{M}}{number_{dimensions}}
 \end{equation}
 $M$ represents the set of manifestation of each variable.
 %%
