@@ -1,4 +1,3 @@
-
 ## Von Bernhard
 Konferenzen:
 
