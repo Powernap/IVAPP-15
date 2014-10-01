@@ -764,7 +764,6 @@ The two measures form the axes for a scatter plot of the classification results.
 The scatter plot is our central element for the interactive analysis of decision trees.
 
 \paragraph{The Error Term. }
-\com{Kai}
 Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {N}$ where $n$ is the number of subjects.
 %%
 The metric usually works well for variables with uniform distribution.
@@ -775,30 +774,13 @@ For example, if a variable indicating a disease is negative for 90\% of the subj
 %%
 Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
-%Therefore the discriminative power of each dimension in the equation
-%error = 1 - \frac{\[ \sum_{m=0}^M \] \frac{M_{classifiedCorrectly}}{M_all}}{number of dimensions}
 \begin{equation}
 error = 1 - \frac{\sum_{m=1}^M \frac{correctlyClassified_{m}}{M}}{number_{dimensions}}
 \end{equation}
 $M$ represents the set of manifestation of each variable.
 %%
 The error is scaled to denote perfect classification with 0; 1 is equal to random selection.
-% The error rate has to be judged depending on the number of classes of the target variable.
-% %%
-% An error rate of 50\% for a target variable with two manifestations makes the classifier equal to throwing a coin.
-% %%
-% The same error rate is acceptable a target variable with more than two manifestations.
-% %%
-% Picking a value for a variable of four manifestations with an error rate of 50\% is better than the random selection (error rate of 75\%).
-% %%
-% The following scales the error rate so that 0 denotes perfect classification and 1 is equal to random selection.
-% %%
-% \begin{equation}
-% error_{normalized} = \frac{error}{100 - \frac{100}{class number}}
-% \end{equation}
 %%
-%%
-%We consider a result rated below $0.5$ an result of interest, a value below $0.25$ represents a good classification.
 We consider a result rated $0.5$ or below good enough to display it in the visualization, a value below $0.25$ represents a good classification.
 %%
 It allows for comparability of error rates between variables with different manifestation count.
@@ -809,11 +791,7 @@ The scatter plot axes are defined by tree size and the previously described erro
 %%
 This allows us to visualize a multitude of classification results in one plot.
 %%
-%If we for example classify and compare the same variables for different subject groups, for example male and female subjects.
 Classification and comparison of variables for subject groups (e.g. male and female subjects) in one plot can be achieved by color coding group affiliation on the data points.
-%Classification of the same variable 
-%%
-%We can support this by color coding the data points according to group affiliation.
 
 Many interdependent variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
@@ -821,7 +799,6 @@ The classification algorithm may produce higher accuracy for variables with less
 %%
 This makes these results less reliable.
 %%
-%We removed variables with less than 100 subjects, since they have too few subjects to be statistically significant.
 Therefore, we provide a way to adjust the minimal number of subjects for each variable using a slider input.
 %%
 The initial value is empirically set to $100$, marking a good tradeoff between sparse variables and statistical informative value.
@@ -835,26 +812,16 @@ We apply a square root scale for the tree size axis to highlight data points wit
 %%
 Outlier results with very large decision trees would otherwise distort the resulting plot.
 %%
-
-%\com{ToDo: SQRT Skalierung der Treesize-Dimension, da hauptsaechlich geringe Groessen von interesse sind, ausreisser aber diesen Bereich schwer durchschaubar machen}
-% %%
-%
-% %%
-% Abstracting the classification results into two continuos variables allows us to visualize the result of 134 classifications in one scatter plot.
-% %%
-% By mapping the group affiliation (in our case body size) to color or shape, we can even plot all 402 results in a single visualization (Fig.~\ref{fig:decision-tree} a).
-%%
 \subsubsection{Dummy Variables}
 Dummy variables convert a categorical variable with multiple manifestations into several dichotomous variables.
 %%
 Each dichotomous variable encodes the presence of a manifestation.
 %%
-For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables. %(\emph{No pain - Yes/No} to \emph{Large Pain - Yes/no}).
+For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables.
 %%
 One subject can only have one of these variables set to true.
 %%
 This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variable.
-%%\com{ToDo: Dummy-Variables}
 %%------------
 \subsubsection{Interaction With the Visualization}
 %%
@@ -872,7 +839,6 @@ This gives the user control to abstract or refine the displayed information.
 %%
 Selecting a variable using a drop-down menu allows the user to select the variable used for subject subdivisions, e.g. \emph{gender} or \emph{employment status}.
 %%
-%Categorization using metric variables, such as \emph{body size}, is done using their quantiles.
 Metric variables, such as \emph{body size} are discretized using their quantiles.
 %%
 This allows to assess the influences of a variable to the classification process.
@@ -889,12 +855,8 @@ In order to make the train of thought comprehensible, we used \texttt{RMarkdown}
 We used \texttt{R Shiny}\footnote{Developed by RStudio, Inc; \texttt{shiny.rstudio.com}} to make the report available as dynamic web application.
 %%
 It allows to combine the power of static \texttt{R Markdown} reports with dynamically parameterized \texttt{ggvis} plots.
-%It allows the combination of the ability to create comprehensible reports as well as adjusting parameters using user interface controls, to adjust visible data and variables in the plot to allow the viewer to analyze the data.
 %%
 Furthermore, calculations based on a prior data selection can be redone within the report.
-%We implemented our application as web based prototype using \texttt{R Shiny}\footnote{R Shiny footnote} in combination with \texttt{RMarkdown}.
-%%
-%The package combines the power of \texttt{R} with advantages of web-based applications.
 %%
 The web-based approach allows us to quickly exchange results with our collaborating epidemiological experts.
 %%
@@ -921,18 +883,13 @@ The right scatter plot displays the dummy variables derived from the original va
 %%
 Group affiliation of a data point is color coded:
 %%
-%no group (a), subdivision into \emph{male and female subjects} (b), quartiles of \emph{age} (c) and quartiles of \emph{body size} (d).
-no group (a), subdivision into \emph{male} and \emph{female} subjects (b), quartiles of \emph{Body-Mass-Index} (\emph{BMI}) (c) and quartiles of \emph{body size} (d).
-%%
-%(a) displays all subjects, (b) is divided into male and female subjects, (c) is categorized into quantiles of age and (d) shows the classification of subjects divided by quantiles of body size.
+no group (a), subdivision into \emph{male} and \emph{female} subjects (b), quartiles of \emph{Body Mass Index} (\emph{BMI}) (c) and quartiles of \emph{body size} (d).
 %%
 The number of subjects represented in a variable is denoted using the dot diameter.
 %%
 We only display variables with an error below $0.5$, results above this threshold are inaccurate.
 %%
-%A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
 The interactive plot (see supplemental material) has clickable data points, displaying corresponding decision tree in a tool tip.
-%A interactive versions of the plot (see supplemental material) makes all data points clickable, showing the corresponding decision tree in a tool tip.
 %%
 }
   \label{fig:results}
@@ -954,8 +911,6 @@ We carry out the analysis using different subject groups:
 	%%
 \end{enumerate}
 %%
-%The \emph{BMI} is calculated using the formula $BMI = \frac{m}{l^2}$ where $m$ is the \emph{body mass} in kilogram and $l$ is the \emph{body size} in meter.
-%%
 We plotted each group twice.
 %%
 The first plot shows all original variables.
@@ -968,10 +923,7 @@ The vast majority of non-image variables cannot be automatically classified base
 %%
 This is reflected in the large amount of variables classified with an error above $0.6$.
 %%
-%The first impression of the resulting scatter plots quickly shows a very high amount of variables above an error rate of $0.6$.
-%%
 
-% None of the pain indicators can be reliably described using the image-based parameter.
 None of the pain indicators can be described reliably using the image-based variables.
 %%
 The only variable reliably classified in this group is gender. % with an error rate of 31.5\% using a decision tree of seven rules.
@@ -979,26 +931,12 @@ The only variable reliably classified in this group is gender. % with an error r
 It can be discriminated with an error of $0.31$ using 7 rules and incorporates only \emph{curvature-} and \emph{curvature angle}-related variables.
 %%
 The distinctness lies in the average difference in \emph{body size} between \emph{male} and \emph{female} subjects.
-%
-%It mostly incorporates \emph{mean curvature}, \emph{sagittal curvature angle} und sagittal \emph{mean curvature}.
-%The perfect categorization of the \emph{dialysis} parameter was conspicuous.
-%%
-%This is due to the subject distribution among the manifestation.
-%%
-%Only two subjects receive a dialysis.
-%%
-%The good discrimination is not meaningful.
 %%
 \emph{Medication for high blood pressure} is classified for 1,058 subjects with an error of $0.47$ solely based on \emph{coronal mean curvature}.
-%%
-%1,058 subjects are classified with an error rate of $0,47$ solely based on coronal mean curvature.
 %%
 Almost all subjects who are medicated ($796$ of $1,058$) were correctly classified.
 %%
 The vast majority of non-medicated subjects ($262$ of $1,058$) are false-positive classified, yielding a poor quality of the classifier w.r.t epidemiological research.
-%%This is however due to the high amount of people, who are medicated (68\%) and who are almost all correctly class
-%%
-%Other features well classified include marital status, foot pain and number of born children.
 %%
 The four \emph{body size} groups could be characterized with an error of $0.48$, but the decision tree comprises 71 rules and imposes overfitting.
 
@@ -1007,11 +945,6 @@ The analysis of the dummy variables yields a result similar to the \emph{blood p
 Variables, such as subjects sized 139-164 cm, between 64 and 90 years of \emph{age} or \emph{nutrition}-related variables are dominantly populated by one manifestation.
 %%
 The classifier neglects the other group and yields an error below $0.5$.
-%The dummy variable analysis yields fewer results.
-%%
-%It shows that subjects between 64 and 90 years of age can be detected with 23\% error rate by using the curvature angle and coronal mean curvature.
-%%
-%Subjects with body size between 177 cm and 202 cm can classified with an error rate of 22,1\%. solely using mean curvature.
 %%
 \subsection{Gender Groups}
 %%
@@ -1022,8 +955,7 @@ Only \emph{hypothyroidism} could be described for male subjects with an error of
 Since there are only 30 male subjects diagnosed with \emph{hypothyroidism}, the statistical power of the result is reduced.
 %%
 The dummy variable analysis showed that female subjects of \emph{139-164~cm body size} could be discriminated using the \emph{mean curvature} and \emph{curvature angle}, with an error of $0.38$.
-
-%\com{Potentially skip these due to the confounding of body size}
+%%
 \subsection{Body Mass Index Groups}
 %%
 \emph{Gender} could be classified for each \emph{BMI} group using \emph{mean curvature} and \emph{curvature angle}.
@@ -1032,12 +964,10 @@ The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rule
 %%
 The starting age of smoking could be characterized well with an error between $0.25$ and $0.32$ for all \emph{BMI} groups except for subjects with a \emph{BMI} of \emph{$30.5-48$}.
 %%
-The result however is probably overfitted to the data due to tree sizes between $14$ and $16$.
+The result however, is probably overfitted to the data due to tree sizes between $14$ and $16$.
 %%
 
-Some variables, such as \emph{body size} can be described with an error of $0.3$ to $0.36$ but only using large decision trees with over 20 rules.
-%%
-%Notable is also the decreasing error with increasing decision tree size.
+Some variables, such as \emph{body size}, can be described with an error of $0.3$ to $0.36$, but only using large decision trees with over 20 rules.
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the \emph{leg pain level} can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
@@ -1047,36 +977,10 @@ The resulting tree consists of $8$ rules and has an error of $0.35$.
 %%
 Obese subjects are prone to \emph{back} and \emph{leg pain} due to a more stressed lumbar spine.
 %%
-The stress induced spine deformation seems to influence the pain levels for these subjects directly.
-%How much the spine is deformed under the heavy stress seems to directly influence the pain levels for these subjects.
+The stress-induced spine deformation seems to directly influence the pain levels for these subjects.
 
 The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} or \emph{curvature angle} with an error between $0.35$ and $0.47$.
 %%
-%It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
-
-% \subsubsection{Age Groups}
-% %%
-% Gender could be classified for each age group using \emph{mean curvature} and \emph{curvature angle}.
-% %%
-% The accuracy varies between $0.35$ (\emph{$43.8-54$ years of age}, 3 decision rules) to $0.27$ (\emph{$21-43.8$ years of age}, 6 decision rules).
-% %%
-% The starting age of smoking could be characterized well with an error rate between $0.25$ to $0.3$ for all \emph{age} groups except of \emph{$21.1-43.8$ years of age}.
-% %%
-% The result however is probably over fitted to the data due to tree sizes between $16$ and $23$.
-% %%
-% \com{Warum?}
-% %%
-%
-% Many variables, such as \emph{body size} can be described with an error rate of $0.35$ to $0.45$ but only using large decision trees with over 20 rules.
-% %%
-% Notable is also the increasing accuracy with increasing decision tree size.
-% %%
-% For subjects between \emph{$43.8-54$ years of age}, the classifier discriminated subjects with thyroid nodules with an error rate of $0.32$.
-%
-% The dummy variable analysis shows many results using a decision tree with one rule based on \emph{mean curvature} with accuracy between $0.4$ and $0.5$.
-% %%
-% It shows that mean curvature can be used to predict dependencies to variables, such as \emph{high blood pressure}, \emph{hypothyroidism} or \emph{nutrition}.
-
 \subsection{Size Groups}
 %%
 Many previously described results are influenced by \emph{subject size}.
@@ -1085,16 +989,14 @@ Differences between \emph{male} and \emph{female} subjects can be explained by t
 %%
 For example, large subjects are already characterized by their rather straight spine.
 %
-The question is, whether the inter-group spine variability parameter is enough for predicting other variables or not.
+The question is whether the inter-group spine variability parameter is sufficient for predicting other variables or not.
 %%
-Dividing subjects into \emph{body size} groups potentially highlights classification not influenced by \emph{body size}.
-%%
-%Dividing subjects into \emph{body size} groups potentially highlights classifications not confounded by \emph{body size}.
+Dividing subjects into \emph{body size} groups potentially highlights classifications not influenced by \emph{body size}.
 %%
 \paragraph{Large Decision Trees. }
-\emph{Back pain}-associated variables can be explained for various \emph{size}-groups, but we could not extract universal rules.
+\emph{Back pain}-associated variables can be explained for various \emph{size} groups, but we could not extract universal rules.
 %%
-\emph{Radiating back pain} could be described with error of $0.39$ using 23 rules for subjects between \emph{$171-177~cm$ body size} using \emph{torsion} and \emph{mean curvature}.
+\emph{Radiating back pain} could be described with an error of $0.39$ using 23 rules for subjects between \emph{$171-177~cm$ body size} with \emph{torsion} and \emph{mean curvature}.
 %%
 For subjects sized \emph{$177-202~cm$} the error increases to $0.47$ using 20 decision rules.
 %%
@@ -1106,47 +1008,40 @@ Due to the large decision trees, these results are not usable and impose overfit
 %%
 \paragraph{Small Decision Trees. }
 %%
-The dummy variables show several variables described using only one decision rule with an error between $0.42$ to $0.47$.
+The dummy variables show several variables described using only one decision rule with an error between $0.42$ and $0.47$.
 %%
 Most of these variables have a dominant manifestation and the classifier shows a low detection precision for the second manifestation.
 %%
 These variables include \emph{nutrition}, \emph{thyroid disorder} and \emph{social problems induced by back pain}.
-
-%The resulting trees consist either only one rule or a rich set of them (>15).
-%Either they divide the variables using only one decision rule, or a large set of rules (> 15).
-
-% \com{Manchmal kann es passieren, dass die Quantile fuer eine Variable gleich sind - z.B. bei Dauer Jahre Schwerarbeit, weil viele Probanden hier eben eine 0 haben. Deswegen kann das Ding nicht in vier Qunatile unterteilt werden, die ersten 3 sind 0. Deswegen wurden nur die einzigartigen Unterscheidungen genommen (statt \emph{quantile(myVar)} wurde \emph{unique(quantile(myVar))} verwendet.)}
-
-%TODO: Muss das wirklich noch rein?
-%\com{Auswertung der Anteile der Parameter an den Ergebnissen (Torsion, Curvature, etc. - welches ist der dominanteste Parameter?)}
-
+%%
+%TODO: Muss das rein? Auswertung der Anteile der Parameter an den Ergebnissen (Torsion, Curvature, etc. - welches ist der dominanteste Parameter?)
+%%
 \section{\uppercase{Conclusion}}
 \label{sec:Conclusion}
-\noindent The presented results indicate that the image based variables \emph{torsion}, \emph{curvature} and \emph{curvature angle} are not enough to characterize pathological changes in the lumbar spine in the given quality.
+\noindent The presented results indicate that the image-based variables \emph{torsion}, \emph{curvature} and \emph{curvature angle} are not sufficient to characterize pathological changes in the lumbar spine in the given quality.
 %%
 They are associated with subject \emph{gender} due to their \emph{body size} difference using \emph{mean curvature} and \emph{mean curvature angle}.
 %%
-This is due to the higher curvature of smaller subjects and the significant difference of average \emph{body size} between males and females.
+This is due to the higher curvature of smaller subjects and the significant difference of average \emph{body size} between male and female.
 %%
 \emph{Gender} was detected well in the analysis of all subjects as well as subjects divided by \emph{BMI}.
 
 Subjects grouped using \emph{body size} have a similar spine shape and a lower variance.
 %%
-The remaining information within these groups is not enough to characterize back pain-related variables.
+The remaining information within these groups is not sufficient to characterize back pain-related variables.
 %%
 Associations with certain \emph{nutrition} or \emph{psychological} variables can be observed with a comparatively high error for some \emph{body size} groups.
-%For some \emph{body size} groups, certain \emph{nutrition} or \emph{psychological} variables can be predicted with a comparatively high error.
 %%
 
 Another observation during the analysis is that large decision trees achieve low error scores.
 %%
-Their complexity impose overfitting to the data and they are not suitable for extracting universal rules.
+Their complexity imposes overfitting to the data and they are not suitable for extracting universal rules.
 %%
 \paragraph{Applicability.}
 %%
 Classification methods based on decision trees have proven to be useful for assessing the discriminative power of a variable set.
 %%
-Their ability to consider variable combination makes them more powerful than correlation coefficients calculated for each variable.
+Their ability to consider variable combinations makes them more powerful than correlation coefficients calculated for each variable.
 %%
 This advantage comes with a much more complex output, the results are more challenging to assess and to abstract.
 %%
@@ -1154,7 +1049,7 @@ Our method to plot derived metrics and custom-tailored error measures proved to 
 %%
 Huge result spaces could be navigated fast using our interactive visualization.
 %%
-Therefore the method is applicable not only for deriving information based on image data, but on all potential target variables.
+Therefore, the method is applicable not only for deriving information based on image data, but on all potential target variables.
 %%
 
 % BLIND
@@ -1163,61 +1058,22 @@ Suggesting potentially interesting features when analyzing a condition is an imp
 %%
 We can achieve this also using the presented method by trying to describe several (dichotomous) target values with a decision tree constructed from all available data.
 %%
-This allows both to assess the discriminative power of the data set regarding the target variables, as well as the most important variables for the classification.
-%Except for gender in the age-plot, no variable could be explained with reasonable accuracy for age or body size.
+This allows to assess both the discriminative power of the data set regarding the target variables, and as the most important variables for the classification.
+%%
 \paragraph{Predictive Power of Image-Derived Variables.}
-We showed, that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not enough to characterize lumbar back pain in the SHIP data set.
+We showed that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not sufficient to characterize lumbar back pain in the SHIP data set.
 %%
-Our method made it possible to assess their discriminative power, which is largely limited for separating male and female subjects, \emph{nutrition} variables, as well as different disease indicators.
+Our method allowed to assess their discriminative power, which is largely limited for separating male and female subjects, \emph{nutrition} variables, as well as different disease indicators.
 %%
-The C4.5 algorithm showed to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image variables.
+The C4.5 algorithm proved to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image variables.
 %%
-Over-fitting to the data indicated by complex decision trees have to be taken into account as well.
+Over-fitting to the data indicated by complex decision trees has to be taken into account as well.
 %%
-% \subsection{Proposed Features}
-% \label{sec:ProposedFeatures}
-% \begin{figure}[!h]
-%   %\vspace{-0.2cm}
-%   \centering
-%   \includegraphics[width=0.475\textwidth]{figures/proposed-features}
-%   \caption{
-% 	Proposed features.
-% 	%%
-% 	(a) dented vertebraes are a sign of heavy stress and bone absorption.
-% 	%%
-% 	(b, c) the spine canal shape can be used to characterize scoliosis (curvature sagittal) and lordosis (curvature coronal) as well as the \emph{Cobb-Angles} \cite{Cobb}.
-% 	%%
-% 	(c) Spine canal thickness is associated with herniated disks.
-% 	%%
-% 	}
-%   \label{fig:proposedFeatures}
-% \end{figure}
-% %%
-% \noindent Pathological deformation of the lumbar spine is usually the last stage and is associated with very strong lower back pain.
-% %%
-% We have to capture earlier signs of pathological change in order to derive better predictive models.
-% %%
-%
-% A very early sign of pathological deformation is the \emph{bone resorption in the center of a vertebra}.
-% %%
-% They change from being block-shaped to be dented in the center (Fig~\ref{fig:proposedFeatures}~a).
-% %%
-% This information can be obtained by segmenting the whole vertebra or the top and bottom point if each vertebra center.
-% %%
-% Another valuable variable would be the \emph{spine canal thickness} (Fig~\ref{fig:proposedFeatures}~c).
-% %%
-% Low spine canal thickness can be an indicator for an impending herniated disk.
-% %%
-% Both surface texture of the vertebra and thickness of the spine canal are used to diagnose herniated disks.
-% %%
-% The \emph{overall spine canal shape} is also of interest, since scoliosis and lordosis can be characterized more precise by deriving the Cobb angles from this shape (Fig~\ref{fig:proposedFeatures}~b,~c).
-%% ------------------------------------
 \paragraph{Future Work.}
-%\com{ToDo: Passen die Contributions hier wirklich?}
 %% Contributions
 We provide a method for comparative analysis of decision trees independent of the variable manifestation count using interactive scatter plots.
 %%
-We applied the technique to derive insight into the predictive power of 9 image-derived variables for 134 non-image variables.
+We applied the technique to gain insight into the predictive power of 9 image-derived variables for 134 non-image variables.
 %%
 The analysis was carried out for subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine shape.
 
@@ -1225,10 +1081,9 @@ The methods presented herein may be applied to comprehensive epidemiological dat
 %
 These hypotheses, however, have to be substantiated by dedicated statistical analyses and replication in independent cohorts.
 
-%In our future work, we will focus on more precise models for extracting measures described in Section~\ref{sec:ProposedFeatures}.
 In our future work, we will focus on more precise models for extracting measures.
 %%
-Dented vertebras are a early sign of a pathological deformation, so we want to capture this by segmenting the top and bottom point of each vertebra center.
+Dented vertebras are an early sign of a pathological deformation, so we want to capture this by segmenting the top and bottom point of each vertebra center.
 %%
 Another interesting metric is the spine canal thickness over the whole spine, capturing early signs of herniated disc disease.
 %%
