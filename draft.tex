@@ -44,31 +44,26 @@
 \keywords{Epidemiology, Interactive Visual Analysis, Classification, Multi-Modal Data}
 
 % \abstract{The abstract should summarize the contents of the paper and should contain at least 70 and at most 200 words.}
-% TODO: Auf 200 Wörter runterkürzen
 \abstract{ 
-%The goal of epidemiology is to provide insight into disease causations.
 Epidemiology aims to provide insight into disease causations.
 %%
 Hence, subject groups (cohorts) are analyzed to correlate the subjects' varying lifestyles, their medical properties and diseases.
 %%
 Recently, these cohort studies comprise medical image data.
 %%
-%We assess the predictive quality of image-derived variables for lower back pain.
 We assess potential relations between image-derived variables of the lumbar spine with lower back pain in a cross-sectional study.
-%We assess the predictive quality of image-derived variables for lower back pain.
 %%
 Therefore, an Interactive Visual Analysis (IVA) framework was created and tested with 2,540 segmented lumbar spine data sets.
 %%
 The segmentation results are evaluated and quantified by employing shape-describing variables, such as the spine canal course, its curvature and torsion.
 %%
-%We analyze the predictive power of shape-describing variables for non-image variables, e.g. pain indicators.
 We analyze mutual dependencies among shape-describing variables and non-image variables, e.g. pain indicators.
 %%
 Therefore, we automatically extract a decision tree classifier for each non-image variable.
 %%
 We provide an IVA technique to compare classifiers with interactive scatter plot visualizations.
 %%
-As a first result, we conclude that image-based variables are only sufficient for classification of lifestyle factors within the data set.
+As a first result, we conclude that image-based variables are only sufficient for classification of lifestyle factors within the data.
 %%
 A correlation between lumbar spine shape and lower back pain was not existent in the automatically trained classifiers.
 %%
@@ -123,6 +118,8 @@ For this purpose, we combine data mining algorithms with data visualization tech
 Then, Interactive Visual Analysis (IVA) highlights mutual dependencies between image-derived data and back pain-related variables.
 %%
 The workflow is part of an IVA framework, constructed to enhance the epidemiological workflow with iterative data-driven techniques.
+%%
+We focus on highlighting new unexpected correlations and trigger \emph{hypotheses generation}, rather than statistically validate complex epidemiological correlations.
 %%
 Our contributions are:
 \begin{itemize}
@@ -231,7 +228,7 @@ Lower back pain is one of the most frequent complaints in the Western civilizati
 %%
 Epidemiologists assume associations between lumbar back pain and lifestyle factors.
 %%
-These include nutrition, physical activity and body posture combined with physical stress at work.
+These include \emph{nutrition}, \emph{physical activity} and \emph{body posture combined with physical stress at work}.
 %%
 The exact causes as well as particularly vulnerable risk groups are unknown.
 %%
@@ -307,7 +304,7 @@ Decision trees are easily readable and are well suited for classifying medical d
 %%
 The effort of analyzing decision trees increases with their complexity.
 %%
-\cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in the tumorous tissue.
+\cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in tumorous tissue.
 %%
 To classify breast tumors, they train a decision-tree classifier, concluding that the extracted kinetic and morphological features alone are not sufficient for tumor type classification.
 %%
@@ -368,7 +365,7 @@ The data set comprises 134 variables (and 9 additional image-derived variables d
 	\item 21 metric variables, mostly describing somatometric variables and markers retrieved from blood analysis
 	\item 113 categorical variables divided into
 	\begin{itemize}
-		\item 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. pancreatitis or high blood pressure
+		\item 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. \emph{pancreatitis} or \emph{high blood pressure}
 		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
 	\end{itemize}
 \end{itemize}
@@ -377,7 +374,7 @@ Many variables comprise missing data.
 %%
 Some variables are follow-up questions, covering the treatment of a disease.
 %%
-Others are exclusive to subgroups, such as women-specific variables, e.g. menstrual status.
+Others are exclusive to subgroups, such as women-specific variables, e.g. \emph{menstrual status}.
 %%
 Sparse variables are statistically less resilient and need to be treated with care during the analysis.
 
@@ -404,7 +401,7 @@ Sparse variables are statistically less resilient and need to be treated with ca
 \end{figure}
 Four trained radiologists acquired the medical image data for each subject in a standardized way using a 1.5~Tesla Magnetic Resonance Imaging (MRI) scanner (Magnetom Avanto; Siemens Medical Solutions, Erlangen, Germany).
 %%
-The spine protocol consisted of a sagittal $T_1$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) and a sagittal $T_2$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
+The spine protocol consisted of a sagittal $T_1$- and $T_2$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
 %%
 
 A hierarchical finite element method was used to detect the lumbar spine in the MRI data \cite{Rak2013}.
@@ -462,7 +459,7 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 % $\sum \frac{curvature_i}{curvature_all}$.
 	\item \emph{Mean Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{I}$. We refer to total curvature as \emph{curvature}.
 %%
-	\item \emph{Mean Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{I}$. From now on, we refer to total torsion as \emph{torsion}.
+	\item \emph{Mean Torsion} (deviation of a curve from its current course) is calculated as weighted sum of torsion between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{torsion_i}{I}$. We refer to total torsion as \emph{torsion}.
 %%
 	\item \emph{Curvature angle $\alpha$} is defined by the middle point of the spine canal centerline as \emph{vertex} and the line between middle point and top/bottom point as \emph{sides}.
 %%
@@ -490,9 +487,9 @@ In the next section, we present the experiments we conducted to assess the influ
   \includegraphics[width=0.475\textwidth]{figures/age-gender}
   \caption{
 	%%
-	Correlation of age and gender regarding the lumbar spine size.
+	Correlation of \emph{age} and \emph{gender} regarding the lumbar spine size.
 	%%
-	The bar chart shows subjects divided into four different age groups (x-axis) and their subject number (y-axis).
+	The bar chart shows subjects divided into four different \emph{age} groups (x-axis) and their subject count (y-axis).
 	%%
 	Each bar contains the mean lumbar spine of the respective group.
 	%%
@@ -513,7 +510,7 @@ In the next section, we present the experiments we conducted to assess the influ
 %%
 Larger people have also a longer spine with a straighter shape.
 %%
-Since men are on average taller than women and people of old age shrink due to bone erosion, gender and age are also risk factors (Fig.~\ref{fig:age-gender}).
+Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors (Fig.~\ref{fig:age-gender}).
 %%
 Women have a higher life expectancy than men, hence their higher share in the old age group.
 %%
@@ -521,12 +518,12 @@ Also, women are on average smaller than men, hence the larger shape similarity w
 %%
 %Due to bone erosion, older people are also smaller on average.
 %%
-Large body weight increases the spine load, resulting in a bent shape.
+Large \emph{body weight} increases the spine load, resulting in a bent shape.
 %%
-To assess their influence, we take them into account when spine curvature and torsion is correlated with non-image variables.
+To assess their influence, we take them into account when spine \emph{curvature} and \emph{torsion} is correlated with non-image variables.
 %All these variables need to be taken into account, when spine curvature and torsion is correlated with non-image variables.
 %%
-Since the gender encodes body size, we decided to divide subjects into body size groups.
+Since the \emph{gender} encodes \emph{body size}, we decided to divide subjects into \emph{body size} groups.
 %%
 Discretizing metric variables using quartiles avoids small outlier groups.
 %To avoid small outlier groups, epidemiologists recommend using quartiles to discretize metric variables.
@@ -546,7 +543,7 @@ Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable 
 %%
 The projections to the transversal planes attract attention as they have many outliers.
 %%
-We conclude that curvature is not as reliable on the transversal plane as it is on the other planes.
+We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes.
 %%--------------------------------
 \paragraph{Correlation Matrix.}
 \begin{figure*}[htb]
@@ -554,7 +551,7 @@ We conclude that curvature is not as reliable on the transversal plane as it is 
   \centering
   \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
   \caption{%%
-A generalized pairs plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
+A Generalized Pairs Plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
 %%
 Pairwise combinations of image-derived variables are visualized via scatter plots on the left of the matrix diagonal.
 %%
@@ -578,11 +575,11 @@ Also the \emph{mean curvature} and \emph{curvature angle} correlate by a factor 
 \emph{Torsion} does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
 \paragraph{Correlation of Image Variables With Lumbar Back Pain.}
-Figure~\ref{fig:image-parameter-range} shows the distribution of all image-variables as generalized pairs plot.
+Figure~\ref{fig:image-parameter-range} shows the distribution of all image-variables as Generalized Pairs Plot.
 %%
 No statistically significant correlation could be observed through all subject groups.
 %%
-The box plots show no difference between subjects with and without back pain.
+The box plots show no difference between subjects with or without back pain.
 
 \paragraph{Assessing the Information Gain Using the Principal Component Analysis.}
 %%
@@ -592,11 +589,11 @@ The PCA results in a linear projection of the variable space ordering their comp
 %%
 The first three principal components explain 75\% of the variance in the image-derived variables.
 %%
-The first principal component explains 47\% of the variance and weights primarily \emph{mean curvature}, \emph{curvature sagittal}, \emph{curvature angle} and \emph{curvature angle sagittal}.
+The first principal component explains 47\% of the variance and weights primarily \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle}.
 %%
-The second component, adding 16\% of the variance, weigths  \emph{curvature coronal} and \emph{curvature angle coronal}.
+The second component, adding 16\% of the variance, weigths \emph{coronal curvature} and \emph{coronal curvature angle}.
 %%
-The third component explains 12\% of the variance and weights \emph{torsion} and \emph{curvature transverse}.
+The third component explains 12\% of the variance and weights \emph{torsion} and \emph{transverse curvature}.
 %%
 This supports our prior conclusion about the low information gain of the transverse planes.
 %%
@@ -821,7 +818,7 @@ For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{
 %%
 One subject can only have one of these variables set to true.
 %%
-This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variable.
+This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variables.
 %%------------
 \subsubsection{Interaction With the Visualization}
 %%
@@ -916,7 +913,11 @@ We plotted each group twice.
 The first plot shows all original variables.
 %%
 The second plot shows all categorical variables transformed into dichotomous dummy variables (recall subsection~\ref{sec:C5.0}).
-
+%%
+The shown mutual dependencies aim to amplify \emph{hypothesis generation}.
+%%
+Dedicated statistical analysis of these results solely focussed on epidemiological research is not the scope of this paper.
+%%
 \subsection{All Variables}
 %%
 The vast majority of non-image variables cannot be automatically classified based on the image-variables.
@@ -926,7 +927,7 @@ This is reflected in the large amount of variables classified with an error abov
 
 None of the pain indicators can be described reliably using the image-based variables.
 %%
-The only variable reliably classified in this group is gender. % with an error rate of 31.5\% using a decision tree of seven rules.
+The only variable reliably classified in this group is \emph{gender}. % with an error rate of 31.5\% using a decision tree of seven rules.
 %
 It can be discriminated with an error of $0.31$ using 7 rules and incorporates only \emph{curvature-} and \emph{curvature angle}-related variables.
 %%
@@ -994,7 +995,7 @@ The question is whether the inter-group spine variability parameter is sufficien
 Dividing subjects into \emph{body size} groups potentially highlights classifications not influenced by \emph{body size}.
 %%
 \paragraph{Large Decision Trees. }
-\emph{Back pain}-associated variables can be explained for various \emph{size} groups, but we could not extract universal rules.
+Back pain-associated variables can be explained for various \emph{size} groups, but we could not extract universal rules.
 %%
 \emph{Radiating back pain} could be described with an error of $0.39$ using 23 rules for subjects between \emph{$171-177~cm$ body size} with \emph{torsion} and \emph{mean curvature}.
 %%
@@ -1092,7 +1093,7 @@ As another focus, we want to include the method into existing visual analytics m
 \\\\
 Combining the power of statistical analysis, visual analytics and data mining techniques are essential for analyzing increasingly complex heterogenous population data.
 %%
-These methods do not aim to replace the traditional epidemiological workflow, but rather intervenes at the weak points of standard statistical methods.
+These methods do not aim to replace the traditional epidemiological workflow, but rather intervene at the weak points of standard statistical methods.
 %%
 Our method provides a novel way to gain insight into these complex data sets and amplifies hypotheses generation.
 
