@@ -563,7 +563,7 @@ No correlations with back pain are present as it can be seen in this plot.
 }
   \label{fig:image-parameter-range}
 \end{figure*}
-We calculated an correlation matrix to assess correlations between the image variables.
+We calculated a correlation matrix to assess correlations between the image variables.
 %%
 The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
 %%
@@ -587,13 +587,13 @@ To determine the information gain per image-derived variable, we calculated a Pr
 %%
 The PCA results in a linear projection of the variable space ordering their components by maximum variance.
 %%
-The first three principal components explain 75\% of the variance in the image-derived variables.
+The first three principal components explain 75\% of the variance in the nine image-derived variables.
 %%
-The first principal component explains 47\% of the variance and weights primarily \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle}.
+The first principal component explains 47\% of the variance and comprises primarily \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle}.
 %%
 The second component, adding 16\% of the variance, weigths \emph{coronal curvature} and \emph{coronal curvature angle}.
 %%
-The third component explains 12\% of the variance and weights \emph{torsion} and \emph{transverse curvature}.
+The third component explains 12\% of the variance and comprises \emph{torsion} and \emph{transverse curvature}.
 %%
 This supports our prior conclusion about the low information gain of the transverse planes.
 %%
@@ -605,7 +605,9 @@ The complete analysis can be found in the experiments section of the supplementa
 %%
 We then expanded our focus on correlations of image-derived variables with all other non-image variables.
 %%
-We applied a heterogenous correlation technique to derive correlations between all variables in the data set.
+%We applied a heterogenous correlation technique to derive correlations between all variables in the data set.
+%We applied a heterogenous correlation technique to derive correlations between all variables in the data set.
+Different correlation metrics depending on the type of the individual variables are used to derive correlations between all variables in the data set.
 %%
 The method uses the following correlation metrics for the different type combinations:
 %%
@@ -632,7 +634,7 @@ Only weak correlations could be found for \emph{mean curvature} with \emph{gende
 %%
 One surprising result was the small correlation of \emph{torsion} with \emph{Parkinson's disease} (0.24).
 %%
-Other than that, \emph{torsion} correlated with almost no variables (p values between 0 and 0.05).
+Other than that, \emph{torsion} correlated with almost no variables (values between 0 and 0.05).
 %%
 
 These observations brought us to the decision to incorporate sophisticated data mining techniques to assess the influence of the image-derived variables.
@@ -658,7 +660,7 @@ These observations brought us to the decision to incorporate sophisticated data 
 %%
 We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-variable explain non-image variables.
 %%
-Decision trees are a popular classification method in data mining to create predictive models.
+Decision trees are a established classification method in data mining to create predictive models.
 %%
 %Leafs of a decision tree represent class labels, branches represent decision trees.
 Leafs of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
@@ -670,6 +672,8 @@ They work with numerical as well as categorical data.
 %Epidemiologists can interpret the results without having deep knowledge about the classification algorithm.
 %%
 Readability is only granted for small trees. %, complex structures with many branches are not desirable.
+%%
+Large, complex trees are difficult to trace and to understand.
 %%
 Too many branches also impose overfitting to the data \cite{DecisionTree}.
 
@@ -691,7 +695,7 @@ The pseudocode for the algorithm is defined in Algorithm~\ref{alg:c4.5} \cite{C4
  }
  Let $a_{best}$ be the attribute with the highest normalized information gain\;
  Create a decision node that splits on $a_{best}$\;
- Recurse on the sublists obtained by splitting on $a_{best}$, and add those nodes as children of node\;
+ Iterate on the sublists obtained by splitting on $a_{best}$, and add those nodes as children of node\;
  \caption{Building a decision tree using the C4.5 Algorithm}
  \label{alg:c4.5}
 \end{algorithm}
@@ -769,7 +773,8 @@ It distorts the result for other distribution types.
 %%
 For example, if a variable indicating a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill}, the error metric would yield an error of 10\%, even though it is very bad.
 %%
-Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
+Based on this we use a summary error, which incorporates the discriminative power of each manifestation and is denoted as follows:
+%Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
 \begin{equation}
 error = 1 - \frac{\sum_{m=1}^M \frac{correctlyClassified_{m}}{M}}{number_{dimensions}}
@@ -782,7 +787,7 @@ We consider a result rated $0.5$ or below good enough to display it in the visua
 %%
 It allows for comparability of error rates between variables with different manifestation count.
 
-\paragraph{Attribute Mapping}
+\paragraph{Attribute Mapping.}
 %%
 The scatter plot axes are defined by tree size and the previously described error metric.
 %%
@@ -805,7 +810,7 @@ Furthermore, we map the number of subjects associated with a variable to point d
 This allows instant reliability assessment of the result.
 %%
 
-We apply a square root scale for the tree size axis to highlight data points with few decision rules.
+We apply a square root scale for the tree size axis to highlight decision trees with few decision rules.
 %%
 Outlier results with very large decision trees would otherwise distort the resulting plot.
 %%
@@ -826,7 +831,7 @@ The described visualization provides a good overview over the classification res
 %%
 We still want to be able to display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
 %%
-This is realized by clicking on an entry on the visualization, which then interactively displays the corresponding decision tree in detail.
+This is realized by clicking on an entry in the visualization, which then interactively displays the corresponding decision tree in detail.
 %%
 This allows to sequentially analyze the classifications.
 
@@ -891,7 +896,7 @@ The interactive plot (see supplemental material) has clickable data points, disp
 }
   \label{fig:results}
 \end{figure*}
-\noindent In this section, we show which non-image variables can be described using the 9 image derived variables.
+\noindent In this section, we show which non-image variables can be explained using the 9 image derived variables.
 %%
 We also create subject groups to assess the influence of variables affecting the lumbar spine shape.
 %%
@@ -927,9 +932,9 @@ This is reflected in the large amount of variables classified with an error abov
 
 None of the pain indicators can be described reliably using the image-based variables.
 %%
-The only variable reliably classified in this group is \emph{gender}. % with an error rate of 31.5\% using a decision tree of seven rules.
+The only variable reliably classified in this group is \emph{gender}, which can be predicted with an error of $0.31$ using 7 rules and incorporates only \emph{curvature-} and \emph{curvature angle}-related variables.
 %
-It can be discriminated with an error of $0.31$ using 7 rules and incorporates only \emph{curvature-} and \emph{curvature angle}-related variables.
+%It can be predicted with an error of $0.31$ using 7 rules and incorporates only \emph{curvature-} and \emph{curvature angle}-related variables.
 %%
 The distinctness lies in the average difference in \emph{body size} between \emph{male} and \emph{female} subjects.
 %%
