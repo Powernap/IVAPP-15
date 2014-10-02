@@ -777,7 +777,7 @@ Based on this we use a summary error, which incorporates the discriminative powe
 %Our error term therefore incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
 \begin{equation}
-error = 1 - \frac{\sum_{m=1}^M \frac{correctlyClassified_{m}}{M}}{number_{dimensions}}
+totalError = 1 - \sum_{m=1}^M \frac{correctlyClassified_{m}}{M\cdot N_m}
 \end{equation}
 $M$ represents the set of manifestation of each variable.
 %%
