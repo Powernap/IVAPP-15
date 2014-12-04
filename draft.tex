@@ -317,20 +317,21 @@ We abstract the decision tree results similar to \cite{Turkay}, making them comp
 \section{\uppercase{The Lumbar Spine Data Set}}
 \label{sec:MaterialsAndMethod}
 %%
-\noindent Our approach allows the simultaneous analysis of many variables.
+% \noindent Our approach allows the simultaneous analysis of many variables.
 %%
-Therefore, epidemiologists compiled the data set with a wide range of variables possibly correlating with lumbar back pain.
+%Therefore, epidemiologists compiled the data set with a wide range of variables possibly correlating with lumbar back pain.
+\noindent Epidemiologists compiled a data set with a wide range of variables possibly correlating with lumbar back pain, comprising non-image and image-derived data for 6,753 subjects
 %%
-The data set comprises 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}) including non-image and image-derived data.
+%The data set comprises 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}) including non-image and image-derived data.
 %%
 \\\\
 \noindent \textbf{Non-Image Data}.
 %%
 The non-image variables range from somatometric variables describing body measures to medical examinations, such as laboratory tests as well as lifestyle factors, e.g. sporting activity or nutrition.
 %%
-The data set comprises 134 variables (and 9 additional image-derived variables described in the next subsection):
+The data set comprises 134 variables: %(and 9 additional image-derived variables described in the next subsection):
 \begin{itemize}
-	\item 21 metric variables, mostly describing somatometric variables and markers retrieved from blood analysis
+	\item 21 metric variables, describing somatometric variables and markers retrieved from blood analysis
 	%%
 	\item 113 categorical variables divided into
 	%%
@@ -344,65 +345,66 @@ The data set comprises 134 variables (and 9 additional image-derived variables d
 %%
 \end{itemize}
 %%
-Many variables comprise missing data.
-%%
-Some variables are follow-up questions, covering the treatment of a disease.
-%%
-Others are exclusive to subgroups, such as women-specific variables, e.g. \emph{menstrual status}.
-%%
-Sparse variables are statistically less resilient and need to be treated with care during the analysis.
-\\\\
+% Many variables comprise missing data.
+% %%
+% Some variables are follow-up questions, covering the treatment of a disease.
+% %%
+% Others are exclusive to subgroups, such as women-specific variables, e.g. \emph{menstrual status}.
+% %%
+% Sparse variables are statistically less resilient and need to be treated with care during the analysis.
 \noindent \textbf{Image-Derived Data.}
 \begin{figure}[!t]
   %\vspace{-0.2cm}
   \centering
   \includegraphics[width=0.475\textwidth]{figures/centerline}
   \caption{
-	(a) left: Tetrahedron-based finite element model (FEM) of the lumbar spine, capturing the L1-L5 vertebrae as well as the lumbar spine canal.
+	(a) Finite element model (FEM) of the lumbar spine (left), capturing the L1-L5 vertebrae and the lumbar spine canal (right).
 	%%
-	(a) right: FEM aligned to an MRI data set.
+%	(a) right: FEM aligned to an MRI data set.
 	%%
-	The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
+	%The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
+	The purple dashed line describes the lumbar spine canal centerline with 92 points.
 	%%
-	(b) Using the Frenet frame, we extract the weighted sum of curvature and torsion for all 92 points (white dashes).
+	(b) We extract the weighted sum of \emph{curvature} and \emph{torsion} for all 92 points (white dashes).
 	%%
-	The curvature angle ($\alpha$) is calculated using the top, bottom and middle point.
+	The \emph{curvature angle} ($\alpha$) is calculated using the top, bottom and middle point.
 	%%
-	We also extracted the variables for each projection axis to assess their information gain.
+	We extracted the variables for each projection axis to assess their information gain.
 	}
   \label{fig:centerline}
 \end{figure}
-Four trained radiologists acquired the medical image data for each subject in a standardized way using a 1.5~Tesla Magnetic Resonance Imaging (MRI) scanner (Magnetom Avanto; Siemens Medical Solutions, Erlangen, Germany).
+Magnetic Resonance Imaging (MRI) scans were obtained for each subject \cite{Hegenscheid2013}.
 %%
-The spine protocol consisted of a sagittal $T_1$- and $T_2$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
+% Four trained radiologists acquired the medical image data for each subject in a standardized way using a 1.5~Tesla Magnetic Resonance Imaging (MRI) scanner (Magnetom Avanto; Siemens Medical Solutions, Erlangen, Germany).
+% %%
+% The spine protocol consisted of a sagittal $T_1$- and $T_2$-weighted turbo-spin-echo sequence ($1.1\times1.1\times4.0~mm$ voxels) \cite{Hegenscheid2013}.
+% %%
 %%
-
 A hierarchical finite element method was used to detect the lumbar spine in the MRI data \cite{Rak2013}.
 %%
-The tetrahedron-based finite element model is initialized using three user-defined landmarks.
+%The tetrahedron-based finite element model (Fig.~\ref{fig:centerline}~a) is initialized using three user-defined landmarks.
 %%
-A click on the L3 vertebra center initializes the model, two clicks on the top and bottom of the vertebra describe an initial height estimation (Fig.~\ref{fig:centerline}~a).
+%A click on the L3 vertebra center initializes the model, two clicks on the top and bottom of the vertebra describe an initial height estimation (Fig.~\ref{fig:centerline}~a).
 %%
-The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae.
+The tetrahedron-based finite element model (Fig.~\ref{fig:centerline}~a) captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae.
+%The registered model captures information about the lumbar spine canal shape and the position of the L1-L5 vertebrae.
 %%
-Each subject's model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, 
-rotation and scaling.
+%Each subject's model is mapped to a common reference frame using procrustes analysis to compensate for differences in translation, rotation and scaling.
 %%
-The detection fails for several subjects due to imprecise initialization, imaging artifacts or strongly deformed spines.
+The detection fails for several subjects due imaging artifacts or strongly deformed spines, yielding models for $2,540$ out of $6,753$ subjects.
 %%
-$2,540$ out of $6,753$ lumbar spine models were obtained and constitute the foundation of this work.
+%$2,540$ out of $6,753$ lumbar spine models were obtained and constitute the foundation of this work.
 %%
+%We have to assess the model accuracy to extract key figures from it.
+%%
+The detection model depicts the vertebrae positions, spine canal curvature, but lacks detailed information about their volume.
+%%
+%It captures reliable information about spine canal curvature.
+%%
+In \cite{Klemm2013VMV}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
 
-We have to assess the model accuracy to extract key figures from it.
 %%
-The detection model depicts the vertebrae positions, but lacks detailed information about their volume.
-%%
-It captures reliable information about spine canal curvature.
-%%
-In a previous work (\cite{Klemm2013VMV}), we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
-
-%%
-Using the Frenet frame, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b) \cite{Frenet}:
+Using the Frenet frame, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b): %\cite{Frenet}:
 %%
 \begin{itemize}
 	\item \emph{Mean Curvature} is calculated as weighted sum of curvature between all adjacent points describing the centerline: $\sum_{i=1}^I \frac{curvature_i}{I}$. We refer to total curvature as \emph{curvature}.
@@ -413,11 +415,12 @@ Using the Frenet frame, we calculated the following metrics from the model (Fig.
 %%
 \end{itemize}
 %%
-These metrics are also extracted in the sagittal, coronal and transversal projection of the model.
-%%
-We assess the information gain of each dimension using these projections.
-%%
-This yields a total of 9 image-derived variables.
+% These metrics are also extracted in the sagittal, coronal and transversal projection of the model.
+% %%
+% We assess the information gain of each dimension using these projections.
+% %%
+% This yields a total of 9 image-derived variables.
+These metrics are also extracted in the sagittal, coronal and transversal projection of the model, yielding 9 image-derived variables.
 %%
 In the next section, we present the experiments we conducted to assess the influence of the lumbar spine shape to lower back pain.
 %%
