@@ -221,21 +221,21 @@ They have to analyze the lumbar spine shape as well as lifestyle factors.
 %%
 \noindent \textbf{Visual Analysis of Medical Image and Non-Image Data}
 %%
-In a previous work, we proposed an extension to the previously described epidemiological workflow using IVA \cite{Klemm2014VIS}.
+In a previous work, we proposed an extension to the previously described epidemiological workflow using IVA, consisting of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization} \cite{Klemm2014VIS}.
 %%
-The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
+%The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
-It aims to trigger \emph{hypothesis generation} by providing visualizations able to concurrently analyze multiple heterogenous variables at once using correlation measures.
+\emph{Hypothesis generation} is amplified by concurrently analyzing heterogenous variables at once using correlation measures.
 %%
 %We incorporate the IVA approach by concurrently displaying complex relationships between variables via decision trees.
 %%
-\cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
+% \cite{Steenwijk} propose a coordinated linked view system for both image-related and non-image data.
+% %%
+% It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots. %with brushing and linking facilities.
+% %%
+% Similar to our work, they quantify image data and project it into the non-image data information space.
 %%
-It incorporates multiple plot types, such as scatter plots, parallel coordinates and time plots with brushing and linking facilities.
-%%
-Similar to our work, they quantify image data and project it into the non-image data information space.
-%%
-\cite{Turkay} follow a similar approach by deriving descriptive data metrics from image data.
+\cite{Turkay} derive descriptive data metrics from image data.
 %%
 Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile range, making variables comparable.
 %%
@@ -254,7 +254,7 @@ They define a cohort as variable-divided subject group, differing from the epide
 %%
 The described method lacks details about handling of missing data, the definition of similarity or the choice of the statistical measures.
 %%
-Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS,Francois}.
+Generalized Pairs Plots (\texttt{GPLOM'S}) visualize heterogenous variables in a plot matrix \cite{GPLOMS}. %\cite{GPLOMS,Francois}.
 %%
 The plot depends on the type of variables, which are visualized pairwise.
 %%
@@ -267,7 +267,8 @@ The plot depends on the type of variables, which are visualized pairwise.
 %%----------------------------
 \\\\
 \noindent \textbf{Decision Rule-Driven Analysis of Medical Data.}
-Related work in this field often focuses on clinical diagnosis.
+%%
+% Related work in this field often focuses on clinical diagnosis.
 %%
 Closest to ours is the work of \cite{Glasser2013} and \cite{Niemann2014}.
 %%
@@ -275,7 +276,7 @@ Both use decision trees for their analyses.
 %%
 Decision trees are easily readable and are well suited for classifying medical data.
 %%
-The effort of analyzing decision trees increases with their complexity.
+% The effort of analyzing decision trees increases with their complexity.
 %%
 \cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in tumorous tissue.
 %%
@@ -283,13 +284,14 @@ To classify breast tumors, they train a decision-tree classifier, concluding tha
 %%
 \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
 %%
-They present an interactive data mining tool, which can analyze association rules and highlight interesting relations, which may trigger new hypotheses about the data.
+They present an interactive data mining tool, which can analyze association rules and highlight interesting relations. %, which may trigger new hypotheses about the data.
 %%
 We combine both ideas by validating the significance of image-derived variables.
-We aim at deriving new relationships by training decision trees to explain target variables.
+% %%
+% We aim at deriving new relationships by training decision trees to explain target variables.
 %%----------------------------
 %%
-\cite{Pinheiro} applied association rule mining to create high-confidence decision rules based on variables, such as age, gender and geographic location about the mortality rate in liver cancer data.
+%\cite{Pinheiro} applied association rule mining to create high-confidence decision rules based on variables, such as age, gender and geographic location about the mortality rate in liver cancer data.
 %%
 % \cite{Sekhavat} propose an interactive visualization technique for decision trees, where all decisions are displayed in a heat map.
 % %%
@@ -307,13 +309,14 @@ The extracted lumbar spine shape was correlated with subject size.
 %%
 Our data extraction process is based on the detection algorithm and lumbar spine canal extraction presented by \cite{Klemm2013VMV}.
 %%
-Clustering techniques are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
+%Clustering techniques are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
 %%
 \\\\
 Unique in our work is the combination of data mining techniques with an IVA approach by observing interesting feature relations in the context of image-derived features using multiple decision trees for one visualization.
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
+% TODO: [high] Unterschied zu VMV Publikation herausarbeiten
 \section{\uppercase{The Lumbar Spine Data Set}}
 \label{sec:MaterialsAndMethod}
 %%
