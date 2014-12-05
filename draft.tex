@@ -464,17 +464,17 @@ In the next section, we present the experiments we conducted to assess the influ
 %   \label{fig:age-gender}
 % \end{figure}
 %%
-\noindent Spine shape is possibly associated with several somatometric variables.
-%% TODO: Shorten
+\noindent Spine shape is influenced by several somatometric variables.
+%% TODO: Introduce this better! Go into detail on the train of thought
 Larger people have also a longer spine with a straighter shape.
 %%
-Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors.
+%Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors.
 %%
-Women have a higher life expectancy than men, hence their higher share in the old age group.
+%Women have a higher life expectancy than men, hence their higher share in the old age group.
 %%
-Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
+%Also, women are on average smaller than men, hence the larger shape similarity with older subjects.
 %%
-Large \emph{body weight} increases the spine load, resulting in a bent shape.
+High \emph{body weight} increases the spine load, resulting in a bent shape.
 %%
 To assess their influence, we take them into account when spine \emph{curvature} and \emph{torsion} is correlated with non-image variables.
 %%
@@ -484,20 +484,24 @@ Discretizing metric variables using quartiles avoids small outlier groups.
 %%
 \\\\
 \noindent \textbf{GPLOM Analysis.}
-As a first experiment we correlated the shape variable with the dichotomous back pain indicator using \texttt{GPLOM's} \cite{GPLOMS}.
+As a first experiment we correlated the shape variable with the dichotomous back pain indicator using a \texttt{GPLOM}.
 %%
-Since our image-derived variables are metric, their pairwise combinations are visualized using scatter plots.
+The metric image-derived variables are pairwise visualized using scatter plots.
+%Since our image-derived variables are metric, their pairwise combinations are visualized using scatter plots.
 %%
 The combination of the image variables with back pain is visualized as histogram at the left side of the matrix and as box plot on the right side.
 %%
 Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable as box plot.
 %%
 The projections to the transversal planes attract attention as they have many outliers.
+%% % TODO: [high] Add Link
+We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes, which was also confirmed through a Principal Component Analysis (see supplementary material at TODO:LINK).
 %%
-We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes.
+The \texttt{GPLOM} shows very similar distributions of subjects with or without back pain with respect to the shape variables in all sub plots.
+%%
 %%--------------------------------
-\\\\
-\noindent \textbf{Correlation Matrix.}
+% \\\\
+% \noindent \textbf{Correlation Matrix.}
 \begin{figure*}[htb]
   %\vspace{-0.2cm}
   \centering
@@ -516,43 +520,47 @@ No correlations with back pain are present as it can be seen in this plot.
 }
   \label{fig:image-parameter-range}
 \end{figure*}
-We calculated a correlation matrix to assess correlations between the image variables.
-%%
-The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
-%%
-\emph{Curvature}, \emph{curvature angle} and \emph{torsion} strongly correlate with their planar projections.
-%%
-Also the \emph{mean curvature} and \emph{curvature angle} correlate by a factor of $-0.89$.
-%%
-\emph{Torsion} does not correlate with any other image-derived variable.
+% We calculated a correlation matrix to assess correlations between the image variables.
+% %%
+% The pearson correlation coefficients between the numeric variables are depicted right of the matrix diagonal (Fig.~\ref{fig:image-parameter-range}).
+% %%
+% \emph{Curvature}, \emph{curvature angle} and \emph{torsion} strongly correlate with their planar projections.
+% %%
+% Also the \emph{mean curvature} and \emph{curvature angle} correlate by a factor of $-0.89$.
+% %%
+% \emph{Torsion} does not correlate with any other image-derived variable.
 %%--------------------------------------------------------
-\\\\
-\noindent \textbf{Correlation of Image Variables With Lumbar Back Pain.}
-Figure~\ref{fig:image-parameter-range} shows the distribution of all image-variables as Generalized Pairs Plot.
+% \\\\
+% \noindent \textbf{Correlation of Image Variables With Lumbar Back Pain.}
+% Figure~\ref{fig:image-parameter-range} shows the distribution of all image-variables as Generalized Pairs Plot.
+% %%
+% No statistically significant correlation could be observed through all subject groups.
+% %%
+% The box plots show no difference between subjects with or without back pain.
+% \\\\
+% \noindent \textbf{Assessing the Information Gain Using the Principal Component Analysis.}
+% A Principal Component Analysis (PCA) of the image data yielded that \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle} explain almost 50\% of the image variance.
+% %%
+% \emph{Torsion} and metrics of the \emph{transverse} projection planes contribute very little variance, supporting our conclusion about their low information gain.
 %%
-No statistically significant correlation could be observed through all subject groups.
 %%
-The box plots show no difference between subjects with or without back pain.
-\\\\
-\noindent \textbf{Assessing the Information Gain Using the Principal Component Analysis.}
-%%
-To determine the information gain per image-derived variable, we calculated a Principal Component Analysis (PCA) and compared the dimension loadings.
-%%
-The PCA results in a linear projection of the variable space ordering their components by maximum variance.
-%%
-The first three principal components explain 75\% of the variance in the nine image-derived variables.
-%%
-The first principal component explains 47\% of the variance and comprises primarily \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle}.
-%%
-The second component, adding 16\% of the variance, weigths \emph{coronal curvature} and \emph{coronal curvature angle}.
-%%
-The third component explains 12\% of the variance and comprises \emph{torsion} and \emph{transverse curvature}.
-%%
-This supports our prior conclusion about the low information gain of the transverse planes.
-%%
-\emph{Torsion} also adds little variance to the information space.
-%%
-The complete analysis can be found in the experiments section of the supplementary material (\url{blind.dnsalias.com})
+% To determine the information gain per image-derived variable, we calculated a Principal Component Analysis (PCA) and compared the dimension loadings.
+% %%
+% The PCA results in a linear projection of the variable space ordering their components by maximum variance.
+% %%
+% The first three principal components explain 75\% of the variance in the nine image-derived variables.
+% %%
+% The first principal component explains 47\% of the variance and comprises primarily \emph{mean curvature}, \emph{sagittal curvature}, \emph{curvature angle} and \emph{sagittal curvature angle}.
+% %%
+% The second component, adding 16\% of the variance, weigths \emph{coronal curvature} and \emph{coronal curvature angle}.
+% %%
+% The third component explains 12\% of the variance and comprises \emph{torsion} and \emph{transverse curvature}.
+% %%
+% This supports our prior conclusion about the low information gain of the transverse planes.
+% %%
+% \emph{Torsion} also adds little variance to the information space.
+% %%
+% The complete analysis can be found in the experiments section of the supplementary material (\url{blind.dnsalias.com})
 %% ------------------------------------------
 \\\\
 \noindent \textbf{Heterogenous Correlations.}
@@ -561,22 +569,21 @@ We then expanded our focus on correlations of image-derived variables with all o
 %%
 Different correlation metrics depending on the type of the individual variables are used to derive correlations between all variables in the data set.
 %%
-The method uses the following correlation metrics for the different type combinations:
+The method uses \emph{pearson product-moment} for two continuous variables, \emph{polyserial} correlation for one continuous and one categorical variable, and \emph{Polychoric} correlations for two categorical variables.
+%The method uses the following correlation metrics for the different type combinations:
 %%
-\begin{itemize}
+% \begin{itemize}
+% %%
+% \item \emph{Pearson product-moment} for two continuous variables,
+% \item \emph{Polyserial} correlation for one continuous and one categorical variable, and
+% \item \emph{Polychoric} correlations for two categorical variables.
+% \end{itemize}
 %%
-\item \emph{Pearson product-moment} for two continuous variables, 
-\item \emph{Polyserial} correlation for one continuous and one categorical variable, and
-\item \emph{Polychoric} correlations for two categorical variables.
-\end{itemize}
+All values are scaled between \texttt{0 - no correlation} and \texttt{1 - perfect correlation}.
 %%
-All correlation values are scaled between \texttt{0 - no correlation} and \texttt{1 - perfect correlation}.
+Some variables are too sparse for calculating correlations, for example \emph{treatment of diabetes}, or \emph{medication against high blood pressure} and are omitted, since they are not statistically resilient.
 %%
-Some variables are too sparse for calculating correlations, for example \emph{treatment of diabetes}, or \emph{medication against high blood pressure}.
-%%
-These variables have to be omitted in the analysis, since they are not statistically resilient.
-%%
-We display the resulting \emph{contingency matrix} using a heat map, encoding correlation values with color brightness with white for $0$ and dark blue for $1$, as presented in \cite{Klemm2014VIS}.
+We display the resulting \emph{contingency matrix} using a heat map, encoding correlation values with color brightness with white for $0$ and dark blue for $1$.
 %%
 We calculated the contingency matrix for all size groups and searched for correlations between image- and non-image derived variables.
 %%
@@ -1020,7 +1027,7 @@ Our method provides a novel way to gain insight into these complex data sets and
 \end{small}
 
 
-\vfill
+% \vfill
 \bibliographystyle{style/apalike}
 {\small
 \bibliography{bibliography}}
