@@ -622,7 +622,7 @@ Categorical attributes with more levels are biased with more information gain in
 Creating a dummy variable by converting each manifestation of a categorical variable into a dichotomous variable bypasses this problem.
 %%
 In the following analysis, we strongly focus on the complexity of decision trees and the classification accuracy.
-
+%
 %\subsection{The C4.5/C5.0 Algorithm}
 %\label{sec:C5.0}
 %The C4.5 algorithm builds decision trees based on information entropy on a data set.
@@ -650,8 +650,8 @@ In the following analysis, we strongly focus on the complexity of decision trees
 % Creating a dummy variable by converting each manifestation of a categorical variable into a dichotomous variable bypasses this problem.
 % %%
 % In the following analysis, we strongly focus on the complexity of decision trees and the classification accuracy.
-\subsection{Visualizing Decision Trees}
-\label{subsec:VisualizingDecisionTrees}
+%\subsection{Visualizing Decision Trees}
+
 We have to create a decision tree for every non-image variable to analyze which one can be explained by image-derived variables.
 %%
 Since we have 134 non-image variables, the calculation yields the same amount of trees.
@@ -727,7 +727,8 @@ We apply a square root scale for the tree size axis to highlight decision trees 
 %%
 Outlier results with very large decision trees would otherwise distort the resulting plot.
 %%------------
-\subsection{Interaction With the Decision Tree Visualization}
+\\\\
+\noindent \textbf{Interaction With the Decision Tree Visualization.}
 %%
 The described visualization provides a good overview over the classification results.
 %%
@@ -784,7 +785,7 @@ They can use the technique without installing any software.
 %%
 Interactive scatter plot visualization of all C5.0 classification results.
 %%
-The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{subsec:VisualizingDecisionTrees}).
+The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{sec:DecisionTrees}).
 %%
 The left scatter plot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
 %%
