@@ -284,7 +284,7 @@ To classify breast tumors, they train a decision-tree classifier, concluding tha
 %%
 \cite{Niemann2014} assess hepatic steatosis (fatty liver disease) risk factors using decision trees.
 %%
-They present an interactive data mining tool, which can analyze association rules and highlight interesting relations. %, which may trigger new hypotheses about the data.
+They present an interactive data mining tool, which can analyze association rules and highlight relations. %, which may trigger new hypotheses about the data.
 %%
 We combine both ideas by validating the significance of image-derived variables.
 % %%
@@ -345,8 +345,17 @@ The data set comprises 134 variables: %(and 9 additional image-derived variables
 		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
 		%%
 	\end{itemize}
-%%
 \end{itemize}
+%%
+All categorical variables are converted into binary \emph{dummy variables}, indicate the presence or absence of a categorical variable manifestation. %with multiple manifestations into several dichotomous variables.
+%%
+%Each dichotomous variable encodes the presence of a manifestation.
+%%
+For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables.
+%%
+%One subject can only have one of these variables set to true.
+%%
+This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variables.
 %%
 % Many variables comprise missing data.
 % %%
@@ -355,6 +364,7 @@ The data set comprises 134 variables: %(and 9 additional image-derived variables
 % Others are exclusive to subgroups, such as women-specific variables, e.g. \emph{menstrual status}.
 % %%
 % Sparse variables are statistically less resilient and need to be treated with care during the analysis.
+\\\\
 \noindent \textbf{Image-Derived Data.}
 \begin{figure}[!t]
   %\vspace{-0.2cm}
@@ -405,7 +415,7 @@ The detection model depicts the vertebrae positions, spine canal curvature, but 
 %It captures reliable information about spine canal curvature.
 %%
 In \cite{Klemm2013VMV}, we extracted a centerline representation of the lumbar spine canal from the detection model (Fig.~\ref{fig:centerline}~a).
-
+%%
 %%
 Using the Frenet frame, we calculated the following metrics from the model (Fig.~\ref{fig:centerline}~b): %\cite{Frenet}:
 %%
@@ -455,7 +465,7 @@ In the next section, we present the experiments we conducted to assess the influ
 % \end{figure}
 %%
 \noindent Spine shape is possibly associated with several somatometric variables.
-%%
+%% TODO: Shorten
 Larger people have also a longer spine with a straighter shape.
 %%
 Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors.
@@ -581,7 +591,8 @@ Other than that, \emph{torsion} correlated with almost no variables (values betw
 
 These observations brought us to the decision to incorporate sophisticated data mining techniques to assess the influence of the image-derived variables.
 %%
-\section{\uppercase{Evaluation of Decision Trees}}
+% \section{\uppercase{Evaluation of Decision Trees}}
+\section{\uppercase{Interactive Decision Tree Visualization}}
 \label{sec:DecisionTrees}
 %%
 \noindent As described before, correlation coefficients fail to infer back pain status based on lumbar spine canal \emph{curvature} and \emph{torsion}.
@@ -594,14 +605,16 @@ Leafs of a decision tree represent class labels, branches represent feature conj
 %%
 Decision trees are easy to understand and to read.
 %%
-They work with numerical as well as categorical data.
+%They work with numerical as well as categorical data.
 %%
 Readability is only granted for small trees.
 %%
-Large, complex trees are difficult to trace and to understand.
+%Large, complex trees are difficult to trace and to understand.
 %%
-Too many branches also impose overfitting to the data \cite{DecisionTree}.
-
+Too many branches impose overfitting to the data \cite{DecisionTree}.
+%%
+\\\\
+\noindent \textbf{Creating Decision Trees.}
 We use the C4.5 algorithm, which builds decision trees based on information entropy on a data set.
 %%
 Categorical attributes with more levels are biased with more information gain in a decision tree \cite{deng2011bias}.
@@ -637,8 +650,8 @@ In the following analysis, we strongly focus on the complexity of decision trees
 % Creating a dummy variable by converting each manifestation of a categorical variable into a dichotomous variable bypasses this problem.
 % %%
 % In the following analysis, we strongly focus on the complexity of decision trees and the classification accuracy.
-
-\subsection{Interactive Display of Decision Trees}
+\subsection{Visualizing Decision Trees}
+\label{subsec:VisualizingDecisionTrees}
 We have to create a decision tree for every non-image variable to analyze which one can be explained by image-derived variables.
 %%
 Since we have 134 non-image variables, the calculation yields the same amount of trees.
@@ -649,8 +662,8 @@ We have to abstract the results of the classification to keep the mental effort 
 %%
 This is included in our IVA framework.
 %%------------
-\subsubsection{Visualization of Classification Results}
-\label{subsec:VisualizationOfClassificationResults}
+\\\\
+\noindent \textbf{Visualization of Classification Results.}
 %%
 We follow the Visual Analytics mantra of analyzing first, show the important and analyze further \cite{Keim}.
 %%
@@ -664,20 +677,22 @@ The two measures form the axes for a scatter plot of the classification results.
 %%
 The scatter plot is our central element for the interactive analysis of decision trees.
 \\\\
-\noindent \textbf{The Error Term. }
-Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {N}$ where $n$ is the number of subjects.
+\noindent \textbf{The Error Term.}
+Calculating the mean classification error is imprecise for non-uniform distributions.
+%Normally the error for a classification is calculated with $error = \frac{correctlyClassified_{n}} {N}$ where $n$ is the number of subjects.
 %%
-The metric usually works well for variables with uniform distribution.
+%The metric usually works well for variables with uniform distribution.
 %%
-It distorts the result for other distribution types.
+%It distorts the result for other distribution types.
 %%
-For example, if a variable indicating a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill}, the error metric would yield an error of 10\%, even though it is very bad.
+For example, if a variable indicating a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill}, we get an mean error of 10\%, even though it is very bad.
 %%
 Based on this we use a summary error, which incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
 \begin{equation}
 totalError = 1 - \sum_{m=1}^M \frac{correctlyClassified_{m}}{M\cdot N_m}
 \end{equation}
+%%
 $M$ represents the set of manifestation of each variable.
 %%
 The error is scaled to denote perfect classification with 0; 1 is equal to random selection.
@@ -686,14 +701,14 @@ We consider a result rated $0.5$ or below good enough to display it in the visua
 %%
 It allows for comparability of error rates between variables with different manifestation count.
 \\\\
-\noindent \textbf{Attribute Mapping.}
+\textbf{Attribute Mapping.}
 %%
-The scatter plot axes are defined by tree size and the previously described error metric.
+The scatter plot axes are defined by \emph{tree size} and the previously described \emph{error metric}.
 %%
 This allows us to visualize a multitude of classification results in one plot.
 %%
 Classification and comparison of variables for subject groups (e.g. male and female subjects) in one plot can be achieved by color coding group affiliation on the data points.
-
+%%
 Many interdependent variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
 The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size.
@@ -708,23 +723,11 @@ Furthermore, we map the number of subjects associated with a variable to point d
 %%
 This allows instant reliability assessment of the result.
 %%
-
 We apply a square root scale for the tree size axis to highlight decision trees with few decision rules.
 %%
 Outlier results with very large decision trees would otherwise distort the resulting plot.
-%%
-\subsubsection{Dummy Variables}
-Dummy variables convert a categorical variable with multiple manifestations into several dichotomous variables.
-%%
-Each dichotomous variable encodes the presence of a manifestation.
-%%
-For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables.
-%%
-One subject can only have one of these variables set to true.
-%%
-This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variables.
 %%------------
-\subsubsection{Interaction With the Visualization}
+\subsection{Interaction With the Decision Tree Visualization}
 %%
 The described visualization provides a good overview over the classification results.
 %%
@@ -744,28 +747,33 @@ Metric variables, such as \emph{body size} are discretized using their quantiles
 %%
 This allows to assess the influences of a variable to the classification process.
 %%------------
-\subsubsection{Implementation}
-All analyses are carried out using \texttt{R}, a widely used programming language for statistical calculations and visualizations.
+\\\\
+\noindent \textbf{Implementation.}
+All analyses are available at \url{blind.dnsalias.com} and are carried out using \texttt{R}, a widely used programming language for statistical calculations and visualizations.
 %%
 The interactive visualizations are realized using the \texttt{ggvis}\footnote{Developed by RStudio, Inc; \texttt{ggvis.rstudio.com}} package.
-%%
-As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization variables using user interface controls, such as sliders.
-%%
-In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to create reports by combining \texttt{R} with the \texttt{Markdown} syntax.
-%%
-We used \texttt{R Shiny}\footnote{Developed by RStudio, Inc; \texttt{shiny.rstudio.com}} to make the report available as dynamic web application.
-%%
-It allows to combine the power of static \texttt{R Markdown} reports with dynamically parameterized \texttt{ggvis} plots.
-%%
-Furthermore, calculations based on a prior data selection can be redone within the report.
 %%
 The web-based approach allows us to quickly exchange results with our collaborating epidemiological experts.
 %%
 They can use the technique without installing any software.
 %%
-Exchanging the prototype becomes as easy as exchanging a hyperlink.
+% As opposed to the standard \texttt{R} plots, \texttt{ggvis} allows to adjust visualization variables using user interface controls, such as sliders.
+% %%
+% In order to make the train of thought comprehensible, we used \texttt{RMarkdown}, which allows to create reports by combining \texttt{R} with the \texttt{Markdown} syntax.
+% %%
+% We used \texttt{R Shiny}\footnote{Developed by RStudio, Inc; \texttt{shiny.rstudio.com}} to make the report available as dynamic web application.
+% %%
+% It allows to combine the power of static \texttt{R Markdown} reports with dynamically parameterized \texttt{ggvis} plots.
+% %%
+% Furthermore, calculations based on a prior data selection can be redone within the report.
 %%
-The prototype is available at \url{blind.dnsalias.com}.
+% The web-based approach allows us to quickly exchange results with our collaborating epidemiological experts.
+% %%
+% They can use the technique without installing any software.
+% %%
+% Exchanging the prototype becomes as easy as exchanging a hyperlink.
+% %%
+% The prototype is available at \url{blind.dnsalias.com}.
 %%---------
 \section{\uppercase{Results}}
 \begin{figure*}[p!]
@@ -776,7 +784,7 @@ The prototype is available at \url{blind.dnsalias.com}.
 %%
 Interactive scatter plot visualization of all C5.0 classification results.
 %%
-The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{subsec:VisualizationOfClassificationResults}).
+The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{subsec:VisualizingDecisionTrees}).
 %%
 The left scatter plot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
 %%
