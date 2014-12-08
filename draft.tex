@@ -301,13 +301,15 @@ We combine both ideas by validating the significance of image-derived variables.
 %%
 \\\\
 \noindent \textbf{SHIP Data Analysis.}
-\cite{Klemm2013VMV} analyzed the lumbar spine variability of 490 \texttt{SHIP-2} subjects.
+% TODO: [high] This is currently only one paper!
+In a prior work, we analyzed the lumbar spine variability of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
 %%
-They incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier clusters.
+We incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier clusters.
 %%
 The extracted lumbar spine shape was correlated with subject size.
 %%
-Our data extraction process is based on the detection algorithm and lumbar spine canal extraction presented by \cite{Klemm2013VMV}.
+We use the same detection algorithm and lumbar spine canal extraction as foundation of this work.
+%Our data extraction process is based on the detection algorithm and lumbar spine canal extraction presented by \cite{Klemm2013VMV}.
 %%
 %Clustering techniques are strongly dependent on the chosen variables and distance measures \cite{Klemm2014BVM}.
 %%
@@ -464,7 +466,11 @@ In the next section, we present the experiments we conducted to assess the influ
 %   \label{fig:age-gender}
 % \end{figure}
 %%
-\noindent Spine shape is influenced by several somatometric variables.
+%The first step is to analyze if the dichotomous back pain variable can be discriminated using single shape variables or sets of shape variables.
+%%
+\noindent In this section, the image-derived variables are analyzed towards the dichotomous \emph{back pain} indicator using a \texttt{GPLOM} and all non-image variables using heterogenous correlations.
+%In this section, we aim to retrieve correlations between the dichotomous \emph{back pain} indicator and the image-derived variables using a \texttt{GPLOM} as well as a assessment, which non-image variables 
+Spine shape is influenced by several somatometric variables.
 %% TODO: Introduce this better! Go into detail on the train of thought
 Larger people have also a longer spine with a straighter shape.
 %%
@@ -484,7 +490,7 @@ Discretizing metric variables using quartiles avoids small outlier groups.
 %%
 \\\\
 \noindent \textbf{GPLOM Analysis.}
-As a first experiment we correlated the shape variable with the dichotomous back pain indicator using a \texttt{GPLOM}.
+As first experiment we correlated the shape variable with the dichotomous back pain indicator using a \texttt{GPLOM}.
 %%
 The metric image-derived variables are pairwise visualized using scatter plots.
 %Since our image-derived variables are metric, their pairwise combinations are visualized using scatter plots.
