@@ -495,7 +495,7 @@ As first experiment we correlated the shape variable with the dichotomous back p
 The metric image-derived variables are pairwise visualized using scatter plots.
 %Since our image-derived variables are metric, their pairwise combinations are visualized using scatter plots.
 %%
-The combination of the image variables with back pain is visualized as histogram at the left side of the matrix and as box plot on the right side.
+The combination of the image variables with back pain is visualized as histogram at the left side of the matrix diagonal and as box plot on the right side.
 %%
 Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable as box plot.
 %%
@@ -610,9 +610,14 @@ These observations brought us to the decision to incorporate data mining techniq
 %%
 \noindent As described before, correlation coefficients fail to infer back pain status based on lumbar spine canal \emph{curvature} and \emph{torsion}.
 %%
-We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-variable explain non-image variables.
+We rely on predictive classification trained to obtain a complex rule set on how combinations of the image-variables explain non-image variables.
+%%
+%The presented method aims to support an explorative analysis by trying to identify relationships with all non-image variables and also 
+%The nature of this analysis is more explorative as it includes all 
 %%
 Decision trees are used in data mining to create predictive models.
+%%
+These models are build w.r.t all input variables and capture more complex relationships than correlation coefficients.
 %%
 Leafs of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
 %%
