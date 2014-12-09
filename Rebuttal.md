@@ -9,6 +9,7 @@ General Changes
 - substantial reductions had to take place, since we were given a `short paper` slot with an 8-page limit.
 	- redundancy between `Introduction` and `Epidemiological Background` was minimized as much as possible
 	- `Related Work` section was shortened and covers less papers to meet the page limit.
+		- as requested by [Reviewer 3], we elaborate on the differences towards the VMV paper in the `Related Work` section
 	- `The Lumbar Spine Data Set` section was shortened, `Figure 2` was removed since we found it did not support the train of thought as we intended
 	- `Experiments and Preliminary Results` section was shortened and changed due to the Reviewer feedback. It should be more precise and comprehensible.
 	- `Results` section now covers *all subjects*, subjects categorized by *gender* and *body mass index*
