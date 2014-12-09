@@ -114,7 +114,7 @@ We present an analysis of the image-derived data from a cohort study lumbar spin
 %%
 We extract possible associations between spine shape and back pain characteristics.
 %%
-For this purpose, we combine data mining algorithms with data visualization techniques.
+For this purpose, we combine classification algorithms with data visualization techniques.
 %%
 Then, Interactive Visual Analysis (IVA) highlights mutual dependencies between image-derived data and back pain-related variables.
 %%
@@ -130,7 +130,7 @@ Our contributions are:
 %%
 \item The detection of associations between image-based, socio-demographic and medical variables for hypothesis generation,
 %%
-\item The identification of the most important variables via data mining methods using a novel semi- quantitative overview visualization concept. % embedded in our IVA-framework.
+\item The identification of the most important variables via classification methods using a novel semi- quantitative overview visualization concept. % embedded in our IVA-framework.
 %%
 \end{itemize}
 %%
@@ -312,7 +312,7 @@ We combine both ideas by validating the significance of image-derived variables.
 % The resulting interactive visualization is well suited for analyzing single, but not multiple decision trees.
 %%
 \\\\
-Unique in our work is the combination of data mining techniques with an IVA approach by observing interesting feature relations in the context of image-derived features using multiple decision trees for one visualization.
+Unique in our work is the combination of classification techniques with an IVA approach by observing interesting feature relations in the context of image-derived features using multiple decision trees for one visualization.
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
@@ -599,7 +599,7 @@ One surprising result was the small correlation of \emph{torsion} with \emph{Par
 Other than that, \emph{torsion} correlated with almost no variables (values between 0 and 0.05).
 %%
 
-These observations brought us to the decision to incorporate data mining techniques to assess the influence of the image-derived variables.
+These observations brought us to the decision to incorporate classification techniques to assess the influence of the image-derived variables.
 %%
 % \section{\uppercase{Evaluation of Decision Trees}}
 \section{\uppercase{Interactive Decision Tree Visualization}}
@@ -612,7 +612,7 @@ We rely on predictive classification trained to obtain a complex rule set on how
 %The presented method aims to support an explorative analysis by trying to identify relationships with all non-image variables and also 
 %The nature of this analysis is more explorative as it includes all 
 %%
-Decision trees are used in data mining to create predictive models.
+Decision trees are used to create predictive models.
 %%
 These models are build w.r.t all input variables and capture more complex relationships than correlation coefficients.
 %%
@@ -818,6 +818,7 @@ We only display variables with an error below $0.5$, results above this threshol
 %%
 The interactive plot (see supplemental material) has clickable data points, displaying corresponding decision tree in a tool tip.
 %%
+Results of high interest are located close to the axis origins.
 }
   \label{fig:results}
 \end{figure*}
@@ -990,6 +991,10 @@ Our method allowed to assess their discriminative power, which is largely limite
 The C4.5 algorithm proved to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image variables.
 %%
 Over-fitting to the data indicated by complex decision trees has to be taken into account as well.
+%%
+The presented method only captures linear relationships between variables.
+%%
+To take more complex associations into account, methods such as regression analysis have to be incorporated.
 \\\\
 \noindent \textbf{Applicability.}
 %%
@@ -1032,7 +1037,7 @@ We aim to include the method into existing visual analytics methods designed for
 \\\\
 \noindent \textbf{Outlook.}
 %%
-Combining the power of statistical analysis, visual analytics and data mining techniques is essential for analyzing increasingly complex heterogenous population data.
+Combining the power of statistical analysis, visual analytics and classification techniques is essential for analyzing increasingly complex heterogenous population data.
 %%
 These methods do not aim to replace the traditional epidemiological workflow, but rather complement the weak points of standard statistical methods.
 %%
