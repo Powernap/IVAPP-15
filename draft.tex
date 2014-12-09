@@ -142,19 +142,21 @@ Our contributions are:
 %%
 \noindent Epidemiological reasoning relies on a strict statistically-driven workflow \cite{Fletcher}:
 %%
-\begin{itemize}
+(1) Physicians formulate hypotheses based on observations made in their clinical practice; (2) Epidemiologists compile a list of variables depicting a hypothesis to prove it; (3) Statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
 %%
-	\item Physicians formulate hypotheses based on observations made in their clinical practice.
-%%
-	\item Epidemiologists compile a list of variables depicting a hypothesis to prove it.
-%%
-	\item Statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
-%%
-\end{itemize}
+% \begin{enumerate}
+% %%
+% 	\item Physicians formulate hypotheses based on observations made in their clinical practice.
+% %%
+% 	\item Epidemiologists compile a list of variables depicting a hypothesis to prove it.
+% %%
+% 	\item Statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
+% %%
+% \end{enumerate}
 %%
 Mutually dependent variables make this analysis challenging.
 %%
-Many diseases, such as different cancer types, are more likely with increasing age \cite{Fletcher}.
+Many diseases, such as different cancer types, are for example more likely with increasing age \cite{Fletcher}.
 %%
 % For example, the effect of nutrition on prostate cancer requires age normalization due to the increased incidence for older subjects.
 % %%
@@ -468,7 +470,7 @@ In the next section, we present the experiments we conducted to assess the influ
 \noindent In this section, the image-derived variables are analyzed towards the dichotomous \emph{back pain} indicator using a \texttt{GPLOM} and all non-image variables using heterogenous correlations.
 %In this section, we aim to retrieve correlations between the dichotomous \emph{back pain} indicator and the image-derived variables using a \texttt{GPLOM} as well as a assessment, which non-image variables 
 Spine shape is influenced by several somatometric variables.
-%% TODO: Introduce this better! Go into detail on the train of thought
+%%
 Larger people have also a longer spine with a straighter shape.
 %%
 %Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors.
@@ -479,11 +481,11 @@ Larger people have also a longer spine with a straighter shape.
 %%
 High \emph{body weight} increases the spine load, resulting in a bent shape.
 %%
-To assess their influence, we take them into account when spine \emph{curvature} and \emph{torsion} is correlated with non-image variables.
+To assess their influence, we take them into account when spine \emph{curvature} and \emph{torsion} are correlated with non-image variables.
 %%
 %Since the \emph{gender} encodes \emph{body size}, we decided to divide subjects into \emph{body size} groups.
 %%
-Discretizing metric variables using quartiles avoids small outlier groups.
+Discretizing metric variables using quartiles avoids outlier groups.
 %%
 \\\\
 \noindent \textbf{GPLOM Analysis.}
@@ -588,9 +590,9 @@ Some variables are too sparse for calculating correlations, for example \emph{tr
 %%
 We display the resulting \emph{contingency matrix} using a heat map, encoding correlation values with color brightness with white for $0$ and dark blue for $1$.
 %%
-We calculated the contingency matrix for all size groups and searched for correlations between image- and non-image derived variables.
+We calculated the contingency matrix for all size groups and searched for correlations between image- and non-image variables.
 %%
-The resulting contingency matrices are available as supplementary material and show no strong correlation with any of the variable (see \url{blind.dnsalias.com}).
+The resulting contingency matrices show no strong correlation with image variables (see experiments page at \url{blind.dnsalias.com}).
 %%
 Only weak correlations could be found for \emph{mean curvature} with \emph{gender} (0.42), \emph{body size} (0.39) and \emph{number of born children} (0.29).
 %%
@@ -770,7 +772,7 @@ All analyses are available at \url{blind.dnsalias.com} and are carried out using
 %%
 The interactive visualizations are realized using the \texttt{ggvis}\footnote{Developed by RStudio, Inc; \texttt{ggvis.rstudio.com}} package.
 %%
-The web-based approach allows us to quickly exchange results with our collaborating epidemiological experts.
+The web-based approach allows for quick exchange with our collaborating epidemiological experts.
 %%
 They can use the technique without installing any software.
 %%
@@ -872,8 +874,8 @@ Almost all medicated subjects were correctly classified ($796$ of $1,058$).
 The majority of non-medicated subjects are false-positive classified ($262$ of $1,058$), yielding a poor quality of the classifier w.r.t epidemiological research.
 %%
 The four \emph{body size} groups could be characterized with an error of $0.48$, but the decision tree comprises 71 rules and imposes overfitting.
-
-The analysis of the dummy variables yields a result similar to the \emph{blood pressure medication}.
+%%
+The dummy variable analysis yields a result similar to the \emph{blood pressure medication}.
 %%
 Variables, such as subjects sized 139-164 cm, between 64 and 90 years of \emph{age} or \emph{nutrition}-related variables are dominantly populated by one manifestation.
 %%
@@ -901,7 +903,6 @@ The starting age of smoking could be characterized well with an error between $0
 %%
 The result however, is probably overfitted to the data due to tree sizes between $14$ and $16$.
 %%
-
 Some variables, such as \emph{body size}, can be described with an error of $0.3$ to $0.36$, but only using large decision trees with over 20 rules.
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the \emph{leg pain level} can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
@@ -955,7 +956,7 @@ The dummy variable analysis shows many results using a decision tree with one ru
 \label{sec:Conclusion}
 %% Contributions
 \noindent We provide a method for comparative analysis of decision trees independent of the variable manifestation count using interactive scatter plots.
-%% TODO: [high] This is no related work
+%%
 We applied the technique to gain insight into the predictive power of 9 image-derived variables for 134 non-image variables.
 %%
 The analysis was carried out for subjects divided by \emph{gender}, \emph{BMI}, and \emph{body size} to assess their influence on the lumbar spine shape.
