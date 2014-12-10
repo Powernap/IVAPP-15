@@ -245,11 +245,11 @@ This approach aims to trigger \emph{hypothesis generation} by outlining tendenci
 %%
 A survey on image-centric cohort studies and strategies to analyze the resulting data is given in \cite{Preim2015}.
 %%
-In a prior work, we analyzed the lumbar spine variability of 490 \texttt{SHIP-2} subjects \cite{Klemm2013VMV}.
+In a prior work, we analyzed the lumbar spine variability of 490 \texttt{SHIP} subjects \cite{Klemm2013VMV}.
 %%
-We incorporate hierarchical agglomerative clustering to derive shape groups, yielding several groups of average shape and several outlier clusters.
+We incorporate hierarchical agglomerative clustering to derive shape groups, yielding average shape groups and outliers.
 %%
-The extracted lumbar spine shape was correlated with subject size.
+%The extracted lumbar spine shape was correlated with subject size.
 %%
 %We use the same detection algorithm and lumbar spine canal extraction as foundation of this work.
 %%
@@ -337,26 +337,27 @@ The data set comprises 134 variables: %(and 9 additional image-derived variables
 \begin{itemize}
 	\item 21 metric variables, describing somatometric variables and markers retrieved from blood analysis
 	%%
-	\item 113 categorical variables divided into
-	%%
-	\begin{itemize}
-		%%
-		\item 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. \emph{pancreatitis} or \emph{high blood pressure}
-		%%
-		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
-		%%
-	\end{itemize}
+	\item 113 categorical variables divided into 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. \emph{pancreatitis} or \emph{high blood pressure} and 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
+	% %%
+% 	\begin{itemize}
+% 		%%
+% 		\item 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g. \emph{pancreatitis} or \emph{high blood pressure}
+% 		%%
+% 		\item 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status
+% 		%%
+% 	\end{itemize}
 \end{itemize}
 %%
-All categorical variables are converted into binary \emph{dummy variables}, indicate the presence or absence of a categorical variable manifestation. %with multiple manifestations into several dichotomous variables.
+All categorical variables are converted into binary \emph{dummy variables}, indicating the presence or absence of a categorical variable manifestation. %with multiple manifestations into several dichotomous variables.
 %%
 %Each dichotomous variable encodes the presence of a manifestation.
 %%
-For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables.
+For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{4 - large pain} is subdivided into four dichotomous variables, allowing to determine which manifestation can be described best using the image-based variables
 %%
 %One subject can only have one of these variables set to true.
 %%
-This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variables.
+%This allows to determine which manifestation of a variable can be described best using the image data variables.
+%This is useful for our classification, because it allows to determine which manifestation of a variable can be described best using the image data variables.
 %%
 % Many variables comprise missing data.
 % %%
@@ -499,10 +500,10 @@ The combination of the image variables with back pain is visualized as histogram
 Figure~\ref{fig:image-parameter-range} (right) shows the range of each variable as box plot.
 %%
 The projections to the transversal planes attract attention as they have many outliers.
-%% % TODO: [high] Add Link
-We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes, which was also confirmed through a Principal Component Analysis (see supplementary material at TODO:LINK).
 %%
-The \texttt{GPLOM} shows very similar distributions of subjects with or without back pain with respect to the shape variables in all sub plots.
+We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes, which was also confirmed through a Principal Component Analysis (see supplementary material at \url{ivapp15.dnsalias.com}).
+%%
+The \texttt{GPLOM} shows similar distributions of subjects with or without back pain with respect to the shape variables in all sub plots.
 %%
 %%--------------------------------
 % \\\\
@@ -747,14 +748,14 @@ Outlier results with very large decision trees would otherwise distort the resul
 \\\\
 \noindent \textbf{Interaction with the Decision Tree Visualization.}
 %%
-The described visualization provides a good overview of the classification results.
+The visualization provides a good overview of the classification results.
 %%
-We still want to be able to display \emph{details-on-demand} \cite{shneiderman1996} and examine a decision tree in detail.
+%We still want to be able to display \emph{details-on-demand} and examine a decision tree in detail.
 %%
-This is realized by clicking on an entry in the visualization, which then interactively displays the corresponding decision tree in detail.
+\emph{Details-on-demand} are displayed by clicking on an entry in the visualization, which then displays the corresponding decision tree in detail.
 %%
 This allows to sequentially analyze the classifications.
-
+%%
 We also provide controls for adjusting the maximum classification error and minimum subject count for a variable.
 %%
 This gives the user control to abstract or refine the displayed information.
@@ -901,15 +902,16 @@ The error varies between $0.31$ (\emph{BMI} of \emph{$30.5-48$}, 4 decision rule
 %%
 The starting age of smoking could be characterized well with an error between $0.25$ and $0.32$ for all \emph{BMI} groups except for subjects with a \emph{BMI} of \emph{$30.5-48$}.
 %%
-The result however, is probably overfitted to the data due to tree sizes between $14$ and $16$.
+The result is overfitted to the data due to tree sizes between $14$ and $16$.
 %%
-Some variables, such as \emph{body size}, can be described with an error of $0.3$ to $0.36$, but only using large decision trees with over 20 rules.
+Some variables, such as \emph{body size}, can be described with an error of $0.3$ to $0.36$ using large decision trees with over 20 rules.
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the \emph{leg pain level} can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
-The dichotomous variable whether the subject has felt \emph{pain in the last seven days} can also be predicted for this group using the same features.
+Subjects experiencing \emph{pain in the last seven days} can also be predicted for this group using the same features with a tree consisting of $8$ rules and has an error of $0.35$
+%The dichotomous variable whether the subject has felt \emph{pain in the last seven days} can also be predicted for this group using the same features.
 %%
-The resulting tree consists of $8$ rules and has an error of $0.35$.
+%The resulting tree consists of $8$ rules and has an error of $0.35$.
 %%
 Obese subjects are prone to \emph{back} and \emph{leg pain} due to a more stressed lumbar spine.
 %%
