@@ -128,7 +128,7 @@ Our contributions are:
 %%
 \item The identification of lumbar spine shape properties potentially associated with back pain,
 %%
-\item The detection of associations between image-based, socio-demographic and medical variables for hypothesis generation,
+\item The detection of associations between image-based, socio-demographic and medical variables for \emph{hypotheses generation},
 %%
 \item The identification of the most important variables via classification methods using a novel semi- quantitative overview visualization concept. % embedded in our IVA-framework.
 %%
@@ -142,7 +142,7 @@ Our contributions are:
 %%
 \noindent Epidemiological reasoning relies on a strict statistically-driven workflow \cite{Fletcher}:
 %%
-(1) Physicians formulate hypotheses based on observations made in their clinical practice; (2) Epidemiologists compile a list of variables depicting a hypothesis to prove it; (3) Statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
+(1) physicians formulate hypotheses based on observations made in their clinical practice; (2) epidemiologists compile a list of variables depicting a hypothesis to prove it; (3) statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
 %%
 % \begin{enumerate}
 % %%
@@ -227,7 +227,7 @@ In a previous work, we proposed an epidemiological workflow using IVA, consistin
 %%
 %The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
-\emph{Hypothesis generation} is amplified by concurrently analyzing heterogenous variables at once using correlation measures.
+\emph{Hypotheses generation} is amplified by concurrently analyzing heterogenous variables at once using correlation measures.
 %%
 %We incorporate the IVA approach by concurrently displaying complex relationships between variables via decision trees.
 %%
@@ -241,11 +241,11 @@ In a previous work, we proposed an epidemiological workflow using IVA, consistin
 %%
 Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile range, making variables comparable.
 %%
-This approach aims to trigger \emph{hypothesis generation} by outlining tendencies between these variables.
+This approach aims to trigger \emph{hypotheses generation} by outlining tendencies between these variables.
 %%
 A survey on image-centric cohort studies and strategies to analyze the resulting data is given in \cite{Preim2015}.
 %%
-In a prior work, we analyzed the lumbar spine variability of 490 \texttt{SHIP} subjects \cite{Klemm2013VMV}.
+In a prior work, we analyzed the lumbar spine variability of 490 subjects \cite{Klemm2013VMV}.
 %%
 We incorporate hierarchical agglomerative clustering to derive shape groups, yielding average shape groups and outliers.
 %%
@@ -294,11 +294,12 @@ Decision trees are easily readable and are frequently used for classifying medic
 %%
 \cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in tumorous tissue.
 %%
-To classify breast tumors, they train a decision-tree classifier, concluding that the extracted kinetic and morphological features alone are not sufficient for tumor type classification.
+To classify breast tumors, they train a decision-tree classifier, concluding that the extracted kinetic and morphological variables alone are not sufficient for tumor type classification.
 %%
-\cite{Niemann2014} assess risk factors for hepatic steatosis (fatty liver disease) risk factors using decision trees.
+\cite{Niemann2014} assess risk factors for hepatic steatosis (fatty liver disease) using decision trees.
 %%
-They present an interactive data mining tool, that can analyze association rules and highlight relations. %, which may trigger new hypotheses about the data.
+Their interactive data mining tool can analyze association rules and highlight relations.
+%They present an interactive data mining tool, that can analyze association rules and highlight relations. %, which may trigger new hypotheses about the data.
 %%
 We combine both ideas by validating the significance of image-derived variables.
 % %%
@@ -314,7 +315,7 @@ We combine both ideas by validating the significance of image-derived variables.
 % The resulting interactive visualization is well suited for analyzing single, but not multiple decision trees.
 %%
 \\\\
-Unique in our work is the combination of classification techniques with an IVA approach by observing interesting feature relations in the context of image-derived features using multiple decision trees for one visualization.
+Unique in our work is the combination of classification techniques with an IVA approach by observing interesting variable relations in the context of image-derived variables using multiple decision trees for one visualization.
 %%
 We abstract the decision tree results similar to \cite{Turkay}, making them comparable in an overview visualization.
 %%
@@ -619,7 +620,7 @@ Decision trees are used to create predictive models.
 %%
 These models are build w.r.t. all input variables and capture more complex relationships than correlation coefficients.
 %%
-Leafs of a decision tree represent class labels, branches represent feature conjunctions leading to the class labels.
+Leafs of a decision tree represent class labels, branches represent variable conjunctions leading to the class labels.
 %%
 Decision trees are easy to understand and to read.
 %%
@@ -908,7 +909,7 @@ Some variables, such as \emph{body size}, can be described with an error of $0.3
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the \emph{leg pain level} can be predicted using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
-Subjects experiencing \emph{pain in the last seven days} can also be predicted for this group using the same features with a tree consisting of $8$ rules and has an error of $0.35$
+Subjects experiencing \emph{pain in the last seven days} can also be predicted for this group using the same variables with a tree consisting of $8$ rules and has an error of $0.35$
 %The dichotomous variable whether the subject has felt \emph{pain in the last seven days} can also be predicted for this group using the same features.
 %%
 %The resulting tree consists of $8$ rules and has an error of $0.35$.
@@ -1001,7 +1002,7 @@ To take more complex associations into account, methods such as regression analy
 \\\\
 \noindent \textbf{Applicability.}
 %%
-Methods supporting \emph{hypothesis generation} based on image information are new to the application domain.
+Methods supporting \emph{hypotheses generation} based on image information are new to the application domain.
 %%
 They are an addition to the standard epidemiological workflow as they highlight new possibly unknown relationships.
 %%

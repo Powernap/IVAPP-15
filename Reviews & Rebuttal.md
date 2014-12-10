@@ -90,10 +90,10 @@ The paper proposes a new way to visually explore decision tree results. It is us
 ### Observations for Author
 This paper is an extension of the authors' previous VMV paper. The IVA appears quite the same with the addition of a decision tree that the authors claim is data mining. The paper is very long and does not need to be. The authors should be specific about their contributions (the IVA is not new) and condense the paper to about 8 pages maximum. Be specific about how this is an extension of the VMV paper and what is new and different. Compare and contrast with that paper rather than obfuscate the two. The future work has a paragraph ending in '(' I guess completing the section is future work? I would argue for a weak accept of this paper though it needs a rewrite to be publishable.
 
-Rebuttal
-========
+Rebuttal & Coverletter
+======================
 
-This rebuttal is written in markdown. A graphical summary of the reviews can be found [here](https://docs.google.com/spreadsheets/d/1DTPt5eGe6PpMiNh38p4YsQrKLI3bqKhylZQKZKiZg4w/edit?usp=sharing).
+This rebuttal/coverletter is written in markdown. A graphical summary of the reviews can be found [here](https://docs.google.com/spreadsheets/d/1DTPt5eGe6PpMiNh38p4YsQrKLI3bqKhylZQKZKiZg4w/edit?usp=sharing).
 
 General Changes
 ---------------
@@ -104,22 +104,20 @@ General Changes
 		- as requested by [Reviewer 3], we elaborate on the differences towards the VMV paper in the `Related Work` section
 	- `The Lumbar Spine Data Set` section was shortened, `Figure 2` was removed since we found it did not support the train of thought as we intended
 	- `Experiments and Preliminary Results` section was shortened and changed due to the Reviewer feedback. It should be more precise and comprehensible.
-	- `Results` section now covers *all subjects*, subjects categorized by *gender* and *body mass index*
-		- `Figure 3` (former `Figure 4`) was adapted accordingly
-	- `Summary & Conclusion` was completely revised and is now structured properly
+- `Results` section now covers *all subjects*, subjects categorized by *gender* and *body mass index*
+	- `Figure 3` (former `Figure 4`) was adapted accordingly
+- `Summary & Conclusion` was completely revised and is now structured properly
 	- due to the lack of time until the camera ready deadline as well as the page limit, we are not able to conduct a detailed user test. We did, however, discuss our approach and its drawbacks in more detail in the last section
-	- Figure 1 was completely removed since it does not supports the train of thought as we intended and due to lack of space
+- Figure 1 was completely removed since it does not supports the train of thought as we intended and due to lack of space
 
 Reviewer 1
 ----------
 
 - *"The exploration strategy is, in my opinion, not clear: there are not clear goals or net steps."*
-	- role of Decision Trees and why they are chosen is now captured in the introduction of section 6 - Interactive Decision Tree Visualization.
-	- at the beginning of Section 5 - Experiments and Preliminary Results, all subjects
+	- role of Decision Trees and why they are chosen is now captured in the introduction of Section 6 - Interactive Decision Tree Visualization.
 	- experiments and Preliminary Results completely restructured to make it comprehensible
 - *"What is the role of decision trees explaining how numerical variables explains patient-based attributes in explaining the source of lower back pain?"*
-	- the first step is always finding associations with back pain. As we conclude, that we could not extract such associations at the given model precision, the focus shifts towards assessing, which variables can be described through the shape variables.
-- Applicability: Comparison to standard workflow is not possible. The classic epidemiological workflow is strictly hypothesis driven and therefore requires a small set of 2 - 3 variables, which are correlated with a target variable. IVA methods amplify *hypothesis generation* and therefore aim to provide insight into unexpected relationships in the data.
+	- the first step is always finding associations with back pain. As we conclude, that no such associations could be extracted at the given model precision, the focus shifts towards assessing, which variables can be described through the shape variables.
 - *"Where is the interactive part of the images? Just browsing on dots on scatterplots and getting the trees?"*
 	- Browsing the decision tree results is one interactive part. More important, however, is the ability to select target variables, which are used to subdivide the subjects, to assess their influence towards the result. Also, depending on how many subjects are included in a certain sub group (e.g. people suffering from a rare condition), the minimum subject count for a classification and the maximum error can be adjusted.
 - *"Weak or no clue is provided about how images allowed for getting the final conclusions. How do the authors get the insights from the Figure 4? Focusing on the origin zone, with low error rate and little size tree?"*
@@ -137,7 +135,7 @@ Reviewer 2
 - *"the approach was not evaluated with user tests or at least with some inspection methods"*
 	- due to the lack of time until the camera ready deadline as well as the page limit, we are not able to conduct a detailed user test. We did, however, discuss our approach and its drawbacks in more detail in the last section
 - *"the paper would be strengthened if we could see some illustration where the proposed approach is uniquely capable of providing some actionable insights as compared to the existing approaches"*
-	- the standard workflow of the epidemiologists is deriving hypotheses from the clinical day to day practice. The data are analyzed towards 2-3 independent variables at maximum towards a dependent variable, such as back pain. To our knowledge, there are no existing approaches used by epidemiologists in the day to day practice allowing for an explorative analysis using decision trees, so it is difficult to conduct a comparison as suggested.
+	- the standard workflow of the epidemiologists is deriving hypotheses from the clinical day to day practice. The data are analyzed towards 2-3 independent variables at maximum towards a dependent variable, such as back pain. To our knowledge, there are no existing approaches used by epidemiologists in the day to day practice allowing for an explorative analysis using decision trees, so it is difficult to conduct a comparison as suggested. IVA methods amplify *hypotheses generation* and therefore aim to provide insight into unexpected relationships in the data.
 
 Reviewer 3
 ----------
