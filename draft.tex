@@ -714,9 +714,11 @@ Based on this we use a summary error, which incorporates the discriminative powe
 %%
 $M$ represents the set of manifestations of each variable.
 %%
-The error is scaled to denote perfect classification with 0; 1 is equal to random selection.
+%The error is scaled to denote perfect classification with 0; 1 equals always wrong; 0.5 equals random selection.
+The error represents the share of incorrect classifications and denotes perfect classification with 0; always wrong with 1; and random selection with 0.5.
 %%
-We consider a result rated $0.5$ or below good enough to display it in the visualization, a value below $0.25$ represents a good classification.
+We display results below $0.5$ in the visualization, a value below $0.25$ represents a good classification.
+%We consider a result rated  or below good enough to display it in the visualization, a value below $0.25$ represents a good classification.
 %%
 It allows for comparability of error rates between variables with different manifestation count.
 \\\\
