@@ -68,7 +68,7 @@ We analyze mutual dependencies among shape-describing variables and non-image va
 %%
 Therefore, we automatically train a decision tree classifier for each non-image variable.
 %%
-We provide an IVA technique to compare classifiers with interactive scatter plot visualizations.
+We provide an IVA technique to compare classifiers with interactive \emph{decision tree quality plot}. %scatter plot visualizations.
 %%
 As a first result, we conclude that image-based variables are only sufficient to describe lifestyle factors within the data.
 %%
@@ -130,7 +130,7 @@ Our contributions are:
 %%
 \item The detection of associations between image-based, socio-demographic and medical variables for \emph{hypotheses generation},
 %%
-\item The identification of the most important variables via classification methods using a novel semi- quantitative overview visualization concept. % embedded in our IVA-framework.
+\item The identification of the most important variables via classification methods using a novel \emph{decision tree quality plot}.
 %%
 \end{itemize}
 %%
@@ -605,7 +605,8 @@ Other than that, \emph{torsion} correlated with almost no variables (values betw
 These observations brought us to the decision to incorporate classification techniques to assess the influence of the image-derived variables.
 %%
 % \section{\uppercase{Evaluation of Decision Trees}}
-\section{\uppercase{Interactive Decision Tree Visualization}}
+%\section{\uppercase{Interactive Decision Tree Visualization}}
+\section{\uppercase{Interactive Decision Tree Quality Plot}}
 \label{sec:DecisionTrees}
 %%
 \noindent As described before, correlation coefficients fail to infer back pain status based on lumbar spine canal \emph{curvature} and \emph{torsion}.
@@ -633,7 +634,7 @@ Too many branches impose overfitting to the data \cite{DecisionTree}.
 %%
 \\\\
 \noindent \textbf{Creating Decision Trees.}
-We use the C4.5 algorithm, which builds decision trees based on information entropy on a data set.
+We use the C4.5 algorithm, which builds decision trees based on information entropy.
 %%
 Categorical attributes with more levels are biased with more information gain in a decision tree \cite{deng2011bias}.
 %%
@@ -693,7 +694,7 @@ Therefore, we are interested in \emph{small trees} with a \emph{low classificati
 %%
 The two measures form the axes for a scatter plot of the classification results.
 %%
-The scatter plot is our central element for the interactive analysis of decision trees.
+This \emph{decision tree quality plot} is our central element for the interactive analysis of decision trees.
 \\\\
 \noindent \textbf{The Error Term.}
 Calculating the mean classification error is imprecise for non-uniform distributions.
@@ -716,7 +717,7 @@ $M$ represents the set of manifestations of each variable.
 $N_m$ denotes the number of subjects in manifestation $m$.
 %%
 %The error is scaled to denote perfect classification with 0; 1 equals always wrong; 0.5 equals random selection.
-The error represents the share of incorrect classifications and denotes perfect classification with 0; always wrong with 1; and random selection with 0.5.
+The error represents the share of incorrect classifications and denotes perfect classification with 0 and always wrong with 1. %; and random selection with 0.5.
 %%
 We display results below $0.5$ in the visualization, a value below $0.25$ represents a good classification.
 %We consider a result rated  or below good enough to display it in the visualization, a value below $0.25$ represents a good classification.
@@ -745,10 +746,10 @@ This allows instant reliability assessment of the result.
 %%
 We apply a square root scale for the tree size axis to highlight decision trees with few decision rules.
 %%
-Outlier results with very large decision trees would otherwise distort the resulting plot.
+Outlier results with large decision trees would otherwise distort the resulting plot.
 %%------------
 \\\\
-\noindent \textbf{Interaction with the Decision Tree Visualization.}
+\noindent \textbf{Decision Tree Visualization Quality Plot Interaction.}
 %%
 The visualization provides a good overview of the classification results.
 %%
@@ -758,7 +759,7 @@ The visualization provides a good overview of the classification results.
 %%
 This allows to sequentially analyze the classifications.
 %%
-We also provide controls for adjusting the maximum classification error and minimum subject count for a variable.
+We provide controls for adjusting the maximum classification error and minimum subject count for a variable.
 %%
 This gives the user control to abstract or refine the displayed information.
 %%
@@ -805,7 +806,8 @@ They can use the technique without installing any software.
   \includegraphics[width=1\textwidth]{figures/results}
   \caption{
 %%
-Interactive scatter plot visualization of all classification results.
+Decision tree quality plot of all classification results.
+%%Interactive scatter plot visualization of all classification results.
 %%
 The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{sec:DecisionTrees}).
 %%
@@ -961,7 +963,7 @@ The dummy variable analysis shows many results using a decision tree with one ru
 \section{\uppercase{Summary \& Conclusion}}
 \label{sec:Conclusion}
 %% Contributions
-\noindent We provide a method for comparative analysis of decision trees independent of the variable manifestation count using interactive scatter plots.
+\noindent We provide a method for comparative analysis of decision trees independent of the variable manifestation count using a novel \emph{decision tree quality plot}.
 %%
 We applied the method to gain insight into the predictive power of 9 image-derived variables for 134 non-image variables with focus on \emph{back pain}.
 %%
