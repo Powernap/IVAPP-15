@@ -66,7 +66,7 @@ The segmentation results are evaluated and quantified by employing shape-describ
 %%
 We analyze mutual dependencies among shape-describing variables and non-image variables, e.g., pain indicators.
 %%
-Therefore, we automatically extract a decision tree classifier for each non-image variable.
+Therefore, we automatically train a decision tree classifier for each non-image variable.
 %%
 We provide an IVA technique to compare classifiers with interactive scatter plot visualizations.
 %%
@@ -156,7 +156,8 @@ Our contributions are:
 %%
 Mutually dependent variables make this analysis challenging.
 %%
-Many diseases, such as different cancer types, are for example more likely with increasing age \cite{Fletcher}.
+For example, the incidence rate of many diseases, such as different cancer types increases with age \cite{Fletcher}.
+%Many diseases, such as different cancer types, are for example more likely with increasing age \cite{Fletcher}.
 %%
 % For example, the effect of nutrition on prostate cancer requires age normalization due to the increased incidence for older subjects.
 % %%
@@ -227,7 +228,7 @@ In a previous work, we proposed an epidemiological IVA workflow, consisting of a
 %%
 %The workflow consists of an iterative sequence of \emph{group selection}, \emph{variable selection} and \emph{visualization}.
 %%
-\emph{Hypotheses generation} amplified by concurrently analyzing heterogenous variables at once using correlation measures.
+\emph{Hypotheses generation} was amplified by concurrently analyzing heterogenous variables at once using correlation measures.
 %%
 %We incorporate the IVA approach by concurrently displaying complex relationships between variables via decision trees.
 %%
@@ -237,17 +238,17 @@ In a previous work, we proposed an epidemiological IVA workflow, consisting of a
 % %%
 % Similar to our work, they quantify image data and project it into the non-image data information space.
 %%
-\cite{Turkay} derive descriptive data metrics from image data.
+\cite{Turkay} derived descriptive data metrics from image data.
 %%
 Their proposed \emph{deviation plot} shows distribution-specific measures of a variable, such as skewness or inter-quantile range, making variables comparable.
 %%
-This approach aims to trigger \emph{hypotheses generation} by outlining tendencies between these variables.
+This approach aimed to trigger \emph{hypotheses generation} by outlining tendencies between these variables.
 %%
 A survey on image-centric cohort studies and strategies to analyze the resulting data is given in \cite{Preim2015}.
 %%
 In a prior work, we analyzed the lumbar spine variability of 490 subjects \cite{Klemm2013VMV}.
 %%
-We incorporate hierarchical agglomerative clustering to derive shape groups, yielding average shape groups and outliers.
+We incorporated hierarchical agglomerative clustering to derive shape groups, yielding average shape groups and outliers.
 %%
 %The extracted lumbar spine shape was correlated with subject size.
 %%
@@ -260,11 +261,11 @@ As opposed to clustering the spine shape, we analyze the discriminative power of
 \\\\
 \noindent \textbf{Visual Analysis of Heterogenous Non-Image Data.}
 %%
-\cite{Zhang} analyze subject groups in a web-based linked view system.
+\cite{Zhang} analyzed subject groups in a web-based linked view system.
 %%
 The resulting decision rules aim to categorize new subjects as they are added to the data.
 %%
-They define a cohort as variable-divided subject group, differing from the epidemiological understanding of the term.
+They defined a cohort as variable-divided subject group, differing from the epidemiological understanding of the term.
 %%
 The described method lacks details about handling of missing data, the definition of similarity or the choice of the statistical measures.
 %%
@@ -286,17 +287,17 @@ The plot depends on the type of variables, which are visualized pairwise.
 %%
 Closest to ours is the work of \cite{Glasser2013} and \cite{Niemann2014}.
 %%
-Both use decision trees for their analyses.
+Both used decision trees for their analyses.
 %%
 Decision trees are easily readable and are frequently used for classifying medical data.
 %%
 % The effort of analyzing decision trees increases with their complexity.
 %%
-\cite{Glasser2013} use variables derived from DCE-MRI data capturing the perfusion in tumorous tissue.
+\cite{Glasser2013} used variables derived from DCE-MRI data capturing the perfusion in tumorous tissue.
 %%
-To classify breast tumors, they train a decision-tree classifier, concluding that the extracted kinetic and morphological variables alone are not sufficient for tumor type classification.
+To classify breast tumors, they trained a decision-tree classifier, concluding that the extracted kinetic and morphological variables alone are not sufficient for tumor type classification.
 %%
-\cite{Niemann2014} assess risk factors for hepatic steatosis (fatty liver disease) using decision trees.
+\cite{Niemann2014} assessed risk factors for hepatic steatosis (fatty liver disease) using decision trees.
 %%
 Their interactive data mining tool can analyze association rules and highlights relations.
 %They present an interactive data mining tool, that can analyze association rules and highlight relations. %, which may trigger new hypotheses about the data.
@@ -325,7 +326,8 @@ We abstract the decision tree results similar to \cite{Turkay}, making them comp
 % \noindent Our approach allows the simultaneous analysis of many variables.
 %%
 %Therefore, epidemiologists compiled the data set with a wide range of variables possibly correlating with lumbar back pain.
-\noindent Epidemiologists compiled a data set with a wide range of variables possibly correlating with lumbar back pain, comprising non-image and image-derived data for 6,753 subjects.
+\noindent Our work is based on a data set compiled by Epidemiologists with a wide range of variables possibly correlating with lumbar back pain, comprising non-image and image-derived data for 6,753 subjects.
+%\noindent Epidemiologists compiled a data set with a wide range of variables possibly correlating with lumbar back pain, comprising non-image and image-derived data for 6,753 subjects.
 %%
 %The data set comprises 6,753 subjects from two cohorts (4,420 from \texttt{SHIP-Trend-0} and 2,333 from \texttt{SHIP-2}) including non-image and image-derived data.
 %%
@@ -338,7 +340,7 @@ The data set comprises 134 variables: %(and 9 additional image-derived variables
 \begin{itemize}
 	\item 21 metric variables, describing somatometric variables and markers retrieved from blood analysis.
 	%%
-	\item 113 categorical variables divided into 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g., \emph{pancreatitis} or \emph{high blood pressure} and 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status.
+	\item 113 categorical variables divided into 43 dichotomous (binary) variables, mostly indicating the presence of a disease, e.g., \emph{pancreatitis} or \emph{high blood pressure}, and 70 variables with more than two levels, indicating pain levels, nutrition and social factors, such as marital or retirement status.
 	% %%
 % 	\begin{itemize}
 % 		%%
@@ -381,9 +383,7 @@ For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{
 	%The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
 	The purple dashed line describes the lumbar spine canal centerline with 92 points.
 	%%
-	(b) We extract the weighted sum of \emph{curvature} and \emph{torsion} for all 92 points (white dashes).
-	%%
-	The \emph{curvature angle} ($\alpha$) is calculated using the top, bottom and middle point.
+	(b) We extract the weighted sum of \emph{curvature} and \emph{torsion} for all 92 points (white dashes) and the \emph{curvature angle} ($\alpha$). %is calculated using the top, bottom and middle point.
 	%%
 	We extracted the variables for each projection axis to assess their information gain.
 	}
@@ -473,7 +473,7 @@ In the next section, we present the experiments we conducted to assess the influ
 %In this section, we aim to retrieve correlations between the dichotomous \emph{back pain} indicator and the image-derived variables using a \texttt{GPLOM} as well as a assessment, which non-image variables 
 Spine shape is influenced by several somatometric variables.
 %%
-Larger people have also a longer spine with a straighter shape.
+Larger people also have a longer spine with a straighter shape.
 %%
 %Since men are on average taller than women and people of old age shrink due to \emph{bone erosion}, \emph{gender} and \emph{age} are also risk factors.
 %%
@@ -501,9 +501,9 @@ The combination of the image variables with back pain is visualized as histogram
 %%
 The projections to the transversal planes attract attention as they have many outliers.
 %%
-We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes, which was also confirmed through a Principal Component Analysis (see supplementary material at \url{ivapp15.dnsalias.com}).
+We conclude that \emph{curvature} is not as reliable on the transversal plane as it is on the other planes, which was also confirmed through a principal component analysis (see supplementary material at \url{ivapp15.dnsalias.com}).
 %%
-The \texttt{GPLOM} shows similar distributions of subjects with or without back pain with respect to the shape variables in all sub plots.
+The \texttt{GPLOM} shows similar distributions of subjects with or without back pain with respect to the shape variables in all sub-plots.
 %%
 %%--------------------------------
 % \\\\
@@ -514,7 +514,7 @@ The \texttt{GPLOM} shows similar distributions of subjects with or without back 
   \includegraphics[width=1.0\textwidth]{figures/image-parameter-range}
   \caption{
 %%
-A Generalized Pairs Plot of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
+A \texttt{GPLOM} of all image-derived variables colored by presence (red) or absence (turquoise) of back pain.
 %%
 Pairwise combinations of image-derived variables are visualized via scatter plots on the left of the matrix diagonal.
 %%
@@ -522,7 +522,7 @@ Their correlation with back pain is denoted to the right of the matrix diagonal.
 %%
 The box plots (right) and histograms (bottom) display the distribution of each image variable encoded with back pain.
 %%
-No correlations with back pain are present as it can be seen in this plot.
+No correlations with back pain can be identified in this plot.
 }
   \label{fig:image-parameter-range}
 \end{figure*}
@@ -575,7 +575,7 @@ We then expanded our focus on correlations of image-derived variables with all o
 %%
 Different correlation metrics depending on the type of the individual variables are used to derive correlations between all variables in the data set.
 %%
-The method uses \emph{Pearson product-moment} for two continuous variables, \emph{polyserial} correlation for one continuous and one categorical variable, and \emph{polychoric} correlations for two categorical variables.
+The method uses the \emph{Pearson product-moment} for two continuous variables, \emph{polyserial} correlation for one continuous and one categorical variable and \emph{polychoric} correlations for two categorical variables.
 %The method uses the following correlation metrics for the different type combinations:
 %%
 % \begin{itemize}
@@ -617,7 +617,7 @@ We rely on predictive classification to obtain a complex rule set on how combina
 %%
 Decision trees are used to create predictive models.
 %%
-These models are build w.r.t. all input variables and capture more complex relationships than correlation coefficients.
+These models are built w.r.t. all input variables and capture more complex relationships than correlation coefficients.
 %%
 Leafs of a decision tree represent class labels, branches represent variable conjunctions leading to the class labels.
 %%
@@ -625,7 +625,7 @@ Decision trees are easy to understand and to read.
 %%
 %They work with numerical as well as categorical data.
 %%
-Readability is only granted for small trees.
+%Readability is only granted for small trees.
 %%
 %Large, complex trees are difficult to trace and to understand.
 %%
@@ -733,9 +733,7 @@ Classification and comparison of variables for subject groups (e.g., male and fe
 %%
 Many variables are sparse, such as \emph{medication of diabetes} or \emph{reason of early retirement}.
 %%
-The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size.
-%%
-This makes these results less reliable.
+The classification algorithm may produce higher accuracy for variables with less subjects due to the small sample size, making these results less reliable.
 %%
 Therefore, we provide a way to adjust the minimal number of subjects for each variable using a slider.
 %%
@@ -767,9 +765,9 @@ This gives the user control to abstract or refine the displayed information.
 The subject subdivision is controlled by the selection of variables, such as \emph{gender} or \emph{employment status}.
 %Selecting a variable using a drop-down menu allows the user to select the variable used for subject subdivisions, e.g. \emph{gender} or \emph{employment status}.
 %%
-Metric variables, such as \emph{body size} are discretized using their quantiles.
+Metric variables, such as \emph{body size}, are discretized using their quantiles.
 %%
-This allows to assess the influences of a variable to the classification process.
+This allows to assess the influence of a variable to the classification process.
 %%------------
 \\\\
 \noindent \textbf{Implementation.}
@@ -811,9 +809,9 @@ Interactive scatter plot visualization of all classification results.
 %%
 The x-axis shows the number of decisions of the underlying model, the y-axis the classification error (see Section~\ref{sec:DecisionTrees}).
 %%
-The left scatter plot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
+The upper scatter plot shows the results for all variables, either metrics expressed via their quantiles, or categorical.
 %%
-The right scatter plot displays the dummy variables derived from the original variables.
+The lower scatter plot displays the dummy variables derived from the original variables.
 %%
 Group affiliation of a data point is color coded:
 %%
@@ -821,9 +819,9 @@ no group (a), subdivision into \emph{male} and \emph{female} subjects (b) and qu
 %%
 The number of subjects represented in a variable is denoted using the dot diameter.
 %%
-We only display variables with an error below $0.5$, results above this threshold are inaccurate.
+We only display variables with an error below $0.5$, results above this threshold are dismissed.
 %%
-The interactive plot (see supplemental material) has clickable data points, displaying corresponding decision tree in a tool tip.
+The interactive plot (see supplemental material) has clickable data points, displaying the corresponding decision tree in a tool tip.
 %%
 Results of high interest are located close to the axis origins.
 }
@@ -874,7 +872,7 @@ The distinctness lies in the average difference in \emph{body size} between \emp
 %%
 \emph{Medication for high blood pressure} is classified for 1,058 subjects with an error of $0.47$ solely based on \emph{coronal mean curvature}.
 %%
-Almost all medicated subjects were correctly classified ($796$ of $1,058$).
+A high share of medicated subjects were correctly classified ($796$ of $1,058$).
 %%
 The majority of non-medicated subjects are false-positive classified ($262$ of $1,058$), yielding a poor quality of the classifier w.r.t. epidemiological research.
 %%
@@ -884,7 +882,7 @@ The dummy variable analysis yields a result similar to the \emph{blood pressure 
 %%
 Variables, such as subject size 139-164 cm, between 64 and 90 years of \emph{age} or \emph{nutrition}-related variables are dominantly populated by one manifestation.
 %%
-The classifier neglects the other group and yields an error below $0.5$.
+The classifier neglects the other groups and yields an error below $0.5$.
 %%
 \\\\
 \noindent \textbf{Gender Groups.}
@@ -912,7 +910,9 @@ Some variables, such as \emph{body size}, can be described with an error of $0.3
 %%
 Using mostly \emph{mean curvature} and \emph{curvature angle}, the \emph{leg pain level} can be described using $14$ rules with an error of $0.46$ for obese subjects (\emph{BMI} higher than $30$).
 %%
-Subjects experiencing \emph{pain in the last seven days} can also be described for this group using the same variables with a tree consisting of $8$ rules and an error of $0.35$
+This result also imposes overfitting.
+%%
+Subjects experiencing \emph{pain in the last seven days} can also be described for this group using the same variables with a tree consisting of $8$ rules and an error of $0.35$.
 %The dichotomous variable whether the subject has felt \emph{pain in the last seven days} can also be predicted for this group using the same features.
 %%
 %The resulting tree consists of $8$ rules and has an error of $0.35$.
@@ -1007,7 +1007,7 @@ To take more complex associations into account, methods such as regression analy
 %%
 Methods supporting \emph{hypotheses generation} based on image information are new to the application domain.
 %%
-They are an addition to the standard epidemiological workflow as they highlight new possibly unknown relationships.
+They are an addition to the standard epidemiological workflow as they highlight new and possibly unknown relationships.
 %%
 Classification methods based on decision trees have proven to be useful for assessing the discriminative power of a variable set.
 %%
@@ -1034,7 +1034,7 @@ Therefore, the method is applicable not only for deriving information based on i
 \noindent \textbf{Future Work.}
 We will focus on more precise models for extracting measures.
 %%
-Dented vertebras hint a pathological deformation, and can be capture by segmenting the top and bottom point of each vertebra center.
+Dented vertebrae indicate pathological deformation, and can be capture by segmenting the top and bottom point of each vertebra center.
 %%
 Spine canal thickness indicates signs of herniated disc disease and is also of interest.
 %Another interesting metric is the spine canal thickness over the whole spine, capturing early signs of herniated disc disease.
