@@ -109,6 +109,7 @@ General Changes
 - `Summary & Conclusion` was completely revised and is now structured properly
 	- due to the lack of time until the camera ready deadline as well as the page limit, we are not able to conduct a detailed user test. We did, however, discuss our approach and its drawbacks in more detail in the last section
 - Figure 1 was completely removed since it does not supports the train of thought as we intended and due to lack of space
+- We named our decision tree visualization *decision tree quality plot*
 
 Reviewer 1
 ----------
