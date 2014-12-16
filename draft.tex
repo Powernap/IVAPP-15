@@ -68,7 +68,7 @@ We analyze mutual dependencies among shape-describing variables and non-image va
 %%
 Therefore, we automatically train a decision tree classifier for each non-image variable.
 %%
-We provide an IVA technique to compare classifiers with interactive \emph{decision tree quality plot}. %scatter plot visualizations.
+We provide an IVA technique to compare classifiers with a \emph{decision tree quality plot}. %scatter plot visualizations.
 %%
 As a first result, we conclude that image-based variables are only sufficient to describe lifestyle factors within the data.
 %%
@@ -142,7 +142,7 @@ Our contributions are:
 %%
 \noindent Epidemiological reasoning relies on a strict statistically-driven workflow \cite{Fletcher}:
 %%
-(1) physicians formulate hypotheses based on observations made in their clinical practice; (2) epidemiologists compile a list of variables depicting a hypothesis to prove it; (3) statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated disease.
+(1) physicians formulate hypotheses based on observations made in their clinical practice; (2) epidemiologists compile a list of variables depicting a hypothesis to prove it; (3) statistical methods, such as regression analysis, assess the correlation of selected variables with the investigated condition.
 %%
 % \begin{enumerate}
 % %%
@@ -190,7 +190,7 @@ This yields a heterogenous information space.
 %%
 Information reduction techniques are necessary to compare these data.
 %%
-For example, continuous data, such as body height, is often discretized into quantile bins for visualizing age-dependent disease frequencies.
+For example, continuous data, such as age, is often discretized into quantile bins for visualizing age-dependent disease frequencies.
 
 Modern cohort studies often comprise medical image data.
 %%
@@ -383,9 +383,9 @@ For example, a pain indicator variable ranging from \emph{1 - no pain} to \emph{
 	%The purple dashed line represents the centerline, describing the lumbar spine canal with 92 points.
 	The purple dashed line describes the lumbar spine canal centerline with 92 points.
 	%%
-	(b) We extract the weighted sum of \emph{curvature} and \emph{torsion} for all 92 points (white dashes) and the \emph{curvature angle} ($\alpha$). %is calculated using the top, bottom and middle point.
+	(b) We extract the weighted sum of \emph{curvature} and \emph{torsion} for all 92 points (white dashes) and the \emph{curvature angle} ($\alpha$) for each projection axis to assess their information gain. %is calculated using the top, bottom and middle point.
 	%%
-	We extracted the variables for each projection axis to assess their information gain.
+%	We extract the variables for each projection axis to assess their information gain.
 	}
   \label{fig:centerline}
 \end{figure}
@@ -682,7 +682,7 @@ We have to abstract the results of the classification to keep the mental effort 
 %This is included in our IVA framework.
 %%------------
 \\\\
-\noindent \textbf{Visualization of Classification Results.}
+\noindent \textbf{Decision Tree Quality Plot.}
 %%
 We follow the Visual Analytics mantra of \emph{analyzing first}, \emph{show the important} and \emph{analyze further} \cite{Keim}.
 %%
@@ -706,7 +706,7 @@ Calculating the mean classification error is imprecise for non-uniform distribut
 %%
 For example, if a variable indicating a disease is negative for 90\% of the subjects and the classifier simply assigns all subjects to \emph{not ill}, we get a mean error of 10\%, even though it is very imprecise.
 %%
-Based on this we use a summary error, which incorporates the discriminative power of each manifestation and is denoted as follows:
+Based on this we use a summary error based on the weighted mean, which incorporates the discriminative power of each manifestation and is denoted as follows:
 %%
 \begin{equation}
 \textit{totalError} = 1 - \sum_{m=1}^M \frac{\textit{correctlyClassified}_{m}}{M\cdot N_m}
@@ -740,7 +740,7 @@ Therefore, we provide a way to adjust the minimal number of subjects for each va
 %%
 The initial value is empirically set to $100$, marking a good tradeoff between sparse variables and statistical informative value.
 %%
-Furthermore, we map the number of subjects associated with a variable to the diameter in the scatter plot.
+Furthermore, we map the number of subjects associated with a variable to the diameter in the decision tree quality plot.
 %%
 This allows instant reliability assessment of the result.
 %%
@@ -749,7 +749,7 @@ We apply a square root scale for the tree size axis to highlight decision trees 
 Outlier results with large decision trees would otherwise distort the resulting plot.
 %%------------
 \\\\
-\noindent \textbf{Decision Tree Visualization Quality Plot Interaction.}
+\noindent \textbf{Decision Tree Quality Plot Interaction.}
 %%
 The visualization provides a good overview of the classification results.
 %%
@@ -967,7 +967,7 @@ The dummy variable analysis shows many results using a decision tree with one ru
 %%
 We applied the method to gain insight into the predictive power of 9 image-derived variables for 134 non-image variables with focus on \emph{back pain}.
 %%
-The analysis was performed for subjects groups of \emph{gender}, \emph{BMI} and \emph{body size} to assess their influence on the lumbar spine shape.
+The analysis was performed for subject groups of \emph{gender}, \emph{BMI} and \emph{body size} to assess their influence on the lumbar spine shape.
 
 The methods presented herein may be applied to comprehensive epidemiological data sets to investigate mutual dependencies among variables and to generate hypotheses on potential associations and subgroups.
 %
@@ -995,7 +995,7 @@ These hypotheses, however, have to be substantiated by dedicated statistical ana
 \noindent \textbf{Predictive Power of Image-Derived Variables.}
 The presented results indicate that \emph{torsion}, \emph{curvature} and \emph{curvature angle} of the lumbar spine at the presented precision are not sufficient to describe lumbar back pain in the SHIP data set.
 %%
-Our method allowed to assess their discriminative power, which is largely limited to separating male and female subjects, \emph{nutrition} variables, as well as different disease indicators.
+Our method allows to assess their discriminative power, which is largely limited to separating male and female subjects, \emph{nutrition} variables, as well as different disease indicators.
 %%
 The C4.5 algorithm proved to be an effective tool for evaluating a set of derived metrics regarding their suitability to classify non-image variables.
 %%
@@ -1019,7 +1019,7 @@ This advantage comes with a much more complex output, the results are more chall
 %%
 Our method to plot derived metrics and custom-tailored error measures proved to be effective.
 %%
-Huge result spaces could be navigated fast using our interactive visualization.
+Huge result spaces could be navigated fast using our decision tree quality plot.
 %%
 Therefore, the method is applicable not only for deriving information based on image data, but on all \emph{potential target variables}.
 %%
@@ -1036,7 +1036,7 @@ Therefore, the method is applicable not only for deriving information based on i
 \noindent \textbf{Future Work.}
 We will focus on more precise models for extracting measures.
 %%
-Dented vertebrae indicate pathological deformation, and can be capture by segmenting the top and bottom point of each vertebra center.
+Dented vertebrae indicate pathological deformation, and can be captured by segmenting the top and bottom point of each vertebra center.
 %%
 Spine canal thickness indicates signs of herniated disc disease and is also of interest.
 %Another interesting metric is the spine canal thickness over the whole spine, capturing early signs of herniated disc disease.
@@ -1046,15 +1046,15 @@ We aim to include the method into existing visual analytics methods designed for
 \\\\
 \noindent \textbf{Outlook.}
 %%
-Combining the power of statistical analysis, visual analytics and classification techniques is essential for analyzing increasingly complex heterogenous population data.
+Combining the power of statistical analyses, visual analytics and classification techniques is essential for analyzing increasingly complex heterogenous population data.
 %%
 These methods do not aim to replace the traditional epidemiological workflow, but rather complement the weak points of standard statistical methods.
 %%
-Our method provides a novel way to gain insight into these complex data sets and amplifies hypotheses generation.
+Our method provides a novel way to gain insight into these complex data sets and amplifies \emph{hypotheses generation}.
 %%
 \section*{\uppercase{Acknowledgements}}
 \begin{small}
-\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics.
+\noindent SHIP is part of the Community Medicine Research net of the University of Greifswald, Germany, which is funded by the Federal Ministry of Education and Research (grant no. 03ZIK012), the Ministry of Cultural Affairs as well as the Social Ministry of the Federal State of Mecklenburg-West Pomerania. Whole-body MR imaging was supported by a joint grant from Siemens Healthcare, Erlangen, Germany and the Federal State of Mecklenburg-Vorpommern. The University of Greifswald is a member of the ‘Centre of Knowledge Interchange’ program of the Siemens AG. This work was supported by the DFG Priority Program 1335: Scalable Visual Analytics. The work was partly funded by the German Ministry of Education and Research (BMBF) within the STIMULATE project (grant no. 03FO16101A).
 \end{small}
 
 
