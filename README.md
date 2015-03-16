@@ -5,6 +5,7 @@ This is the working repository for the paper `Interactive Visual Analysis of Lum
 Timeline
 - [2014-09-02] Submitted to the [IVAPP'15](http://www.ivapp.visigrapp.org/) as full paper (12 pages)
 - [2014-12-03] Accepted at the [IVAPP'15](http://www.ivapp.visigrapp.org/) as short paper (8 pages)
+- [2015-03-14] Presented at the [IVAPP'15](http://www.ivapp.visigrapp.org/)
 
 **This repository is licensed under [Attribution-NonCommercial-NoDerivatives 4.0 International](https://creativecommons.org/licenses/by-nc-nd/4.0/)** (see LICENCE.md)
 
